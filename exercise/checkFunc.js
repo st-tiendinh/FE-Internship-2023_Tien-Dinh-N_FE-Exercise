@@ -1,4 +1,4 @@
 function checkFunc() {
-  let array = [1, 2, 3];
-  return Array.isArray(array);
+  let a = 1;
+  return a == 1;
 }
