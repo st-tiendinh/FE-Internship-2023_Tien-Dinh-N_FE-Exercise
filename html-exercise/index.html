@@ -13,7 +13,7 @@
   <header class="header">
     <!-- Logo -->
     <h1 class="header-logo">
-      <img src="./images/shop-logo.png" alt="brand logo" class="brand-image">
+      <img src="./assets/images/shop-logo.svg" alt="E-Shop logo" class="brand-logo">
       <span class="brand-name">E-Shop</span>
     </h1>
 
@@ -26,11 +26,13 @@
       </ul>
     </nav>
 
-    <!-- Header icon -->
-    <div class="header-icons">
-      <span class="search-icon"><i class="fa fa-magnifying-glass"></i></span>
-      <span class="cart-icon"><i class="fa fa-cart-shopping"></i></span>
-      <span class="user-icon"><i class="fa fa-user"></i></span>
+    <!-- Header action -->
+    <div class="header-actions">
+      <ul class="header-action-list">
+        <li class="header-action-item"><i class="fa fa-magnifying-glass"></i></li>
+        <li class="header-action-item"><i class="fa fa-cart-shopping"></i></li>
+        <li class="header-action-item"><i class="fa fa-user"></i></li>
+      </ul>
     </div>
   </header>
 
@@ -38,33 +40,39 @@
   <section class="section section-banner">
     <h2 class="banner-title">Sale of the <span>summer</span> collection</h2>
     <div class="banner-link-wrapper">
-      <span class="link-icon"></span>
+      <span class="link-icon"><i class="fa fa-arrow-right"></i></span>
       <a class="shop-link" href="#">SHOP NOW</a>
     </div>
 
     <!-- Services -->
     <ul class="banner-service-list">
       <li class="service-item">
-        <div class="service-icon"><i class="fa fa-truck-fast"></i></div>
-        <div class="service-description">
-          <h4 class="service-title">Free Shipping</h4>
-          <p class="service-text">On purchases over $199</p>
+        <div class="service">
+          <div class="service-icon"><i class="fa fa-truck-fast"></i></div>
+          <div class="service-description">
+            <h4 class="service-title">Free Shipping</h4>
+            <p class="service-text">On purchases over $199</p>
+          </div>
         </div>
       </li>
 
       <li class="service-item">
-        <div class="service-icon"><i class="fa fa-face-smile"></i></div>
-        <div class="service-description">
-          <h4 class="service-title">99% Satisfied Customers</h4>
-          <p class="service-text">Our clients' opinions speak for themselves</p>
+        <div class="service">
+          <div class="service-icon"><i class="fa fa-face-smile"></i></div>
+          <div class="service-description">
+            <h4 class="service-title">99% Satisfied Customers</h4>
+            <p class="service-text">Our clients' opinions speak for themselves</p>
+          </div>
         </div>
       </li>
 
       <li class="service-item">
-        <div class="service-icon"><i class="fa fa-money-bill"></i></div>
-        <div class="service-description">
-          <h4 class="service-title">Originality Guaranteed</h4>
-          <p class="service-text">30 days warranty for each product from our store</p>
+        <div class="service">
+          <div class="service-icon"><i class="fa fa-money-bill"></i></div>
+          <div class="service-description">
+            <h4 class="service-title">Originality Guaranteed</h4>
+            <p class="service-text">30 days warranty for each product from our store</p>
+          </div>
         </div>
       </li>
     </ul>
@@ -75,19 +83,31 @@
     <!-- Advertisement list -->
     <ul class="advertisement-list">
       <li class="advertisement-item">
-        <h4 class="advertisement-info">New arrivalsare now in!</h4>
-        <button class="advertisement-btn">SHOW COLLECTION</button>
+        <div class="advertisement">
+          <h4 class="advertisement-info">New arrivalsare now in!</h4>
+          <button class="advertisement-btn" type="button">
+            <a href="" class="advertisement-link">SHOW COLLECTION</a>
+          </button>
+        </div>
       </li>
 
       <li class="advertisement-item">
-        <h4 class="advertisement-info">Basic t-shirts $29,99</h4>
-        <button class="advertisement-btn">MORE DETAILS</button>
+        <div class="advertisement">
+          <h4 class="advertisement-info">Basic t-shirts $29,99</h4>
+          <button class="advertisement-btn" type="button">
+            <a href="" class="advertisement-link">MORE DETAILS</a>
+          </button>
+        </div>
       </li>
 
       <li class="advertisement-item">
-        <span class="discount">-50%</span>
-        <h4 class="advertisement-info">Sale this summer</h4>
-        <button class="advertisement-btn">VIEW ALL</button>
+        <div class="advertisement">
+          <span class="discount">-50%</span>
+          <h4 class="advertisement-info">Sale this summer</h4>
+          <button class="advertisement-btn" type="button">
+            <a href="" class="advertisement-link">VIEW ALL</a>
+          </button>
+        </div>
       </li>
     </ul>
   </section>
@@ -96,61 +116,69 @@
   <section class="section section-products">
     <div class="section-product-header">
       <h2 class="section-title">Selected just for you</h2>
-      <span class="show-more-btn"><a class="show-more-link" href="">SHOW MORE</a></span>
+      <button class="show-more-btn" type="button"><a class="show-more-link" href="">SHOW MORE</a></button>
     </div>
     <!-- Product list -->
     <ul class="product-list">
       <li class="product-item">
-        <a class="product-link" href="">
-          <span class="discount"></span>
-          <img src="./images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">T-Shirt Summer Vibes</h4>
-            <div class="product-prices">
-              <span class="sale-price">$89.99</span>
-              <span class="original-price">$119.99</span>
+        <div class="product">
+          <a class="product-link" href="">
+            <span class="discount"></span>
+            <img src="./assets/images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">T-Shirt Summer Vibes</h4>
+              <div class="product-prices">
+                <span class="sale-price">$89.99</span>
+                <span class="original-price">$119.99</span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Loose Knit 3/4 Sleeve</h4>
-            <div class="product-prices">
-              <span class="sale-price">$119.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Loose Knit 3/4 Sleeve</h4>
+              <div class="product-prices">
+                <span class="sale-price">$119.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Basic Slim Fit T-Shirt</h4>
-            <div class="product-prices">
-              <span class="sale-price">$79.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Basic Slim Fit T-Shirt</h4>
+              <div class="product-prices">
+                <span class="sale-price">$79.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Loose Textured T-Shirt</h4>
-            <div class="product-prices">
-              <span class="sale-price">$119.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Loose Textured T-Shirt</h4>
+              <div class="product-prices">
+                <span class="sale-price">$119.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
     </ul>
   </section>
@@ -160,32 +188,43 @@
     <h2 class="section-title">Why should you choose us?</h2>
     <ul class="service-detail-list">
       <li class="service-detail-item">
-        <div class="service-detail-icon"><i class="fa fa-truck-fast"></i></div>
-        <h4 class="service-detail-title">Free Shipping</h4>
-        <p class="service-detail-desc">
-          All purchases over $199 are eligible forfree shipping via USPS First Class Mail.
-        </p>
+        <div class="service-detail">
+          <div class="service-detail-icon"><i class="fa fa-truck-fast"></i></div>
+          <h4 class="service-detail-title">Free Shipping</h4>
+          <p class="service-detail-desc">
+            All purchases over $199 are eligible forfree shipping via USPS First Class Mail.
+          </p>
+        </div>
       </li>
+
       <li class="service-detail-item">
-        <div class="service-detail-icon"><i class="fa fa-money-bill"></i></div>
-        <h4 class="service-detail-title">Easy Payments</h4>
-        <p class="service-detail-desc">
-          All payments are processed instantlyover a secure payment protocol.
-        </p>
+        <div class="service-detail">
+          <div class="service-detail-icon"><i class="fa fa-money-bill"></i></div>
+          <h4 class="service-detail-title">Easy Payments</h4>
+          <p class="service-detail-desc">
+            All payments are processed instantlyover a secure payment protocol.
+          </p>
+        </div>
       </li>
+
       <li class="service-detail-item">
-        <div class="service-detail-icon"><i class="fa fa-money-check-dollar"></i></div>
-        <h4 class="service-detail-title">Money-Back Guarantee</h4>
-        <p class="service-detail-desc">
-          If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.
-        </p>
+        <div class="service-detail">
+          <div class="service-detail-icon"><i class="fa fa-money-check-dollar"></i></div>
+          <h4 class="service-detail-title">Money-Back Guarantee</h4>
+          <p class="service-detail-desc">
+            If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.
+          </p>
+        </div>
       </li>
+
       <li class="service-detail-item">
-        <div class="service-detail-icon"><i class="fa fa-file-pen"></i></div>
-        <h4 class="service-detail-title">Finest Quality</h4>
-        <p class="service-detail-desc">
-          Designed to last, each of our products hasbeen crafted with the finest materials.
-        </p>
+        <div class="service-detail">
+          <div class="service-detail-icon"><i class="fa fa-file-pen"></i></div>
+          <h4 class="service-detail-title">Finest Quality</h4>
+          <p class="service-detail-desc">
+            Designed to last, each of our products hasbeen crafted with the finest materials.
+          </p>
+        </div>
       </li>
     </ul>
   </section>
@@ -198,56 +237,64 @@
     <!-- Product list -->
     <ul class="product-list">
       <li class="product-item">
-        <a class="product-link" href="">
-          <span class="discount"></span>
-          <img src="./images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">T-Shirt Summer Vibes</h4>
-            <div class="product-prices">
-              <span class="sale-price">$89.99</span>
-              <span class="original-price">$119.99</span>
+        <div class="product">
+          <a class="product-link" href="">
+            <span class="discount"></span>
+            <img src="./assets/images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">T-Shirt Summer Vibes</h4>
+              <div class="product-prices">
+                <span class="sale-price">$89.99</span>
+                <span class="original-price">$119.99</span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Loose Knit 3/4 Sleeve</h4>
-            <div class="product-prices">
-              <span class="sale-price">$119.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Loose Knit 3/4 Sleeve</h4>
+              <div class="product-prices">
+                <span class="sale-price">$119.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Basic Slim Fit T-Shirt</h4>
-            <div class="product-prices">
-              <span class="sale-price">$79.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Basic Slim Fit T-Shirt</h4>
+              <div class="product-prices">
+                <span class="sale-price">$79.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
 
       <li class="product-item">
-        <a class="product-link" href="">
-          <img src="./images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
-          <div class="product-description">
-            <h4 class="product-name">Loose Textured T-Shirt</h4>
-            <div class="product-prices">
-              <span class="sale-price">$119.99</span>
-              <span class="original-price"></span>
+        <div class="product">
+          <a class="product-link" href="">
+            <img src="./assets/images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
+            <div class="product-description">
+              <h4 class="product-name">Loose Textured T-Shirt</h4>
+              <div class="product-prices">
+                <span class="sale-price">$119.99</span>
+                <span class="original-price"></span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </li>
     </ul>
   </section>
@@ -257,7 +304,7 @@
     <h4 class="newsletter-title">Subscribe to our newsletter andreceive exclusive offers every week</h4>
     <form action="" class="newsletter-form">
       <input type="email" class="newsletter-input" placeholder="Enter your email">
-      <input type="submit" value="SUBSCRIBE" />
+      <button class="newsletter-btn" type="submit">SUBSCRIBE</button>
     </form>
   </section>
 
@@ -266,14 +313,18 @@
     <!-- Primary footer -->
     <div class="primary-footer">
       <div class="shop-info">
+        <!-- Shop logo -->
         <div class="shop-logo">
-          <img src="./images/shop-logo.png" alt="brand logo" class="brand-image">
+          <img src="./assets/images/shop-logo.svg" alt="E-Shop logo" class="brand-logo">
           <span class="brand-name">E-Shop</span>
         </div>
+
         <p class="shop-desc">
           House My Brand designs clothing for the young, the old &everyone in between – but most
           importantly, for the fashionable
         </p>
+
+        <!-- Social media list -->
         <ul class="social-icons">
           <li class="social-icon"><a class="social-link" href=""><i class="fa fa-facebook-f"></i></a></li>
           <li class="social-icon"><a class="social-link" href=""><i class="fa fa-twitter"></i></a></li>
