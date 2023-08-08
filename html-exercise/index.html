@@ -5,10 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Shop - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./assets/styles/reset.css">
   <link rel="stylesheet" href="./assets/styles/icon.css">
   <link rel="stylesheet" href="./assets/styles/variable.css">
   <link rel="stylesheet" href="./assets/styles/layout.css">
+  <link rel="stylesheet" href="./assets/styles/header.css">
+  <link rel="stylesheet" href="./assets/styles/main.css">
+  <link rel="stylesheet" href="./assets/styles/footer.css">
+  <link rel="stylesheet" href="./assets/styles/responsive.css">
 </head>
 
 <body>
@@ -43,46 +51,49 @@
   <main class="site-main">
     <!-- Banner section -->
     <section class="section section-banner">
-      <div class="banner">
-        <h2 class="banner-title">Sale of the <span>summer</span> collection</h2>
-        <div class="banner-link-wrapper">
-          <span class="link-icon"><i class="ic ic-arrow-right"></i></span>
-          <a class="shop-link" href="#">SHOP NOW</a>
+      <div class="overlay">
+        <div class="banner">
+          <h2 class="banner-title">Sale of the <br> <span class="highlight">summer</span> <br> collection</h2>
+          <div class="banner-link-wrapper">
+            <span class="link-icon"><i class="ic ic-arrow-right"></i></span>
+            <a class="shop-link" href="#">SHOP NOW</a>
+          </div>
         </div>
+
+        <!-- Services -->
+        <ul class="service-list">
+          <li class="service-item">
+            <div class="service">
+              <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-free-shipping-1"></i></span></i>
+              </div>
+              <div class="service-description">
+                <h4 class="service-title">Free Shipping</h4>
+                <p class="service-text">On purchases over $199</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service">
+              <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-happy-face"></i></span></div>
+              <div class="service-description">
+                <h4 class="service-title">99% Satisfied Customers</h4>
+                <p class="service-text">Our clients' opinions speak for themselves</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="service-item">
+            <div class="service">
+              <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-guarantee-1"></i></span></div>
+              <div class="service-description">
+                <h4 class="service-title">Originality Guaranteed</h4>
+                <p class="service-text">30 days warranty for each product from our store</p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-
-      <!-- Services -->
-      <ul class="service-list">
-        <li class="service-item">
-          <div class="service">
-            <div class="service-icon"><i class="ic ic-free-shipping-1"></i></div>
-            <div class="service-description">
-              <h4 class="service-title">Free Shipping</h4>
-              <p class="service-text">On purchases over $199</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="service-item">
-          <div class="service">
-            <div class="service-icon"><i class="ic ic-happy-face"></i></div>
-            <div class="service-description">
-              <h4 class="service-title">99% Satisfied Customers</h4>
-              <p class="service-text">Our clients' opinions speak for themselves</p>
-            </div>
-          </div>
-        </li>
-
-        <li class="service-item">
-          <div class="service">
-            <div class="service-icon"><i class="ic ic-guarantee-1"></i></div>
-            <div class="service-description">
-              <h4 class="service-title">Originality Guaranteed</h4>
-              <p class="service-text">30 days warranty for each product from our store</p>
-            </div>
-          </div>
-        </li>
-      </ul>
     </section>
 
     <!-- Advertisement section -->
@@ -93,14 +104,14 @@
           <li class="advertisement-item">
             <div class="advertisement">
               <h4 class="advertisement-info">New arrivalsare now in!</h4>
-              <a href="" class="advertisement-link">SHOW COLLECTION</a>
+              <a href="" class="btn btn-advertisement">SHOW COLLECTION</a>
             </div>
           </li>
 
           <li class="advertisement-item">
             <div class="advertisement">
               <h4 class="advertisement-info">Basic t-shirts $29,99</h4>
-              <a href="" class="advertisement-link">MORE DETAILS</a>
+              <a href="" class="btn btn-advertisement">MORE DETAILS</a>
             </div>
           </li>
 
@@ -108,7 +119,7 @@
             <div class="advertisement">
               <span class="discount">-50%</span>
               <h4 class="advertisement-info">Sale this summer</h4>
-              <a href="" class="advertisement-link">VIEW ALL</a>
+              <a href="" class="btn btn-advertisement">VIEW ALL</a>
             </div>
           </li>
         </ul>
@@ -120,19 +131,19 @@
       <div class="container">
         <div class="section-product-header">
           <h3 class="section-title">Selected just for you</h3>
-          <a class="show-more-link" href="">SHOW MORE</a>
+          <a class="btn btn-show-more" href="">SHOW MORE</a>
         </div>
         <!-- Product list -->
         <ul class="product-list">
           <li class="product-item">
             <div class="product">
               <a class="product-link" href="">
-                <span class="discount">-30%</span>
                 <img src="./assets/images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
+                <span class="discount">-30%</span>
                 <div class="product-description">
                   <h4 class="product-name">T-Shirt Summer Vibes</h4>
                   <div class="product-prices">
-                    <span class="sale-price">$89.99</span>
+                    <span class="sale-price active">$89.99</span>
                     <span class="original-price">$119.99</span>
                   </div>
                 </div>
@@ -239,9 +250,7 @@
     <!-- Product in today -->
     <section class="section section-products">
       <div class="container">
-        <div class="section-product-header">
-          <h3 class="section-title">Product in today</h3>
-        </div>
+        <h3 class="section-title">Products in today</h3>
         <!-- Product list -->
         <ul class="product-list">
           <li class="product-item">
@@ -252,7 +261,7 @@
                 <div class="product-description">
                   <h4 class="product-name">T-Shirt Summer Vibes</h4>
                   <div class="product-prices">
-                    <span class="sale-price">$89.99</span>
+                    <span class="sale-price active">$89.99</span>
                     <span class="original-price">$119.99</span>
                   </div>
                 </div>
@@ -315,7 +324,7 @@
           <h4 class="newsletter-title">Subscribe to our newsletter andreceive exclusive offers every week</h4>
           <form action="" class="newsletter-form">
             <input type="email" class="newsletter-input" placeholder="Enter your email">
-            <button class="newsletter-btn" type="submit">SUBSCRIBE</button>
+            <button class="btn btn-newsletter" type="submit">SUBSCRIBE</button>
           </form>
         </div>
       </div>

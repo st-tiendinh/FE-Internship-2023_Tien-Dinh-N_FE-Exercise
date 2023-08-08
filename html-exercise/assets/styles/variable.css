@@ -2,11 +2,12 @@
   --primary-color: #FBB03B;
   --title-color: #333333;
   --text-color: #A8A8A8;
-  --sale-price-color: #CECECE;
+  --original-price-color: #CECECE;
+  --sale-price-color: #FF0000;
   --light-color: #fff;
   --dark-color: #000;
   --btn-border-color: #C4C4C4;
-  
+
   --gray-bg-color: #F6F6F6;
   --discount-bg-color: #FF0000;
   --service-icon-bg-color: #FFF3DF;
