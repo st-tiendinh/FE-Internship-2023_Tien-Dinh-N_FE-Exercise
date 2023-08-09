@@ -14,7 +14,7 @@
 .section-banner .banner {
   position: absolute;
   top: 222px;
-  left: 240px;
+  padding-left: calc((100% - 1152px)/2 + 96px);
 }
 
 .banner .banner-title {
@@ -55,21 +55,23 @@
 }
 
 .section-banner .service-list {
-  width: 1100px;
-  height: 125px;
   position: absolute;
+  left: 0;
   bottom: 0;
-  border-top-right-radius: 70px;
   display: flex;
-  list-style: none;
   align-items: center;
+  justify-content: space-between;
+  border-top-right-radius: 70px;
+  padding-right: 64px;
+  padding-left: calc((100% - 1152px)/2 + 72px);
+  padding-top: 38px;
+  padding-bottom: 31px;
+  list-style: none;
   background-color: var(--light-color);
-  padding-left: 240px;
-  padding-right: 88px;
 }
 
-.section-banner .service-list .service-item:nth-child(2) {
-  margin: 48px;
+.section-banner .service-list .service-item {
+  padding: 0 24px;
 }
 
 .section-banner .service-list .service-item .service {
@@ -77,14 +79,18 @@
 }
 
 .service .service-icon-bg {
-  width: 36px;
-  height: 36px;
-  background-color: var(--service-icon-bg-color);
-  border-radius: 12px;
-  margin-right: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 21px;
+  border-radius: 12px;
+  background-color: var(--service-icon-bg-color);
+}
+
+.service .service-icon .ic {
+  background-position: center;
 }
 
 .service .service-title {
@@ -102,10 +108,6 @@
   color: var(--text-color);
 }
 
-.section-advertisement {
-  margin-top: 48px;
-}
-
 .section-advertisement .advertisement-list {
   list-style: none;
 }
@@ -115,15 +117,16 @@
 }
 
 .advertisement-list .advertisement-item:first-child .advertisement {
-  background: url('../images/advertisement-1.png') top center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url('../images/advertisement-1.png') top center / cover no-repeat;
+
 }
 
 .advertisement-list .advertisement-item:nth-child(2) .advertisement {
-  background: url('../images/advertisement-2.png') top center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url('../images/advertisement-2.png') top center / cover no-repeat;
 }
 
 .advertisement-list .advertisement-item:last-child .advertisement {
-  background: url('../images/advertisement-3.png') top center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url('../images/advertisement-3.png') top center / cover no-repeat;
 }
 
 .advertisement-list .advertisement-item .advertisement {
@@ -140,20 +143,6 @@
   color: var(--light-color);
   position: absolute;
   top: 167px;
-}
-
-.btn {
-  color: var(--dark-color);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 20px;
-  background-color: var(--light-color);
-}
-
-.btn-advertisement {
-  padding: 14px 18px;
-  border-radius: 33px;
 }
 
 .advertisement .btn-advertisement {
@@ -178,26 +167,10 @@
   top: 129px;
 }
 
-.section-products {
-  margin-top: 96px;
-}
-
 .section-products .section-product-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.section-products .section-title {
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 48px;
-}
-
-.btn-show-more {
-  padding: 14px 30px;
-  border-radius: 33px;
-  border: 1px solid var(--btn-border-color);
 }
 
 .section-products .product-list {
@@ -212,7 +185,7 @@
 .product .discount {
   position: absolute;
   z-index: 2;
-  left: 18px;
+  left: 28px;
   top: 24px;
 }
 
@@ -262,7 +235,6 @@
 }
 
 .section-services {
-  margin-top: 48px;
   background-color: var(--gray-bg-color);
   padding-top: 48px;
   padding-bottom: 57px;
@@ -272,14 +244,15 @@
   text-align: center;
 }
 
+.section-services .section-title {
+  margin-bottom: 50px;
+}
+
 .section-services .service-detail-list {
-  margin-top: 50px;
-  /* display: flex;
-  gap: 49px; */
   list-style: none;
 }
 
-.service-detail .service-detail-icon {
+.service-detail .service-detail-icon .service-detail-icon-bg {
   width: 68px;
   height: 68px;
   background-color: var(--light-color);
@@ -289,33 +262,34 @@
   align-items: center;
 }
 
-.service-detail .service-detail-title {
+.service-detail .service-detail-icon .ic {
+  background-size: contain;
+}
+
+.service-detail .service-detail-info {
+  margin-top: 46px;
+}
+
+.service-detail .service-detail-info .service-detail-title {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   color: var(--title-color);
-  margin-top: 46px;
+  margin-bottom: 16px;
 }
 
-.service-detail .service-detail-desc {
+.service-detail .service-detail-info .service-detail-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   color: var(--text-color);
-  margin-top: 16px;
 }
 
-.section-newsletter {
+.section.section-newsletter {
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%), url('../images/newsletter.png') top center / cover no-repeat;
   height: 241px;
   display: flex;
   align-items: center;
-  margin-top: 48px;
-}
-
-.section-newsletter .newsletter {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
 }
 
 .newsletter .newsletter-title {
@@ -326,11 +300,10 @@
 }
 
 .newsletter .newsletter-input {
-  width: 351px;
-  height: 48px;
   padding: 14px 24px;
   border-radius: 61px;
-  margin-right: 40px;
+  margin-right: 34px;
+  width: 351px;
 }
 
 .newsletter .newsletter-input::placeholder {
@@ -338,12 +311,4 @@
   font-weight: 400;
   line-height: 20px;
   color: var(--text-color);
-}
-
-.btn-newsletter {
-  background-color: var(--primary-color);
-  width: 175px;
-  height: 47px;
-  border-radius: 56px;
-  cursor: pointer;
 }

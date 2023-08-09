@@ -22,3 +22,18 @@
 .col.col-6 {
   width: 50%;
 }
+
+@media (max-width: 736px) {
+  .row {
+    margin: 0 -4px !important;
+  }
+  .col {
+    padding: 0 4px !important;
+  }
+  .col.col-sm-6 {
+    width: 50% !important;
+  }
+  .col.col-sm-12 {
+    width: 100% !important;
+  }
+}

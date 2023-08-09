@@ -25,6 +25,14 @@
   margin-top: 56px;
 }
 
+.primary-footer .shop-info .social-list .social-item .social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 26px;
+}
+
 .primary-footer .reference-list {
   display: flex;
   justify-content: space-between;
@@ -40,7 +48,6 @@
 
 .primary-footer .reference-sub-list {
   margin-top: 19px;
-  margin-right: 87px;
 }
 
 .primary-footer .reference-sub-list .reference-sub-item {

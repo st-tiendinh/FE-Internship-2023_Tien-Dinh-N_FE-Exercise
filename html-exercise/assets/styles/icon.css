@@ -1,6 +1,6 @@
 .ic {
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: left;
   display: inline-block;
   height: 24px;
   width: 24px;
@@ -68,4 +68,16 @@
 
 .ic-youtube {
   background-image: url('../images/ic-youtube.svg');
+}
+
+.ic-sm-bars {
+  background-image: url('../images/ic-sm-bars.svg');
+}
+
+.ic-sm-user {
+  background-image: url('../images/ic-sm-user.svg');
+}
+
+.ic-sm-cart {
+  background-image: url('../images/ic-sm-cart.svg');
 }
