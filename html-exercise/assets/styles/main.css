@@ -112,21 +112,25 @@
 
 .advertisement-list {
   list-style: none;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 566px 273px 273px;
   grid-template-rows: 359px;
-  column-gap: 20px;
+  column-gap: 20px; */
 }
 
-.advertisement-item:first-child {
+.advertisement-item {
+  height: 359px;
+}
+
+.advertisement-item:first-child .advertisement {
   background: url('../images/advertisement-1.png') top center / cover no-repeat;
 }
 
-.advertisement-item:nth-child(2) {
+.advertisement-item:nth-child(2) .advertisement {
   background: url('../images/advertisement-2.png') top center / cover no-repeat;
 }
 
-.advertisement-item:last-child {
+.advertisement-item:last-child .advertisement {
   background: url('../images/advertisement-3.png') top center / cover no-repeat;
 }
 
@@ -156,11 +160,19 @@
 }
 
 .btn-advertisement {
+  padding: 14px 18px;
+  border-radius: 33px;
+}
+
+.advertisement .btn-advertisement {
   position: absolute;
   top: 258px;
   left: 40px;
-  padding: 14px 18px;
-  border-radius: 33px;
+}
+
+.advertisement .discount {
+  position: absolute;
+  top: 129px;
 }
 
 .discount {
@@ -198,9 +210,9 @@
 
 .product-list {
   margin-top: 40px;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(273px, 1fr));
-  column-gap: 20px;
+  column-gap: 20px; */
   list-style: none;
 }
 
@@ -273,8 +285,8 @@
 
 .service-detail-list {
   margin-top: 50px;
-  display: flex;
-  gap: 49px;
+  /* display: flex;
+  gap: 49px; */
   list-style: none;
 }
 

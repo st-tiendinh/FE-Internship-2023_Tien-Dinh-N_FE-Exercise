@@ -1,15 +1,14 @@
 .footer {
   background-color: var(--primary-color);
-  padding-top: 40px;
+  padding-top: 46px;
 }
 
-.primary-footer {
-  display: flex;
-  justify-content: space-between;
+.footer .primary-footer {
+  margin-bottom: 30px;
 }
 
 .shop-info {
-  width: 374px;
+  padding-right: 170px;
 }
 
 .shop-desc {
@@ -28,8 +27,8 @@
 
 .reference-list {
   display: flex;
+  justify-content: space-between;
   list-style: none;
-  justify-content: flex-start;
 }
 
 .reference-title {
