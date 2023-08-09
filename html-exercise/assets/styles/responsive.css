@@ -147,8 +147,8 @@
   }
 
   .section-products .section-title {
-    text-align: left;
     margin-bottom: 16px;
+    text-align: left;
   }
 
   .section-products .product-list .product-item {
@@ -187,16 +187,16 @@
   }
 
   .section-newsletter .newsletter .newsletter-title {
+    width: 200px;
+    margin-bottom: 24px;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    margin-bottom: 24px;
-    width: 200px;
   }
 
   .newsletter .newsletter-input {
-    padding: 8px 12px;
     width: 100%;
+    padding: 8px 12px;
     margin-bottom: 16px;
   }
 

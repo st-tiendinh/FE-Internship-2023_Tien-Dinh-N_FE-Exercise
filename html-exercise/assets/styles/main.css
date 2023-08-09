@@ -1,10 +1,10 @@
 .section-banner {
+  position: relative;
+  height: 800px;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../images/banner.png");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 800px;
-  position: relative;
 }
 
 .highlight {
@@ -46,12 +46,12 @@
 }
 
 .banner .banner-link-wrapper .shop-link {
+  margin-left: 21px;
   text-decoration: underline;
   font-size: 24px;
   line-height: 36px;
   font-weight: 700;
   color: var(--light-color);
-  margin-left: 21px;
 }
 
 .section-banner .service-list {
@@ -94,11 +94,11 @@
 }
 
 .service .service-title {
+  margin-bottom: 4px;
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
   color: var(--dark-color);
-  margin-bottom: 4px;
 }
 
 .service .service-text {
@@ -137,12 +137,12 @@
 }
 
 .advertisement .advertisement-info {
+  position: absolute;
+  top: 167px;
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
   color: var(--light-color);
-  position: absolute;
-  top: 167px;
 }
 
 .advertisement .btn-advertisement {
@@ -152,13 +152,13 @@
 }
 
 .discount {
+  background-color: var(--discount-bg-color);
+  padding: 6px 10px;
+  border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
   line-height: 18px;
   text-align: center;
-  background-color: var(--discount-bg-color);
-  padding: 6px 10px;
-  border-radius: 20px;
   color: var(--light-color);
 }
 
@@ -184,9 +184,9 @@
 
 .product .discount {
   position: absolute;
-  z-index: 2;
   left: 28px;
   top: 24px;
+  z-index: 2;
 }
 
 .product .product-link {
@@ -253,13 +253,13 @@
 }
 
 .service-detail .service-detail-icon .service-detail-icon-bg {
-  width: 68px;
-  height: 68px;
-  background-color: var(--light-color);
-  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  background-color: var(--light-color);
 }
 
 .service-detail .service-detail-icon .ic {
@@ -271,11 +271,11 @@
 }
 
 .service-detail .service-detail-info .service-detail-title {
+  margin-bottom: 16px;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
   color: var(--title-color);
-  margin-bottom: 16px;
 }
 
 .service-detail .service-detail-info .service-detail-desc {
@@ -286,10 +286,10 @@
 }
 
 .section.section-newsletter {
-  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%), url('../images/newsletter.png') top center / cover no-repeat;
-  height: 241px;
   display: flex;
   align-items: center;
+  height: 241px;
+  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 100%), url('../images/newsletter.png') top center / cover no-repeat;
 }
 
 .newsletter .newsletter-title {
@@ -300,10 +300,10 @@
 }
 
 .newsletter .newsletter-input {
-  padding: 14px 24px;
-  border-radius: 61px;
-  margin-right: 34px;
   width: 351px;
+  padding: 14px 24px;
+  margin-right: 34px;
+  border-radius: 61px;
 }
 
 .newsletter .newsletter-input::placeholder {

@@ -1,8 +1,8 @@
 .header {
-  width: 100%;
-  background-color: transparent;
   position: absolute;
   z-index: 10;
+  width: 100%;
+  background-color: transparent;
 }
 
 .header .header-inner {
@@ -13,10 +13,7 @@
   margin-top: 48px;
 }
 
-.header .header-inner .header-logo .shop-mobile-logo-img {
-  display: none;
-}
-
+.header .header-inner .header-logo .shop-mobile-logo-img,
 .header .header-inner .mobile-header-action-list {
   display: none;
 }
