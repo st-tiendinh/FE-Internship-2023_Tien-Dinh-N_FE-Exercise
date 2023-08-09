@@ -1,9 +1,5 @@
-.site-main {
-  width: 100%;
-}
-
 .section-banner {
-  background-image: url("../images/banner.png");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../images/banner.png");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,26 +11,26 @@
   color: var(--primary-color);
 }
 
-.banner {
+.section-banner .banner {
   position: absolute;
   top: 222px;
   left: 240px;
 }
 
-.banner-title {
+.banner .banner-title {
   font-size: 72px;
   font-weight: 700;
   line-height: 73px;
   color: var(--light-color);
 }
 
-.banner-link-wrapper {
+.banner .banner-link-wrapper {
   display: flex;
   align-items: center;
   margin-top: 24px;
 }
 
-.link-icon {
+.banner .banner-link-wrapper .link-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,12 +40,12 @@
   border-radius: 50%;
 }
 
-.link-icon .ic {
+.banner .banner-link-wrapper .link-icon .ic {
   width: 17px;
   height: 14px;
 }
 
-.shop-link {
+.banner .banner-link-wrapper .shop-link {
   text-decoration: underline;
   font-size: 24px;
   line-height: 36px;
@@ -58,7 +54,7 @@
   margin-left: 21px;
 }
 
-.service-list {
+.section-banner .service-list {
   width: 1100px;
   height: 125px;
   position: absolute;
@@ -72,15 +68,15 @@
   padding-right: 88px;
 }
 
-.service-item:nth-child(2) {
+.section-banner .service-list .service-item:nth-child(2) {
   margin: 48px;
 }
 
-.service {
+.section-banner .service-list .service-item .service {
   display: flex;
 }
 
-.service-icon-bg {
+.service .service-icon-bg {
   width: 36px;
   height: 36px;
   background-color: var(--service-icon-bg-color);
@@ -91,7 +87,7 @@
   align-items: center;
 }
 
-.service-title {
+.service .service-title {
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
@@ -99,7 +95,7 @@
   margin-bottom: 4px;
 }
 
-.service-text {
+.service .service-text {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -110,38 +106,34 @@
   margin-top: 48px;
 }
 
-.advertisement-list {
+.section-advertisement .advertisement-list {
   list-style: none;
-  /* display: grid;
-  grid-template-columns: 566px 273px 273px;
-  grid-template-rows: 359px;
-  column-gap: 20px; */
 }
 
-.advertisement-item {
+.section-advertisement .advertisement-list .advertisement-item {
   height: 359px;
 }
 
-.advertisement-item:first-child .advertisement {
+.advertisement-list .advertisement-item:first-child .advertisement {
   background: url('../images/advertisement-1.png') top center / cover no-repeat;
 }
 
-.advertisement-item:nth-child(2) .advertisement {
+.advertisement-list .advertisement-item:nth-child(2) .advertisement {
   background: url('../images/advertisement-2.png') top center / cover no-repeat;
 }
 
-.advertisement-item:last-child .advertisement {
+.advertisement-list .advertisement-item:last-child .advertisement {
   background: url('../images/advertisement-3.png') top center / cover no-repeat;
 }
 
-.advertisement {
+.advertisement-list .advertisement-item .advertisement {
   position: relative;
   width: 100%;
   height: 100%;
   padding: 40px;
 }
 
-.advertisement-info {
+.advertisement .advertisement-info {
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
@@ -170,11 +162,6 @@
   left: 40px;
 }
 
-.advertisement .discount {
-  position: absolute;
-  top: 129px;
-}
-
 .discount {
   font-size: 12px;
   font-weight: 700;
@@ -186,17 +173,22 @@
   color: var(--light-color);
 }
 
+.advertisement .discount {
+  position: absolute;
+  top: 129px;
+}
+
 .section-products {
   margin-top: 96px;
 }
 
-.section-product-header {
+.section-products .section-product-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.section-title {
+.section-products .section-title {
   font-size: 32px;
   font-weight: 300;
   line-height: 48px;
@@ -208,64 +200,61 @@
   border: 1px solid var(--btn-border-color);
 }
 
-.product-list {
+.section-products .product-list {
   margin-top: 40px;
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(273px, 1fr));
-  column-gap: 20px; */
   list-style: none;
 }
 
-.product-item {
+.section-products .product-list .product-item {
   position: relative;
 }
 
-.product-item .discount {
+.product .discount {
   position: absolute;
   z-index: 2;
   left: 18px;
   top: 24px;
 }
 
-.product-link {
+.product .product-link {
   text-decoration: none;
 }
 
-.product-image {
+.product .product-image {
   position: relative;
   width: 100%;
   object-fit: cover;
 }
 
-.product-description {
+.product .product-description {
   margin-top: 16px;
   text-decoration: none;
 }
 
-.product-name {
+.product .product-name {
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;
   color: var(--dark-color);
 }
 
-.product-prices {
+.product .product-prices {
   display: flex;
   justify-content: space-between;
 }
 
-.sale-price {
+.product .product-prices .sale-price {
   color: var(--dark-color);
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
 }
 
-.sale-price.active {
+.product .product-prices .sale-price.active {
   color: var(--sale-price-color) !important;
 }
 
-.original-price {
+.product .original-price {
   color: var(--original-price-color);
   font-size: 20px;
   font-weight: 400;
@@ -283,14 +272,14 @@
   text-align: center;
 }
 
-.service-detail-list {
+.section-services .service-detail-list {
   margin-top: 50px;
   /* display: flex;
   gap: 49px; */
   list-style: none;
 }
 
-.service-detail-icon {
+.service-detail .service-detail-icon {
   width: 68px;
   height: 68px;
   background-color: var(--light-color);
@@ -300,7 +289,7 @@
   align-items: center;
 }
 
-.service-detail-title {
+.service-detail .service-detail-title {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -308,7 +297,7 @@
   margin-top: 46px;
 }
 
-.service-detail-desc {
+.service-detail .service-detail-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
@@ -324,19 +313,19 @@
   margin-top: 48px;
 }
 
-.newsletter {
+.section-newsletter .newsletter {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
 }
 
-.newsletter-title {
+.newsletter .newsletter-title {
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
   color: var(--light-color);
 }
 
-.newsletter-input {
+.newsletter .newsletter-input {
   width: 351px;
   height: 48px;
   padding: 14px 24px;
@@ -344,7 +333,7 @@
   margin-right: 40px;
 }
 
-.newsletter-input::placeholder {
+.newsletter .newsletter-input::placeholder {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
