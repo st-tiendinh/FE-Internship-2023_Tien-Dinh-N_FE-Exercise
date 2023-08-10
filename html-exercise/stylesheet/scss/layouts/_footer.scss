@@ -65,13 +65,14 @@
 
 .secondary-footer {
   border-top: 1px solid map-get($color, secondary);
+  padding: 24px 0;
+
   .copy-right {
     text-align: center;
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
     color: map-get($color, secondary);
-    padding: 24px 0;
   }
 }
 
@@ -81,10 +82,11 @@
   }
 
   .primary-footer {
+    padding: 0;
     .shop-info {
       .shop-desc {
         font-size: 14px;
-        margin-bottom: 48px;
+        padding-bottom: 30px;
       }
 
       .social-list {
@@ -94,7 +96,8 @@
 
     .reference-list {
       .reference-item {
-        margin: 24px 0;
+        margin-top: 8px;
+        margin-bottom: 8px;
 
         .reference-title {
           font-size: 16px;
@@ -104,8 +107,11 @@
 
     .reference-sub-list {
       .reference-sub-item {
+        margin-bottom: 14px;
+
         .reference-link {
           font-size: 14px;
+          font-weight: 300;
         }
       }
     }

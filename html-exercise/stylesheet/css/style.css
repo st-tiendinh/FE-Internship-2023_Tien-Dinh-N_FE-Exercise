@@ -706,6 +706,7 @@ a {
 
 .secondary-footer {
   border-top: 1px solid #fff;
+  padding: 24px 0;
 }
 .secondary-footer .copy-right {
   text-align: center;
@@ -713,28 +714,35 @@ a {
   font-weight: 400;
   line-height: 18px;
   color: #fff;
-  padding: 24px 0;
 }
 
 @media (max-width: 768px) {
   .footer {
     padding: 0;
   }
+  .primary-footer {
+    padding: 0;
+  }
   .primary-footer .shop-info .shop-desc {
     font-size: 14px;
-    margin-bottom: 48px;
+    padding-bottom: 30px;
   }
   .primary-footer .shop-info .social-list {
     display: none;
   }
   .primary-footer .reference-list .reference-item {
-    margin: 24px 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
   .primary-footer .reference-list .reference-item .reference-title {
     font-size: 16px;
   }
+  .primary-footer .reference-sub-list .reference-sub-item {
+    margin-bottom: 14px;
+  }
   .primary-footer .reference-sub-list .reference-sub-item .reference-link {
     font-size: 14px;
+    font-weight: 300;
   }
 }
 .section {
