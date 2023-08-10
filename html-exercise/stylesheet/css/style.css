@@ -793,13 +793,13 @@ a {
 }
 
 .section-products .container > .section-title {
-  padding-bottom: 40px;
+  padding-bottom: 16px;
 }
 .section-products .section-product-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 40px;
+  padding-bottom: 16px;
 }
 .section-products .product-list .product-item {
   position: relative;
@@ -875,11 +875,7 @@ a {
   .section-services .section-title {
     margin-bottom: 36px;
   }
-  .section-products .section-product-header .btn-sm-outline {
-    margin-bottom: 16px;
-  }
   .section-products .section-title {
-    margin-bottom: 16px;
     text-align: left;
   }
   .section-products .product-list .product-item {
