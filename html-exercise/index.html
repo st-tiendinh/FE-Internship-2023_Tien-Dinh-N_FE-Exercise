@@ -5,34 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Shop - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="./assets/styles/icon.css">
+  <link rel="stylesheet" href="./assets/styles/variable.css">
+  <link rel="stylesheet" href="./assets/styles/base.css">
+  <link rel="stylesheet" href="./assets/styles/button.css">
+  <link rel="stylesheet" href="./assets/styles/layout.css">
+  <link rel="stylesheet" href="./assets/styles/header.css">
+  <link rel="stylesheet" href="./assets/styles/main.css">
+  <link rel="stylesheet" href="./assets/styles/footer.css">
+  <link rel="stylesheet" href="./assets/styles/responsive.css">
 </head>
 
 <body>
   <!-- Header -->
   <header class="header">
-    <div class="container header-inner">
-      <!-- Logo -->
-      <h1 class="header-logo">
-        <a class="header-logo-link">
-          <img src="./assets/images/shop-logo.svg" alt="E-Shop" class="shop-logo-img">
-        </a>
-      </h1>
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <h1 class="header-logo">
+          <a class="header-logo-link">
+            <img src="./assets/images/shop-logo.svg" alt="E-Shop" class="shop-logo-img">
+            <img src="./assets/images/mobile-shop-logo.svg" alt="E-Shop" class="shop-mobile-logo-img">
+          </a>
+        </h1>
 
-      <!-- Nav -->
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="#men">Men</a></li>
-          <li class="nav-item"><a class="nav-link" href="#woman">Women</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kids">Kids</a></li>
+        <!-- Nav -->
+        <nav class="navbar">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="#men">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="#woman">Women</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kids">Kids</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header action -->
+        <ul class="header-action-list">
+          <li class="header-action-item"><i class="ic ic-magnifying-glass"></i></li>
+          <li class="header-action-item"><i class="ic ic-cart"></i></li>
+          <li class="header-action-item"><i class="ic ic-user"></i></li>
         </ul>
-      </nav>
 
-      <!-- Header action -->
-      <ul class="header-action-list">
-        <li class="header-action-item"><i class="icon icon-magnifying-glass"></i></li>
-        <li class="header-action-item"><i class="icon icon-cart-shopping"></i></li>
-        <li class="header-action-item"><i class="icon icon-user"></i></li>
-      </ul>
+        <!-- Mobile header action -->
+        <ul class="mobile-header-action-list">
+          <li class="mobile-header-action-item"><i class="ic ic-sm-cart"></i></li>
+          <li class="mobile-header-action-item"><i class="ic ic-sm-user"></i></li>
+          <li class="mobile-header-action-item"><i class="ic ic-sm-bars"></i></li>
+        </ul>
+      </div>
     </div>
   </header>
 
@@ -40,9 +64,9 @@
     <!-- Banner section -->
     <section class="section section-banner">
       <div class="banner">
-        <h2 class="banner-title">Sale of the <span>summer</span> collection</h2>
+        <h2 class="banner-title">Sale of the <br> <span class="highlight">summer</span> <br> collection</h2>
         <div class="banner-link-wrapper">
-          <span class="link-icon"><i class="icon icon-arrow-right"></i></span>
+          <span class="link-icon"><i class="ic ic-arrow-right"></i></span>
           <a class="shop-link" href="#">SHOP NOW</a>
         </div>
       </div>
@@ -51,7 +75,8 @@
       <ul class="service-list">
         <li class="service-item">
           <div class="service">
-            <div class="service-icon"><i class="icon icon-truck-fast"></i></div>
+            <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-free-shipping-1"></i></span></i>
+            </div>
             <div class="service-description">
               <h4 class="service-title">Free Shipping</h4>
               <p class="service-text">On purchases over $199</p>
@@ -61,7 +86,7 @@
 
         <li class="service-item">
           <div class="service">
-            <div class="service-icon"><i class="icon icon-face-smile"></i></div>
+            <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-happy-face"></i></span></div>
             <div class="service-description">
               <h4 class="service-title">99% Satisfied Customers</h4>
               <p class="service-text">Our clients' opinions speak for themselves</p>
@@ -71,7 +96,7 @@
 
         <li class="service-item">
           <div class="service">
-            <div class="service-icon"><i class="icon icon-guarantee-1"></i></div>
+            <div class="service-icon"><span class="service-icon-bg"><i class="ic ic-guarantee-1"></i></span></div>
             <div class="service-description">
               <h4 class="service-title">Originality Guaranteed</h4>
               <p class="service-text">30 days warranty for each product from our store</p>
@@ -85,26 +110,26 @@
     <section class="section section-advertisement">
       <div class="container">
         <!-- Advertisement list -->
-        <ul class="advertisement-list">
-          <li class="advertisement-item">
+        <ul class="advertisement-list row">
+          <li class="advertisement-item col col-6 col-sm-12">
             <div class="advertisement">
               <h4 class="advertisement-info">New arrivalsare now in!</h4>
-              <a href="" class="advertisement-link">SHOW COLLECTION</a>
+              <a href="" class="btn btn-advertisement btn-sm-advertisement">SHOW COLLECTION</a>
             </div>
           </li>
 
-          <li class="advertisement-item">
+          <li class="advertisement-item col col-3 col-sm-6">
             <div class="advertisement">
               <h4 class="advertisement-info">Basic t-shirts $29,99</h4>
-              <a href="" class="advertisement-link">MORE DETAILS</a>
+              <a href="" class="btn btn-advertisement btn-sm-advertisement">MORE DETAILS</a>
             </div>
           </li>
 
-          <li class="advertisement-item">
+          <li class="advertisement-item col col-3 col-sm-6">
             <div class="advertisement">
               <span class="discount">-50%</span>
               <h4 class="advertisement-info">Sale this summer</h4>
-              <a href="" class="advertisement-link">VIEW ALL</a>
+              <a href="" class="btn btn-advertisement btn-sm-advertisement">VIEW ALL</a>
             </div>
           </li>
         </ul>
@@ -116,19 +141,19 @@
       <div class="container">
         <div class="section-product-header">
           <h3 class="section-title">Selected just for you</h3>
-          <a class="show-more-link" href="">SHOW MORE</a>
+          <a class="btn btn-outline btn-sm-outline" href="">SHOW MORE</a>
         </div>
         <!-- Product list -->
-        <ul class="product-list">
-          <li class="product-item">
+        <ul class="product-list row">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
-                <span class="discount">-30%</span>
                 <img src="./assets/images/product-1.png" alt="T-Shirt Summer Vibes" class="product-image">
+                <span class="discount">-30%</span>
                 <div class="product-description">
                   <h4 class="product-name">T-Shirt Summer Vibes</h4>
                   <div class="product-prices">
-                    <span class="sale-price">$89.99</span>
+                    <span class="sale-price active">$89.99</span>
                     <span class="original-price">$119.99</span>
                   </div>
                 </div>
@@ -136,7 +161,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
@@ -151,7 +176,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
@@ -166,7 +191,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
@@ -188,44 +213,68 @@
     <section class="section section-services">
       <div class="container">
         <h3 class="section-title">Why should you choose us?</h3>
-        <ul class="service-detail-list">
-          <li class="service-detail-item">
+        <ul class="service-detail-list row">
+          <li class="service-detail-item col col-3 col-sm-12">
             <div class="service-detail">
-              <div class="service-detail-icon"><i class="icon icon-truck-fast"></i></div>
-              <h4 class="service-detail-title">Free Shipping</h4>
-              <p class="service-detail-desc">
-                All purchases over $199 are eligible forfree shipping via USPS First Class Mail.
-              </p>
+              <div class="service-detail-icon">
+                <span class="service-detail-icon-bg">
+                  <i class="ic ic-free-shipping-2"></i>
+                </span>
+              </div>
+              <div class="service-detail-info">
+                <h4 class="service-detail-title">Free Shipping</h4>
+                <p class="service-detail-desc">
+                  All purchases over $199 are eligible forfree shipping via USPS First Class Mail.
+                </p>
+              </div>
             </div>
           </li>
 
-          <li class="service-detail-item">
+          <li class="service-detail-item col col-3 col-sm-12">
             <div class="service-detail">
-              <div class="service-detail-icon"><i class="icon icon-payment"></i></div>
-              <h4 class="service-detail-title">Easy Payments</h4>
-              <p class="service-detail-desc">
-                All payments are processed instantlyover a secure payment protocol.
-              </p>
+              <div class="service-detail-icon">
+                <span class="service-detail-icon-bg">
+                  <i class="ic ic-payment"></i>
+                </span>
+              </div>
+              <div class="service-detail-info">
+                <h4 class="service-detail-title"><span class="highlight">Easy Payments</span></h4>
+                <p class="service-detail-desc">
+                  All payments are processed instantlyover a secure payment protocol.
+                </p>
+              </div>
             </div>
           </li>
 
-          <li class="service-detail-item">
+          <li class="service-detail-item col col-3 col-sm-12">
             <div class="service-detail">
-              <div class="service-detail-icon"><i class="icon icon-guarantee-2"></i></div>
-              <h4 class="service-detail-title">Money-Back Guarantee</h4>
-              <p class="service-detail-desc">
-                If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.
-              </p>
+              <div class="service-detail-icon">
+                <span class="service-detail-icon-bg">
+                  <i class="ic ic-guarantee-2"></i>
+                </span>
+              </div>
+              <div class="service-detail-info">
+                <h4 class="service-detail-title">Money-Back Guarantee</h4>
+                <p class="service-detail-desc">
+                  If an item arrived damaged or you'vechanged your mind, you can send itback for a full refund.
+                </p>
+              </div>
             </div>
           </li>
 
-          <li class="service-detail-item">
+          <li class="service-detail-item col col-3 col-sm-12">
             <div class="service-detail">
-              <div class="service-detail-icon"><i class="icon icon-materials"></i></div>
-              <h4 class="service-detail-title">Finest Quality</h4>
-              <p class="service-detail-desc">
-                Designed to last, each of our products hasbeen crafted with the finest materials.
-              </p>
+              <div class="service-detail-icon">
+                <div class="service-detail-icon-bg">
+                  <i class="ic ic-materials"></i>
+                </div>
+              </div>
+              <div class="service-detail-info">
+                <h4 class="service-detail-title">Finest Quality</h4>
+                <p class="service-detail-desc">
+                  Designed to last, each of our products hasbeen crafted with the finest materials.
+                </p>
+              </div>
             </div>
           </li>
         </ul>
@@ -235,12 +284,10 @@
     <!-- Product in today -->
     <section class="section section-products">
       <div class="container">
-        <div class="section-product-header">
-          <h3 class="section-title">Product in today</h3>
-        </div>
+        <h3 class="section-title">Products in today</h3>
         <!-- Product list -->
-        <ul class="product-list">
-          <li class="product-item">
+        <ul class="product-list row">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <span class="discount">-30%</span>
@@ -248,7 +295,7 @@
                 <div class="product-description">
                   <h4 class="product-name">T-Shirt Summer Vibes</h4>
                   <div class="product-prices">
-                    <span class="sale-price">$89.99</span>
+                    <span class="sale-price active">$89.99</span>
                     <span class="original-price">$119.99</span>
                   </div>
                 </div>
@@ -256,7 +303,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-2.png" alt="Loose Knit 3/4 Sleeve" class="product-image">
@@ -271,7 +318,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-3.png" alt="Basic Slim Fit T-Shirt" class="product-image">
@@ -286,7 +333,7 @@
             </div>
           </li>
 
-          <li class="product-item">
+          <li class="product-item col col-3 col-sm-6">
             <div class="product">
               <a class="product-link" href="">
                 <img src="./assets/images/product-4.png" alt="Loose Textured T-Shirt" class="product-image">
@@ -308,11 +355,17 @@
     <section class="section section-newsletter">
       <div class="container">
         <div class="newsletter">
-          <h4 class="newsletter-title">Subscribe to our newsletter andreceive exclusive offers every week</h4>
-          <form action="" class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Enter your email">
-            <button class="newsletter-btn" type="submit">SUBSCRIBE</button>
-          </form>
+          <div class="row">
+            <div class="col col-6 col-sm-12">
+              <h4 class="newsletter-title ">Subscribe to our newsletter andreceive exclusive offers every week</h4>
+            </div>
+            <div class="col col-6 col-sm-12">
+              <form action="" class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email">
+                <button class="btn btn-primary btn-sm-primary" type="submit">SUBSCRIBE</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -322,8 +375,8 @@
   <footer class="footer">
     <div class="container">
       <!-- Primary footer -->
-      <div class="primary-footer">
-        <div class="shop-info">
+      <div class="primary-footer row">
+        <div class="shop-info col col-6 col-sm-12">
           <!-- Shop logo -->
           <div class="shop-logo">
             <a class="shop-logo-link">
@@ -338,51 +391,60 @@
 
           <!-- Social media list -->
           <ul class="social-list">
-            <li class="social-item"><a class="social-link" href=""><i class="icon icon-facebook"></i></a></li>
-            <li class="social-item"><a class="social-link" href=""><i class="icon icon-twitter"></i></a></li>
-            <li class="social-item"><a class="social-link" href=""><i class="icon icon-linkedin"></i></a></li>
-            <li class="social-item"><a class="social-link" href=""><i class="icon icon-instagram"></i></a></li>
-            <li class="social-item"><a class="social-link" href=""><i class="icon icon-youtube"></i></a></li>
+            <li class="social-item"><a class="social-link" href=""><i class="ic ic-facebook"></i></a></li>
+            <li class="social-item"><a class="social-link" href=""><i class="ic ic-twitter"></i></a></li>
+            <li class="social-item"><a class="social-link" href=""><i class="ic ic-linkedin"></i></a></li>
+            <li class="social-item"><a class="social-link" href=""><i class="ic ic-instagram"></i></a></li>
+            <li class="social-item"><a class="social-link" href=""><i class="ic ic-youtube"></i></a></li>
           </ul>
         </div>
 
-        <ul class="reference-list">
-          <li class="reference-item">
-            <div class="reference">
-              <p class="reference-title">Shopping online</p>
-              <ul class="reference-sub-list">
-                <li class="reference-sub-item"><a class="reference-link" href="">Order Status</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Shipping and Delivery</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Returns</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Payment Options</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Contact Us</a></li>
-              </ul>
+        <div class="col col-6 col-sm-12">
+          <ul class="reference-list row">
+            <div class="col col-4 col-sm-12">
+              <li class="reference-item">
+                <div class="reference">
+                  <p class="reference-title">Shopping online</p>
+                  <ul class="reference-sub-list">
+                    <li class="reference-sub-item"><a class="reference-link" href="">Order Status</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Shipping and Delivery</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Returns</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Payment Options</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Contact Us</a></li>
+                  </ul>
+                </div>
+              </li>
             </div>
-          </li>
 
-          <li class="reference-item">
-            <div class="reference">
-              <p class="reference-title">Infomation</p>
-              <ul class="reference-sub-list">
-                <li class="reference-sub-item"><a class="reference-link" href="">Gift Cards</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Find a store</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Bacome a member</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Site</a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">feedback</a></li>
-              </ul>
+            <div class="col col-4 col-sm-12">
+              <li class="reference-item">
+                <div class="reference">
+                  <p class="reference-title">Infomation</p>
+                  <ul class="reference-sub-list">
+                    <li class="reference-sub-item"><a class="reference-link" href="">Gift Cards</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Find a store</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Bacome a member</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Site</a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">feedback</a></li>
+                  </ul>
+                </div>
+              </li>
             </div>
-          </li>
 
-          <li class="reference-item">
-            <div class="reference">
-              <p class="reference-title">Contact</p>
-              <ul class="reference-sub-list">
-                <li class="reference-sub-item"><a class="reference-link" href="">store@uikit.com </a></li>
-                <li class="reference-sub-item"><a class="reference-link" href="">Hotline: +1 131 138 138</a></li>
-              </ul>
+            <div class="col col-4 col-sm-12">
+              <li class="reference-item">
+                <div class="reference">
+                  <p class="reference-title">Contact</p>
+                  <ul class="reference-sub-list">
+                    <li class="reference-sub-item"><a class="reference-link" href="">store@uikit.com </a></li>
+                    <li class="reference-sub-item"><a class="reference-link" href="">Hotline: +1 131 138 138</a></li>
+                  </ul>
+                </div>
+              </li>
             </div>
-          </li>
-        </ul>
+          </ul>
+
+        </div>
       </div>
     </div>
 
