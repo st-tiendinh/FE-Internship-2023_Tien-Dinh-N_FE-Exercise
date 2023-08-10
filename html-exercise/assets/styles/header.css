@@ -19,8 +19,8 @@
 }
 
 .header .header-inner .nav-list {
-  list-style: none;
   display: flex;
+  list-style: none;
 }
 
 .header .header-inner .nav-list .nav-item {

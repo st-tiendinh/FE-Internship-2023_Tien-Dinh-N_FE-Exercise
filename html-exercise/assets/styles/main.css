@@ -66,6 +66,7 @@
   padding-left: calc((100% - 1152px)/2 + 72px);
   padding-top: 38px;
   padding-bottom: 31px;
+  margin-right: calc(197px + (100% - 1152px)/2);
   list-style: none;
   background-color: var(--light-color);
 }
