@@ -1,3 +1,8 @@
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: percentage(calc($i/12));
+  }
+}
 .container {
   max-width: 1152px;
   width: 100%;
@@ -15,25 +20,18 @@
   padding: 0 10px;
 }
 
-.col.col-3 {
-  width: 25%;
-}
+@include mobile {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      width: percentage(calc($i/12));
+    }
+  }
 
-.col.col-6 {
-  width: 50%;
-}
-
-@media (max-width: 736px) {
   .row {
     margin: 0 -4px !important;
   }
+  
   .col {
     padding: 0 4px !important;
-  }
-  .col.col-sm-6 {
-    width: 50% !important;
-  }
-  .col.col-sm-12 {
-    width: 100% !important;
   }
 }

@@ -1,0 +1,20 @@
+.newsletter .newsletter-title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  color: $secondary-color;
+}
+
+.newsletter .newsletter-input {
+  width: 351px;
+  padding: 14px 24px;
+  margin-right: 34px;
+  border-radius: 61px;
+}
+
+.newsletter .newsletter-input::placeholder {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $text-color;
+}
