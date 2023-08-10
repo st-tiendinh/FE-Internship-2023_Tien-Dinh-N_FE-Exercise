@@ -22,6 +22,10 @@ body {
   position: relative;
 }
 
+a {
+  cursor: pointer;
+}
+
 .site-main {
   overflow-x: hidden;
 }
@@ -36,7 +40,6 @@ body {
   width: 24px;
   background-repeat: no-repeat;
   background-position: left;
-  cursor: pointer;
 }
 
 .ic-magnifying-glass {
@@ -284,8 +287,14 @@ body {
   top: 129px;
 }
 
+.product {
+  position: relative;
+}
 .product:hover {
   transform: scale(1.05);
+}
+.product-link {
+  display: block;
 }
 .product-link .discount {
   position: absolute;
@@ -294,7 +303,6 @@ body {
   z-index: 2;
 }
 .product-image {
-  position: relative;
   width: 100%;
   object-fit: cover;
 }
@@ -328,25 +336,25 @@ body {
   line-height: 30px;
 }
 
-@media mobile {
+@media (max-width: 768px) {
   .product-link .discount {
     top: 12px;
     left: 13px;
   }
-  .product-link-description {
+  .product-link .product-description {
     margin-top: 0;
   }
-  .product-link-description .product-name {
+  .product-link .product-description .product-name {
     font-size: 12px;
     font-weight: 300;
     line-height: 18px;
   }
-  .product-link-description .product-prices .sale-price {
+  .product-link .product-description .product-prices .sale-price {
     font-size: 10px;
     font-weight: 400;
     line-height: 15px;
   }
-  .product-link-description .product-prices .original-price {
+  .product-link .product-description .product-prices .original-price {
     font-size: 10px;
     font-weight: 400;
     line-height: 15px;
