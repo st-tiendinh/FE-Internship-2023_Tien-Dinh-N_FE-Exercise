@@ -284,6 +284,9 @@ body {
   top: 129px;
 }
 
+.product:hover {
+  transform: scale(1.05);
+}
 .product-link .discount {
   position: absolute;
   left: 28px;
