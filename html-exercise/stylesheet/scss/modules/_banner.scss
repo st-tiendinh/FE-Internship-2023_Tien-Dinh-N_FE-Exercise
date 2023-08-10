@@ -1,0 +1,45 @@
+.banner {
+  position: absolute;
+  top: 222px;
+  padding-left: calc((100% - 1152px) / 2 + 96px);
+
+  &-title {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 73px;
+    color: map-get($color, secondary);
+
+    .highlight {
+      color: map-get($color, primary);
+    }
+  }
+
+  &-link-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+
+    .link-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      background-color: map-get($color, primary);
+      border-radius: 50%;
+    }
+
+    .shop-link {
+      margin-left: 21px;
+      text-decoration: underline;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 700;
+      color: map-get($color, secondary);
+
+      &:hover {
+        color: map-get($color, primary);
+      }
+    }
+  }
+}

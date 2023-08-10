@@ -1,0 +1,18 @@
+.discount {
+  background-color: map-get($bg-color, discount);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  color: map-get($color, secondary);
+}
+
+@include mobile {
+  .discount {
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 12px;
+  }
+}

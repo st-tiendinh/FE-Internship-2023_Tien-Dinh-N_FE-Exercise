@@ -1,15 +1,19 @@
-$primary-color: #fbb03b;
-$secondary-color: #fff;
-$title-color: #333333;
-$text-color: #a8a8a8;
-$original-price-color: #cecece;
-$sale-price-color: #ff0000;
-$dark-color: #000;
-$btn-border-color: #c4c4c4;
-
-$gray-bg-color: #f6f6f6;
-$discount-bg-color: #ff0000;
-$service-icon-bg-color: #fff3df;
-
 $mobile-width: 768px;
 $tablet-width: 1024px;
+
+$color: (
+  primary: #fbb03b,
+  secondary: #fff,
+  title: #333333,
+  text: #a8a8a8a8,
+  original-price: #cecece,
+  sale-price: #ff0000,
+  dark: #000000,
+  btn-border: #c4c4c4,
+);
+
+$bg-color: (
+  gray: #f6f6f6,
+  discount: #ff0000,
+  service-icon: #fff3df,
+);
