@@ -26,14 +26,6 @@ a {
   cursor: pointer;
 }
 
-.site-main {
-  overflow-x: hidden;
-}
-
-.shop-logo-img {
-  cursor: pointer;
-}
-
 .ic {
   display: inline-block;
   height: 24px;
@@ -214,7 +206,7 @@ a {
   line-height: 30px;
 }
 .product-prices .sale-price.active {
-  color: #ff0000 !important;
+  color: !important;
 }
 .product-prices .original-price {
   color: #cecece;
@@ -428,6 +420,14 @@ a {
   padding: 0 12px;
 }
 
+@media (max-width: 1024px) {
+  .header-inner {
+    margin-top: 0;
+  }
+  .header-inner .navbar {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
   .header {
     background-color: #fff;
@@ -486,11 +486,10 @@ a {
 .primary-footer {
   padding: 46px 0 30px;
 }
-
-.shop-info {
+.primary-footer .shop-info {
   padding-right: 170px;
 }
-.shop-info .shop-desc {
+.primary-footer .shop-info .shop-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
@@ -498,7 +497,7 @@ a {
   padding-top: 24px;
   padding-bottom: 56px;
 }
-.shop-info .social-list {
+.primary-footer .shop-info .social-list {
   display: flex;
 }
 
@@ -550,6 +549,9 @@ a {
   .primary-footer {
     padding: 24px 0;
   }
+  .primary-footer .shop-info {
+    padding-right: 0;
+  }
   .primary-footer .shop-info .shop-desc {
     padding-bottom: 20px;
   }
@@ -593,17 +595,23 @@ a {
   color: #fbb03b;
 }
 
-.section {
+.text-center {
+  text-align: center;
+}
+
+.home-page {
+  overflow-x: hidden;
+}
+.home-page .section {
   padding: 48px 0;
 }
-.section-title {
+.home-page .section-title {
   font-size: 32px;
   font-weight: 300;
   line-height: 48px;
   text-align: center;
 }
-
-.section-banner {
+.home-page .section-banner {
   position: relative;
   height: 800px;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../../assets/images/banner.png");
@@ -611,23 +619,23 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.section-banner .banner {
+.home-page .section-banner .banner {
   position: absolute;
   top: 222px;
   padding-left: calc((100% - 1152px) / 2 + 96px);
 }
-.section-banner .banner-title {
+.home-page .section-banner .banner-title {
   font-size: 72px;
   font-weight: 700;
   line-height: 73px;
   color: #fff;
 }
-.section-banner .banner-link-wrapper {
+.home-page .section-banner .banner-link-wrapper {
   display: flex;
   align-items: center;
   margin-top: 24px;
 }
-.section-banner .banner-link-wrapper .link-icon {
+.home-page .section-banner .banner-link-wrapper .link-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -636,11 +644,11 @@ a {
   background-color: #fbb03b;
   border-radius: 50%;
 }
-.section-banner .banner-link-wrapper .link-icon .ic {
+.home-page .section-banner .banner-link-wrapper .link-icon .ic {
   width: 17px;
   height: 14px;
 }
-.section-banner .banner-link-wrapper .shop-link {
+.home-page .section-banner .banner-link-wrapper .shop-link {
   margin-left: 21px;
   text-decoration: underline;
   font-size: 24px;
@@ -648,10 +656,10 @@ a {
   font-weight: 700;
   color: #fff;
 }
-.section-banner .banner-link-wrapper .shop-link:hover {
+.home-page .section-banner .banner-link-wrapper .shop-link:hover {
   color: #fbb03b;
 }
-.section-banner .service-list {
+.home-page .section-banner .service-list {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -666,13 +674,13 @@ a {
   margin-right: calc(197px + (100% - 1152px) / 2);
   background-color: #fff;
 }
-.section-banner .service-list .service-item {
+.home-page .section-banner .service-list .service-item {
   padding: 0 24px;
 }
-.section-banner .service-list .service-item .service {
+.home-page .section-banner .service-list .service-item .service {
   display: flex;
 }
-.section-banner .service-list .service-item .service-icon-bg {
+.home-page .section-banner .service-list .service-item .service-icon-bg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -682,42 +690,41 @@ a {
   border-radius: 12px;
   background-color: #fff3df;
 }
-.section-banner .service-list .service-item .service-icon-bg .ic {
+.home-page .section-banner .service-list .service-item .service-icon-bg .ic {
   background-position: center;
 }
-.section-banner .service-list .service-item .service-title {
+.home-page .section-banner .service-list .service-item .service-title {
   margin-bottom: 4px;
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
   color: #000000;
 }
-.section-banner .service-list .service-item .service-text {
+.home-page .section-banner .service-list .service-item .service-text {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
   color: rgba(168, 168, 168, 0.6588235294);
 }
-
-.advertisement-list .advertisement-item {
+.home-page .advertisement-list .advertisement-item {
   height: 359px;
 }
-.advertisement-list .advertisement-item:first-child .advertisement {
+.home-page .advertisement-list .advertisement-item:first-child .advertisement {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url("../../assets/images/advertisement-1.png") top center/cover no-repeat;
 }
-.advertisement-list .advertisement-item:nth-child(2) .advertisement {
+.home-page .advertisement-list .advertisement-item:nth-child(2) .advertisement {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url("../../assets/images/advertisement-2.png") top center/cover no-repeat;
 }
-.advertisement-list .advertisement-item:last-child .advertisement {
+.home-page .advertisement-list .advertisement-item:last-child .advertisement {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%), url("../../assets/images/advertisement-3.png") top center/cover no-repeat;
 }
-.advertisement-list .advertisement-item .advertisement {
+.home-page .advertisement-list .advertisement-item .advertisement {
   position: relative;
   width: 100%;
   height: 100%;
   padding: 40px;
 }
-.advertisement-list .advertisement-item .advertisement-info {
+.home-page .advertisement-list .advertisement-item .advertisement-info {
   position: absolute;
   top: 167px;
   font-size: 24px;
@@ -725,54 +732,52 @@ a {
   line-height: 36px;
   color: #fff;
 }
-.advertisement-list .advertisement-item .advertisement .btn-advertisement {
+.home-page .advertisement-list .advertisement-item .advertisement .btn-advertisement {
   position: absolute;
   top: 258px;
   left: 40px;
 }
-.advertisement-list .advertisement-item .advertisement .badge-red {
+.home-page .advertisement-list .advertisement-item .advertisement .badge-red {
   position: absolute;
   top: 129px;
 }
-
-.section-products .container > .section-title {
+.home-page .section-products .container > .section-title {
   padding-bottom: 16px;
 }
-.section-products .section-product-header {
+.home-page .section-products .section-product-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 16px;
 }
-.section-products .product-list .product-item {
+.home-page .section-products .product-list .product-item {
   position: relative;
 }
-
-.section-services {
+.home-page .section-services {
   background-color: #f6f6f6;
   padding-top: 48px;
   padding-bottom: 57px;
 }
-.section-services .section-title {
+.home-page .section-services .section-title {
   margin-bottom: 50px;
 }
-.section-services .service-detail:hover .service-detail-icon .ic-free-shipping-2 {
+.home-page .section-services .service-detail:hover .service-detail-icon .ic-free-shipping-2 {
   background-image: url("../../assets/images/ic-free-shipping-1.svg");
 }
-.section-services .service-detail:hover .service-detail-icon .ic-payment-2 {
+.home-page .section-services .service-detail:hover .service-detail-icon .ic-payment-2 {
   background-image: url("../../assets/images/ic-payment-1.svg");
 }
-.section-services .service-detail:hover .service-detail-icon .ic-guarantee-2 {
+.home-page .section-services .service-detail:hover .service-detail-icon .ic-guarantee-2 {
   background-image: url("../../assets/images/ic-guarantee-1.svg");
 }
-.section-services .service-detail:hover .service-detail-icon .ic-materials-2 {
+.home-page .section-services .service-detail:hover .service-detail-icon .ic-materials-2 {
   background-image: url("../../assets/images/ic-materials-1.svg");
 }
-.section-services .service-detail:hover .service-detail-info .service-detail-title {
+.home-page .section-services .service-detail:hover .service-detail-info .service-detail-title {
   color: #fbb03b;
   transform: color 0.1s ease-in;
 }
-.section-services .service-detail .service-detail-icon .service-detail-icon-bg {
+.home-page .section-services .service-detail .service-detail-icon .service-detail-icon-bg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -781,14 +786,14 @@ a {
   border-radius: 10px;
   background-color: #fff;
 }
-.section-services .service-detail .service-detail-icon .ic {
+.home-page .section-services .service-detail .service-detail-icon .ic {
   background-size: contain;
   background-size: contain;
 }
-.section-services .service-detail .service-detail-info {
+.home-page .section-services .service-detail .service-detail-info {
   margin-top: 46px;
 }
-.section-services .service-detail .service-detail-info .service-detail-title {
+.home-page .section-services .service-detail .service-detail-info .service-detail-title {
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: 700;
@@ -796,137 +801,187 @@ a {
   color: #333333;
   cursor: pointer;
 }
-.section-services .service-detail .service-detail-info .service-detail-desc {
+.home-page .section-services .service-detail .service-detail-info .service-detail-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   color: rgba(168, 168, 168, 0.6588235294);
 }
-
-.section-newsletter {
+.home-page .section-newsletter {
   display: flex;
   align-items: center;
   height: 241px;
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%), url("../../assets/images/newsletter.png") top center/cover no-repeat;
 }
-.section-newsletter .newsletter-title {
+.home-page .section-newsletter .newsletter-title {
   font-size: 24px;
   font-weight: 400;
   line-height: 36px;
   color: #fff;
 }
-.section-newsletter .newsletter-input {
+.home-page .section-newsletter .newsletter-input {
   width: 351px;
   padding: 14px 24px;
   margin-right: 34px;
   border-radius: 61px;
 }
-.section-newsletter .newsletter-input::placeholder {
+.home-page .section-newsletter .newsletter-input::placeholder {
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
   color: rgba(168, 168, 168, 0.6588235294);
 }
 
+@media (max-width: 1024px) {
+  .home-page .section {
+    padding: 24px 0;
+  }
+  .home-page .section-banner .banner {
+    padding-left: 40px;
+  }
+  .home-page .section-banner .service-list {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 14px;
+  }
+  .home-page .section-banner .service-list .service-item {
+    padding-bottom: 20px;
+  }
+  .home-page .section-advertisement .advertisement-list .advertisement-item:first-child {
+    margin-bottom: 20px;
+  }
+  .home-page .section-products {
+    padding-top: 48px;
+  }
+  .home-page .section-products .product {
+    margin-bottom: 20px;
+  }
+  .home-page .section-products .product-description {
+    margin-top: 0px;
+  }
+  .home-page .section-newsletter .newsletter-title {
+    padding-bottom: 30px;
+    max-width: 493px;
+  }
+  .home-page .section-newsletter .newsletter-form {
+    display: flex;
+    justify-content: space-between;
+  }
+  .home-page .section-newsletter .newsletter-input {
+    width: 100%;
+    margin-right: 12px;
+  }
+  .home-page .service-detail-list .service-detail-item {
+    margin-bottom: 20px;
+  }
+  .home-page .service-detail-list .service-detail-item .service-detail-icon {
+    display: flex;
+    justify-content: center;
+  }
+  .home-page .service-detail-list .service-detail-item .service-detail-info {
+    margin-top: 24px;
+    text-align: center;
+  }
+}
 @media (max-width: 768px) {
-  .section {
+  .home-page .section {
     padding: 0;
   }
-  .section .section-title {
+  .home-page .section .section-title {
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
   }
-  .section-banner {
+  .home-page .section-banner {
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%), url("../../assets/images/mobile-banner.png");
   }
-  .section-banner .banner {
+  .home-page .section-banner .banner {
     padding-left: 24px;
   }
-  .section-banner .banner .banner-title {
+  .home-page .section-banner .banner .banner-title {
     font-size: 48px;
     line-height: 49px;
   }
-  .section-banner .service-list {
+  .home-page .section-banner .service-list {
     display: none;
   }
-  .section-advertisement {
+  .home-page .section-advertisement {
     padding-top: 0;
   }
-  .section-advertisement .advertisement-list .advertisement-item {
+  .home-page .section-advertisement .advertisement-list .advertisement-item {
     height: 225px;
   }
-  .section-advertisement .advertisement-list .advertisement-item:first-child {
+  .home-page .section-advertisement .advertisement-list .advertisement-item:first-child {
     padding-bottom: 8px !important;
   }
-  .section-advertisement .advertisement-list .advertisement-item:first-child .advertisement .btn {
+  .home-page .section-advertisement .advertisement-list .advertisement-item:first-child .advertisement .btn {
     top: 173px;
   }
-  .section-advertisement .advertisement-list .advertisement-item .advertisement {
+  .home-page .section-advertisement .advertisement-list .advertisement-item .advertisement {
     padding: 16px;
   }
-  .section-advertisement .advertisement-list .advertisement-item .advertisement-info {
+  .home-page .section-advertisement .advertisement-list .advertisement-item .advertisement-info {
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     top: 132px;
     padding-right: 50px;
   }
-  .section-advertisement .advertisement-list .advertisement-item .advertisement .btn-advertisement {
+  .home-page .section-advertisement .advertisement-list .advertisement-item .advertisement .btn-advertisement {
     top: 180px;
     left: 16px;
   }
-  .section-advertisement .advertisement-list .advertisement-item .advertisement .badge-red {
+  .home-page .section-advertisement .advertisement-list .advertisement-item .advertisement .badge-red {
     top: 104px;
   }
-  .section-services .section-title {
+  .home-page .section-services .section-title {
     margin-bottom: 36px;
   }
-  .section-services .service-detail-list .service-detail-item {
+  .home-page .section-services .service-detail-list .service-detail-item {
     margin-bottom: 16px;
   }
-  .section-services .service-detail-list .service-detail-item .service-detail {
+  .home-page .section-services .service-detail-list .service-detail-item .service-detail {
     display: flex;
     align-items: center;
   }
-  .section-services .service-detail .service-detail-icon {
+  .home-page .section-services .service-detail .service-detail-icon {
     margin-right: 16px;
   }
-  .section-services .service-detail .service-detail-info {
+  .home-page .section-services .service-detail .service-detail-info {
     margin-top: 8px;
   }
-  .section-services .service-detail .service-detail-info .service-detail-title {
+  .home-page .section-services .service-detail .service-detail-info .service-detail-title {
     margin-bottom: 8px;
     font-size: 12px;
     line-height: 18px;
   }
-  .section-services .service-detail .service-detail-info .service-detail-desc {
+  .home-page .section-services .service-detail .service-detail-info .service-detail-desc {
     font-size: 10px;
     font-weight: 400;
     line-height: 15px;
   }
-  .section-products .section-title {
+  .home-page .section-products .section-title {
     text-align: left;
   }
-  .section-products .product-list .product-item {
+  .home-page .section-products .product-list .product-item {
     margin-bottom: 8px;
   }
-  .section-newsletter {
+  .home-page .section-newsletter {
     background-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%), url("../../assets/images/mobile-newsletter.png");
   }
-  .section-newsletter .newsletter .newsletter-title {
+  .home-page .section-newsletter .newsletter .newsletter-title {
     width: 200px;
     margin-bottom: 24px;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
   }
-  .section-newsletter .newsletter .newsletter-input {
+  .home-page .section-newsletter .newsletter .newsletter-input {
     width: 100%;
     padding: 8px 12px;
     margin-bottom: 16px;
   }
-  .section-newsletter .newsletter .newsletter-input::placeholder {
+  .home-page .section-newsletter .newsletter .newsletter-input::placeholder {
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
