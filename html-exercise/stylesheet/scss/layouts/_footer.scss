@@ -14,12 +14,12 @@
     font-weight: 400;
     line-height: 21px;
     color: map-get($color, secondary);
-    margin-top: 24px;
+    padding-top: 24px;
+    padding-bottom: 56px;
   }
 
   .social-list {
     display: flex;
-    margin-top: 56px;
   }
 }
 
@@ -73,6 +73,28 @@
     font-weight: 400;
     line-height: 18px;
     color: map-get($color, secondary);
+  }
+}
+
+@include tablet {
+  .primary-footer {
+    padding: 24px 0;
+
+    .shop-info {
+      .shop-desc {
+        padding-bottom: 20px;
+      }
+
+      .social-list {
+        padding-bottom: 64px;
+      }
+    }
+
+    .reference-sub-list {
+      .reference-sub-item {
+        margin-bottom: 12px;
+      }
+    }
   }
 }
 

@@ -18,6 +18,53 @@
   background-size: cover;
   background-repeat: no-repeat;
 
+  .banner {
+    position: absolute;
+    top: 222px;
+    padding-left: calc((100% - 1152px) / 2 + 96px);
+
+    &-title {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 73px;
+      color: map-get($color, secondary);
+    }
+
+    &-link-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 24px;
+
+      .link-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        background-color: map-get($color, primary);
+        border-radius: 50%;
+
+        .ic {
+          width: 17px;
+          height: 14px;
+        }
+      }
+
+      .shop-link {
+        margin-left: 21px;
+        text-decoration: underline;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+        color: map-get($color, secondary);
+
+        &:hover {
+          color: map-get($color, primary);
+        }
+      }
+    }
+  }
+
   .service-list {
     position: absolute;
     left: 0;
@@ -33,17 +80,42 @@
     margin-right: calc(197px + (100% - 1152px) / 2);
     background-color: map-get($color, secondary);
 
-    &-item {
+    .service-item {
       padding: 0 24px;
-    }
-  }
-}
 
-.banner-link-wrapper {
-  .link-icon {
-    .ic {
-      width: 17px;
-      height: 14px;
+      .service {
+        display: flex;
+
+        &-icon-bg {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 36px;
+          height: 36px;
+          margin-right: 21px;
+          border-radius: 12px;
+          background-color: map-get($bg-color, service-icon);
+
+          .ic {
+            background-position: center;
+          }
+        }
+
+        &-title {
+          margin-bottom: 4px;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 21px;
+          color: map-get($color, dark);
+        }
+
+        &-text {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+          color: map-get($color, text);
+        }
+      }
     }
   }
 }
@@ -70,6 +142,33 @@
       .advertisement {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
           url("../../assets/images/advertisement-3.png") top center / cover no-repeat;
+      }
+    }
+
+    .advertisement {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+
+      &-info {
+        position: absolute;
+        top: 167px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 36px;
+        color: map-get($color, secondary);
+      }
+
+      .btn-advertisement {
+        position: absolute;
+        top: 258px;
+        left: 40px;
+      }
+
+      .badge-red {
+        position: absolute;
+        top: 129px;
       }
     }
   }
@@ -104,6 +203,71 @@
   .section-title {
     margin-bottom: 50px;
   }
+
+  .service-detail {
+    &:hover {
+      .service-detail-icon {
+        .ic-free-shipping-2 {
+          background-image: url("../../assets/images/ic-free-shipping-1.svg");
+        }
+
+        .ic-payment-2 {
+          background-image: url("../../assets/images/ic-payment-1.svg");
+        }
+
+        .ic-guarantee-2 {
+          background-image: url("../../assets/images/ic-guarantee-1.svg");
+        }
+
+        .ic-materials-2 {
+          background-image: url("../../assets/images/ic-materials-1.svg");
+        }
+      }
+      .service-detail-info {
+        .service-detail-title {
+          color: map-get($color, primary);
+          transform: color 0.1s ease-in;
+        }
+      }
+    }
+
+    .service-detail-icon {
+      .service-detail-icon-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 68px;
+        height: 68px;
+        border-radius: 10px;
+        background-color: map-get($color, secondary);
+      }
+
+      .ic {
+        background-size: contain;
+        background-size: contain;
+      }
+    }
+
+    .service-detail-info {
+      margin-top: 46px;
+
+      .service-detail-title {
+        margin-bottom: 16px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        color: map-get($color, title);
+        cursor: pointer;
+      }
+
+      .service-detail-desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        color: map-get($color, text);
+      }
+    }
+  }
 }
 
 .section-newsletter {
@@ -112,6 +276,29 @@
   height: 241px;
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%),
     url("../../assets/images/newsletter.png") top center / cover no-repeat;
+
+  .newsletter {
+    &-title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+      color: map-get($color, secondary);
+    }
+
+    &-input {
+      width: 351px;
+      padding: 14px 24px;
+      margin-right: 34px;
+      border-radius: 61px;
+
+      &::placeholder {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        color: map-get($color, text);
+      }
+    }
+  }
 }
 
 @include mobile {
@@ -176,7 +363,7 @@
             left: 16px;
           }
 
-          .discount {
+          .badge-red {
             top: 104px;
           }
         }
@@ -187,6 +374,39 @@
   .section-services {
     .section-title {
       margin-bottom: 36px;
+    }
+
+    .service-detail-list {
+      .service-detail-item {
+        margin-bottom: 16px;
+
+        .service-detail {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .service-detail {
+      .service-detail-icon {
+        margin-right: 16px;
+      }
+
+      .service-detail-info {
+        margin-top: 8px;
+
+        .service-detail-title {
+          margin-bottom: 8px;
+          font-size: 12px;
+          line-height: 18px;
+        }
+
+        .service-detail-desc {
+          font-size: 10px;
+          font-weight: 400;
+          line-height: 15px;
+        }
+      }
     }
   }
 
@@ -205,5 +425,27 @@
   .section-newsletter {
     background-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%),
       url("../../assets/images/mobile-newsletter.png");
+
+    .newsletter {
+      .newsletter-title {
+        width: 200px;
+        margin-bottom: 24px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+      }
+
+      .newsletter-input {
+        width: 100%;
+        padding: 8px 12px;
+        margin-bottom: 16px;
+
+        &::placeholder {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+        }
+      }
+    }
   }
 }

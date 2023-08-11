@@ -6,7 +6,7 @@
 
   &-link {
     display: block;
-    .discount {
+    .badge-red {
       position: absolute;
       left: 28px;
       top: 24px;
@@ -58,7 +58,7 @@
 @include mobile {
   .product {
     &-link {
-      .discount {
+      .badge-red {
         top: 12px;
         left: 13px;
       }

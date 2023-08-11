@@ -21,15 +21,27 @@
   }
 }
 
-@include mobile {
+@include tablet {
   .container {
     padding: 24px;
   }
 
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      width: percentage(calc($i/12));
+    }
+  }
+}
+
+@include mobile {
+  .container {
+    padding: 24px;
+  }
+  
   .row {
     margin: 0 -4px !important;
   }
-  
+
   .col {
     padding: 0 4px !important;
   }
