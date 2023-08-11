@@ -10,26 +10,24 @@
     height: 48px;
     margin-top: 48px;
 
+    .header-logo {
+      .shop-mobile-logo-img {
+        display: none;
+      }
+    }
+
+    .header-action-list {
+      display: flex;
+      align-items: center;
+      margin: 0 -12px;
+
+      .header-action-item {
+        padding: 0 12px;
+      }
+    }
+
     .mobile-header-action-list {
       display: none;
-    }
-  }
-}
-
-.header-inner {
-  .header-logo {
-    .shop-mobile-logo-img {
-      display: none;
-    }
-  }
-
-  .header-action-list {
-    display: flex;
-    align-items: center;
-    margin: 0 -12px;
-
-    .header-action-item {
-      padding: 0 12px;
     }
   }
 }
@@ -58,29 +56,31 @@
       .navbar {
         display: none;
       }
-    }
-  }
 
-  .header-action-list,
-  .header-logo .shop-logo-img {
-    display: none;
-  }
+      .header-action-list,
+      .header-logo {
+        .shop-logo-img {
+          display: none;
+        }
+      }
 
-  .header-inner .header-logo .shop-mobile-logo-img,
-  .header-inner .mobile-header-action-list {
-    display: block;
-  }
+      .header-logo .shop-mobile-logo-img,
+      .mobile-header-action-list {
+        display: block;
+      }
 
-  .header-inner .mobile-header-action-list {
-    display: flex;
-    margin: 0 -12px;
+      .mobile-header-action-list {
+        display: flex;
+        margin: 0 -12px;
 
-    .mobile-header-action-item {
-      padding: 0 12px;
+        .mobile-header-action-item {
+          padding: 0 12px;
 
-      .ic {
-        width: 20px;
-        height: 20px;
+          .ic {
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
   }

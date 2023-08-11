@@ -15,7 +15,11 @@
   .section-banner {
     position: relative;
     height: 800px;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%),
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+      ),
       url("../../assets/images/banner.png");
     background-position: top center;
     background-size: cover;
@@ -129,22 +133,37 @@
 
       &:first-child {
         .advertisement {
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-            url("../../assets/images/advertisement-1.png") top center / cover no-repeat;
+          background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.35) 0%,
+              rgba(0, 0, 0, 0.35) 100%
+            ),
+            url("../../assets/images/advertisement-1.png") top center / cover
+              no-repeat;
         }
       }
 
       &:nth-child(2) {
         .advertisement {
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-            url("../../assets/images/advertisement-2.png") top center / cover no-repeat;
+          background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.35) 0%,
+              rgba(0, 0, 0, 0.35) 100%
+            ),
+            url("../../assets/images/advertisement-2.png") top center / cover
+              no-repeat;
         }
       }
 
       &:last-child {
         .advertisement {
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-            url("../../assets/images/advertisement-3.png") top center / cover no-repeat;
+          background: linear-gradient(
+              180deg,
+              rgba(0, 0, 0, 0.35) 0%,
+              rgba(0, 0, 0, 0.35) 100%
+            ),
+            url("../../assets/images/advertisement-3.png") top center / cover
+              no-repeat;
         }
       }
 
@@ -398,7 +417,11 @@
     }
 
     .section-banner {
-      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%),
+      background-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        ),
         url("../../assets/images/mobile-banner.png");
 
       .banner {
@@ -479,6 +502,7 @@
 
         .service-detail-info {
           margin-top: 8px;
+          text-align: left;
 
           .service-detail-title {
             margin-bottom: 8px;
