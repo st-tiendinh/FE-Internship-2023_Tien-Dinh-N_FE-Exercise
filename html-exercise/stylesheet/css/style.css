@@ -78,12 +78,16 @@ a {
   background-image: url("../../assets/images/ic-arrow-right.svg");
 }
 
-.ic-payment {
-  background-image: url("../../assets/images/ic-payment.svg");
+.ic-payment-2 {
+  background-image: url("../../assets/images/ic-payment-2.svg");
 }
 
-.ic-materials {
-  background-image: url("../../assets/images/ic-materials.svg");
+.ic-materials-1 {
+  background-image: url("../../assets/images/ic-materials-1.svg");
+}
+
+.ic-materials-2 {
+  background-image: url("../../assets/images/ic-materials-2.svg");
 }
 
 .ic-facebook {
@@ -203,9 +207,6 @@ a {
   font-weight: 700;
   line-height: 73px;
   color: #fff;
-}
-.banner-title .highlight {
-  color: #fbb03b;
 }
 .banner-link-wrapper {
   display: flex;
@@ -359,6 +360,18 @@ a {
     font-weight: 400;
     line-height: 15px;
   }
+}
+.service-detail:hover .service-detail-icon .ic-free-shipping-2 {
+  background-image: url("../../assets/images/ic-free-shipping-1.svg");
+}
+.service-detail:hover .service-detail-icon .ic-payment-2 {
+  background-image: url("../../assets/images/ic-payment-1.svg");
+}
+.service-detail:hover .service-detail-icon .ic-guarantee-2 {
+  background-image: url("../../assets/images/ic-guarantee-1.svg");
+}
+.service-detail:hover .service-detail-icon .ic-materials-2 {
+  background-image: url("../../assets/images/ic-materials-1.svg");
 }
 .service-detail:hover .service-detail-info .service-detail-title {
   color: #fbb03b;
@@ -745,6 +758,10 @@ a {
     font-weight: 300;
   }
 }
+.text-primary {
+  color: #fbb03b;
+}
+
 .section {
   padding: 48px 0;
 }

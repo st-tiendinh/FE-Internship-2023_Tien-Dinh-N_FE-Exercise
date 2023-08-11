@@ -1,5 +1,22 @@
 .service-detail {
   &:hover {
+    .service-detail-icon {
+      .ic-free-shipping-2 {
+        background-image: url("../../assets/images/ic-free-shipping-1.svg");
+      }
+
+      .ic-payment-2 {
+        background-image: url("../../assets/images/ic-payment-1.svg");
+      }
+
+      .ic-guarantee-2 {
+        background-image: url("../../assets/images/ic-guarantee-1.svg");
+      }
+
+      .ic-materials-2 {
+        background-image: url("../../assets/images/ic-materials-1.svg");
+      }
+    }
     .service-detail-info {
       .service-detail-title {
         color: map-get($color, primary);

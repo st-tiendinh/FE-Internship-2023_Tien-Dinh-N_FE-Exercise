@@ -8,10 +8,6 @@
     font-weight: 700;
     line-height: 73px;
     color: map-get($color, secondary);
-
-    .highlight {
-      color: map-get($color, primary);
-    }
   }
 
   &-link-wrapper {
