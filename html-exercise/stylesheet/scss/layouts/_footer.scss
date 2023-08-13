@@ -1,0 +1,145 @@
+.footer {
+  background-color: map-get($color, primary);
+
+  .main-footer {
+    padding: 46px 0 30px;
+
+    &-info {
+      padding-right: 170px;
+    }
+
+    &-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      color: map-get($color, secondary);
+      padding-top: 24px;
+      padding-bottom: 56px;
+    }
+
+    .social-list {
+      display: flex;
+
+      .social-item {
+        .social-link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin-right: 26px;
+        }
+      }
+    }
+
+    .reference-list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .reference {
+      &-sub-list {
+        margin-top: 19px;
+      }
+
+      &-sub-item {
+        margin-bottom: 19px;
+      }
+
+      &-link {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        color: map-get($color, secondary);
+      }
+
+      &-title {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        color: map-get($color, secondary);
+      }
+    }
+  }
+
+  .sub-footer {
+    border-top: 1px solid map-get($color, secondary);
+    padding: 24px 0;
+
+    .copy-right {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      color: map-get($color, secondary);
+    }
+  }
+}
+
+@include tablet {
+  .footer {
+    .main-footer {
+      padding: 24px 0;
+
+      &-info {
+        padding-right: 0;
+
+        .social-list {
+          padding-bottom: 64px;
+        }
+      }
+
+      &-desc {
+        padding-bottom: 20px;
+      }
+
+      .reference {
+        &-sub-item {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .footer {
+    padding: 0;
+
+    .main-footer {
+      padding: 0;
+
+      &-info {
+        .social-list {
+          display: none;
+        }
+      }
+
+      &-desc {
+        font-size: 14px;
+        padding-bottom: 30px;
+      }
+
+      .reference-list {
+        .reference-item {
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+      }
+
+      .reference {
+        &-title {
+          font-size: 16px;
+        }
+
+        &-sub-item {
+          margin-bottom: 14px;
+        }
+
+        &-link {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
