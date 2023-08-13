@@ -1,32 +1,32 @@
 .footer {
   background-color: map-get($color, primary);
 
-  .primary-footer {
+  .main-footer {
     padding: 46px 0 30px;
 
-    .shop-info {
+    &-info {
       padding-right: 170px;
+    }
 
-      .shop-desc {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 21px;
-        color: map-get($color, secondary);
-        padding-top: 24px;
-        padding-bottom: 56px;
-      }
+    &-desc {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      color: map-get($color, secondary);
+      padding-top: 24px;
+      padding-bottom: 56px;
+    }
 
-      .social-list {
-        display: flex;
+    .social-list {
+      display: flex;
 
-        .social-item {
-          .social-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-right: 26px;
-          }
+      .social-item {
+        .social-link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin-right: 26px;
         }
       }
     }
@@ -34,34 +34,34 @@
     .reference-list {
       display: flex;
       justify-content: space-between;
+    }
 
-      .reference-item {
-        .reference-sub-list {
-          margin-top: 19px;
+    .reference {
+      &-sub-list {
+        margin-top: 19px;
+      }
 
-          .reference-sub-item {
-            margin-bottom: 19px;
+      &-sub-item {
+        margin-bottom: 19px;
+      }
 
-            .reference-link {
-              font-size: 14px;
-              font-weight: 400;
-              line-height: 21px;
-              color: map-get($color, secondary);
-            }
-          }
-        }
+      &-link {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        color: map-get($color, secondary);
+      }
 
-        .reference-title {
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 24px;
-          color: map-get($color, secondary);
-        }
+      &-title {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        color: map-get($color, secondary);
       }
     }
   }
 
-  .secondary-footer {
+  .sub-footer {
     border-top: 1px solid map-get($color, secondary);
     padding: 24px 0;
 
@@ -77,23 +77,23 @@
 
 @include tablet {
   .footer {
-    .primary-footer {
+    .main-footer {
       padding: 24px 0;
 
-      .shop-info {
+      &-info {
         padding-right: 0;
-
-        .shop-desc {
-          padding-bottom: 20px;
-        }
 
         .social-list {
           padding-bottom: 64px;
         }
       }
 
-      .reference-sub-list {
-        .reference-sub-item {
+      &-desc {
+        padding-bottom: 20px;
+      }
+
+      .reference {
+        &-sub-item {
           margin-bottom: 12px;
         }
       }
@@ -104,38 +104,40 @@
 @include mobile {
   .footer {
     padding: 0;
-    .primary-footer {
-      padding: 0;
-      .shop-info {
-        .shop-desc {
-          font-size: 14px;
-          padding-bottom: 30px;
-        }
 
+    .main-footer {
+      padding: 0;
+
+      &-info {
         .social-list {
           display: none;
         }
+      }
+
+      &-desc {
+        font-size: 14px;
+        padding-bottom: 30px;
       }
 
       .reference-list {
         .reference-item {
           margin-top: 8px;
           margin-bottom: 8px;
-
-          .reference-title {
-            font-size: 16px;
-          }
         }
       }
 
-      .reference-sub-list {
-        .reference-sub-item {
-          margin-bottom: 14px;
+      .reference {
+        &-title {
+          font-size: 16px;
+        }
 
-          .reference-link {
-            font-size: 14px;
-            font-weight: 300;
-          }
+        &-sub-item {
+          margin-bottom: 14px;
+        }
+
+        &-link {
+          font-size: 14px;
+          font-weight: 300;
         }
       }
     }

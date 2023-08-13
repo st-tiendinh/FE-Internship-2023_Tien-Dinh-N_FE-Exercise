@@ -1,21 +1,22 @@
-.navbar {
-  .nav-list {
+.nav {
+  &-list {
     display: flex;
-    .nav-item {
-      padding: 0 48px;
-      .nav-link {
-        color: map-get($color, primary);
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 27px;
-      }
-    }
+  }
+
+  &-item {
+    padding: 0 48px;
+  }
+
+  &-link {
+    color: map-get($color, primary);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
   }
 }
 
 @include mobile {
-  .navbar,
-  .nav-list {
+  .nav {
     display: none;
   }
 }

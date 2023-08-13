@@ -1,26 +1,31 @@
 .product {
   position: relative;
+
   &:hover {
     transform: scale(1.05);
   }
 
   &-link {
     display: block;
-    .badge-red {
+    position: relative;
+
+    .badge.badge-danger {
       position: absolute;
       left: 28px;
       top: 24px;
-      z-index: 2;
+      // z-index: 2;
     }
   }
 
   &-image {
+    display: block;
     width: 100%;
     object-fit: cover;
   }
 
   &-description {
-    margin-top: 16px;
+    padding-top: 16px;
+
     .product-name {
       font-size: 16px;
       font-weight: 300;
@@ -33,38 +38,38 @@
       justify-content: space-between;
     }
   }
-}
 
-.product-prices {
-  .sale-price {
-    color: map-get($color, dark);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
+  &-prices {
+    .sale-price {
+      color: map-get($color, dark);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
 
-    &.active {
-      color: map-get($color, sale-price) !important;
+      &.active {
+        color: map-get($color, red) !important;
+      }
     }
-  }
 
-  .original-price {
-    color: map-get($color, original-price);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
+    .original-price {
+      color: map-get($color, original-price);
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+    }
   }
 }
 
 @include mobile {
   .product {
     &-link {
-      .badge-red {
-        top: 12px;
-        left: 13px;
+      .badge.badge-danger {
+        top: 8px;
+        left: 8px;
       }
 
       .product-description {
-        margin-top: 0;
+        padding-top: 4px;
 
         .product-name {
           font-size: 12px;
