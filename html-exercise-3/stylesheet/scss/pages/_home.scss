@@ -1,0 +1,119 @@
+.home-page {
+  overflow-x: hidden;
+
+  .section {
+    &-banner {
+      background: url("../../assets/images/banner.png") top center / cover no-repeat;
+      height: 726px;
+    }
+
+    &-title {
+      color: map-get($color, title);
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.2; /* 120% */
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+    }
+
+    .banner {
+      position: absolute;
+      top: 45%;
+      left: 62%;
+
+      &-title {
+        color: map-get($color, white);
+        font-size: 62px;
+        font-weight: 600;
+        line-height: 1.2; /* 120% */
+      }
+
+      &-desc {
+        color: map-get($color, white);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2; /* 120% */
+      }
+
+      & > * {
+        margin-bottom: 38px;
+      }
+    }
+  }
+
+  .section {
+    &-category {
+      padding: 40px 0 70px 0;
+      text-align: center;
+    }
+
+    &-title {
+      position: relative;
+      margin-bottom: 56px;
+      color: map-get($color, title);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.2; /* 120% */
+      text-align: center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 131px;
+        height: 2px;
+        background-color: map-get($color, primary);
+      }
+    }
+
+    .category {
+      &-link {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-img {
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 24px;
+      }
+
+      &-name {
+        color: map-get($color, title);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2; /* 120% */
+      }
+    }
+  }
+
+  .section {
+    &-trending-products {
+      padding-bottom: 30px;
+    }
+
+    .trending-products-item {
+      margin-bottom: 20px;
+    }
+  }
+
+  .section {
+    &-product-gallery {
+      padding-bottom: 70px;
+    }
+
+    .product-gallery-item {
+      &:nth-child(even) {
+        .product {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+}
