@@ -1,11 +1,13 @@
-/* 
-  8. Write a function to find the new time after a specified time from the given time.
-  Input: (givenTime string, period number(s))
-  Output: newTime string
-  Ex: ('12:30:29', 600) => '12:40:29'
-  Ex: ('23:30:29', 6000) => '01:10:29'
-*/
-
+/**
+ * 8. Write a function to find the new time after a specified time from the given time.
+ * Input: (givenTime string, period number(s))
+ * Output: newTime string
+ * Ex: ('12:30:29', 600) => '12:40:29'
+ * Ex: ('23:30:29', 6000) => '01:10:29'
+ * @param {string} timeStr - Time string
+ * @param {number} period - Time value to change 
+ * @returns {string} - New time after a specified time from the given time
+ */
 function findNewTime(timeStr, period) {
   let timeArray = timeStr.split(':');
   let hours = parseInt(timeArray[0]);
