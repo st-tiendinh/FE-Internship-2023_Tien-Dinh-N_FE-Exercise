@@ -1,0 +1,32 @@
+.btn {
+  display: inline-block;
+
+  &.btn-outline-primary {
+    padding: 12px 18px;
+    border: 1px solid map-get($color, primary);
+    border-radius: 50px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2; /* 120% */
+
+    &:hover {
+      background-color: map-get($color, primary);
+      color: map-get($color, white);
+    }
+  }
+
+  &.btn-primary {
+    padding: 9px 29px;
+    border-radius: 50px;
+    color: #fff;
+    background-color: map-get($color, primary);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4; /* 140% */
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

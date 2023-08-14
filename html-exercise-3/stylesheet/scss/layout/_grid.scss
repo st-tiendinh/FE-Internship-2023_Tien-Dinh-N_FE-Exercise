@@ -1,0 +1,25 @@
+.container {
+  max-width: map-get($size, container);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(map-get($size, gutter) / 2 * -1);
+}
+
+.col {
+  padding: 0 calc(map-get($size, gutter) / 2);
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: percentage(calc($i/12));
+  }
+}
+
+.col-2-4 {
+  width: 20%;
+}

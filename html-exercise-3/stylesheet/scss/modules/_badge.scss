@@ -1,0 +1,12 @@
+.badge {
+  color: map-get($color, white);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2; /* 120% */
+
+  &-danger {
+    padding: 4px 6px;
+    background-color: map-get($color, danger);
+    border-radius: 4px;
+  }
+}

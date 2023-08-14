@@ -1,0 +1,24 @@
+.ic {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &.ic-cart {
+    background-image: url("../../assets/images/ic-cart.svg");
+  }
+
+  &.ic-envelope {
+    background-image: url("../../assets/images/ic-envelope.svg");
+  }
+
+  &.ic-location {
+    background-image: url("../../assets/images/ic-location.svg");
+  }
+
+  &.ic-phone {
+    background-image: url("../../assets/images/ic-phone.svg");
+  }
+}

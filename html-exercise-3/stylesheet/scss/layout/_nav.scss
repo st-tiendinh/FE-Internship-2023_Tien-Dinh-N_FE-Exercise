@@ -1,0 +1,24 @@
+.nav {
+  &-list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 -16px;
+  }
+
+  &-item {
+    padding: 16px;
+  }
+
+  &-link {
+    color: map-get($color, title);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2; /* 120% */
+
+    &:hover {
+      color: map-get($color, primary);
+    }
+  }
+}
