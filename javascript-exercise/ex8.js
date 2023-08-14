@@ -20,11 +20,11 @@ function findNewTime(timeStr, period) {
   newMin = newMin % 60;
   newHr = newHr % 24;
 
-  let MinResult = newMin < 10 ? `0${newMin}` : `${newMin}`;
+  let minResult = newMin < 10 ? `0${newMin}` : `${newMin}`;
   let hourResult = newHr < 10 ? `0${newHr}` : `${newHr}`;
   let secResult = newSec < 10 ? `0${newSec}` : `${newSec}`;
 
-  return `${hourResult}:${MinResult}:${secResult}`;
+  return `${hourResult}:${minResult}:${secResult}`;
 }
 
 console.log(findNewTime('12:30:29', 600));
