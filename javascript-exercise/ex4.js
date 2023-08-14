@@ -6,22 +6,17 @@ Ex: (4, 1, 10) => [3, 6, 1, 9]
 
 function uniqueRandomArray(len, min, max) {
   let newArray = [];
-  let count = 0;
-  let isUnique = false;
 
-  while (count < len) {
+  while (newArray.length !== len) {
     let randomNumber = Math.floor(Math.random() * (max - min) + min);
-    isUnique = !newArray.some((num, index) => {
+    let isUnique = !newArray.some((num, index) => {
       return num === randomNumber;
     });
     if (isUnique) {
       newArray.push(randomNumber);
-      ++count;
-      if (newArray.length == len) {
-        return newArray;
-      }
     }
   }
+  return newArray;
 }
 
 console.log(uniqueRandomArray(4, 1, 10));
