@@ -1,5 +1,6 @@
 .home-page {
   overflow-x: hidden;
+  margin-top: -108px;
 
   .section {
     padding: 48px 0;
@@ -17,7 +18,7 @@
       position: relative;
       height: 800px;
       background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%),
-        url("../../assets/images/banner.png");
+        url('../../assets/images/banner.png');
       background-position: top center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -134,21 +135,21 @@
           &:first-child {
             .advertisement {
               background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-                url("../../assets/images/advertisement-1.png") top center / cover no-repeat;
+                url('../../assets/images/advertisement-1.png') top center / cover no-repeat;
             }
           }
 
           &:nth-child(2) {
             .advertisement {
               background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-                url("../../assets/images/advertisement-2.png") top center / cover no-repeat;
+                url('../../assets/images/advertisement-2.png') top center / cover no-repeat;
             }
           }
 
           &:last-child {
             .advertisement {
               background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.35) 100%),
-                url("../../assets/images/advertisement-3.png") top center / cover no-repeat;
+                url('../../assets/images/advertisement-3.png') top center / cover no-repeat;
             }
           }
         }
@@ -220,19 +221,19 @@
         &:hover {
           .service-detail-icon {
             .ic.ic-free-shipping-2 {
-              background-image: url("../../assets/images/ic-free-shipping-1.svg");
+              background-image: url('../../assets/images/ic-free-shipping-1.svg');
             }
 
             .ic.ic-payment-2 {
-              background-image: url("../../assets/images/ic-payment-1.svg");
+              background-image: url('../../assets/images/ic-payment-1.svg');
             }
 
             .ic.ic-guarantee-2 {
-              background-image: url("../../assets/images/ic-guarantee-1.svg");
+              background-image: url('../../assets/images/ic-guarantee-1.svg');
             }
 
             .ic.ic-materials-2 {
-              background-image: url("../../assets/images/ic-materials-1.svg");
+              background-image: url('../../assets/images/ic-materials-1.svg');
             }
           }
 
@@ -290,7 +291,7 @@
       align-items: center;
       height: 241px;
       background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%),
-        url("../../assets/images/newsletter.png") top center / cover no-repeat;
+        url('../../assets/images/newsletter.png') top center / cover no-repeat;
 
       .newsletter {
         &-title {
@@ -422,7 +423,7 @@
 
       &-banner {
         background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%),
-          url("../../assets/images/mobile-banner.png");
+          url('../../assets/images/mobile-banner.png');
 
         .banner {
           padding-left: 24px;
@@ -528,7 +529,7 @@
 
       &-newsletter {
         background-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0) 100%),
-          url("../../assets/images/mobile-newsletter.png");
+          url('../../assets/images/mobile-newsletter.png');
         height: 217px;
 
         .newsletter {

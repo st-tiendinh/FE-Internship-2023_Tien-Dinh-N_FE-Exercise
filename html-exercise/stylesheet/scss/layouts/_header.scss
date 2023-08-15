@@ -1,9 +1,11 @@
 .header {
-  position: absolute;
+  position: sticky;
+  top: 0;
   padding: 24px 0;
   margin-top: 24px;
   width: 100%;
   z-index: 10;
+  transition: all 0.2s;
 
   &-inner {
     display: flex;
@@ -24,11 +26,39 @@
   }
 
   &-action-item {
+    position: relative;
     padding: 0 12px;
   }
 
   &-mobile-action-list {
+    position: relative;
     display: none;
+    margin: 0 -12px;
+  }
+
+  &-mobile-action-item {
+    position: relative;
+    padding: 0 12px;
+  }
+
+  &-action-quantity {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: red;
+    color: map-get($color, secondary);
+    font-size: 12px;
+  }
+
+  &-sticky {
+    background-color: map-get($color, secondary);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.13);
   }
 }
 
@@ -75,8 +105,6 @@
     }
 
     &-mobile-action-item {
-      padding: 0 12px;
-
       .ic {
         width: 20px;
         height: 20px;

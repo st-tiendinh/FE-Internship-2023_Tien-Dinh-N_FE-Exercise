@@ -19,7 +19,6 @@ a {
 
 body {
   font-family: "Poppins", sans-serif;
-  position: relative;
 }
 
 a {
@@ -88,8 +87,8 @@ img {
 .ic.ic-youtube {
   background-image: url("../../assets/images/ic-youtube.svg");
 }
-.ic.ic-sm-bars {
-  background-image: url("../../assets/images/ic-sm-bars.svg");
+.ic.ic-sm-magnifying-glass {
+  background-image: url("../../assets/images/ic-sm-magnifying-glass.svg");
 }
 .ic.ic-sm-user {
   background-image: url("../../assets/images/ic-sm-user.svg");
@@ -188,6 +187,17 @@ img {
   position: absolute;
   left: 28px;
   top: 24px;
+}
+.product-link .btn.btn-primary {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 14px 24px;
+  display: none;
+}
+.product-link:hover .btn.btn-primary {
+  display: inline-block;
 }
 .product-image {
   display: block;
@@ -401,11 +411,13 @@ img {
   }
 }
 .header {
-  position: absolute;
+  position: sticky;
+  top: 0;
   padding: 24px 0;
   margin-top: 24px;
   width: 100%;
   z-index: 10;
+  transition: all 0.2s;
 }
 .header-inner {
   display: flex;
@@ -421,10 +433,35 @@ img {
   margin: 0 -12px;
 }
 .header-action-item {
+  position: relative;
   padding: 0 12px;
 }
 .header-mobile-action-list {
+  position: relative;
   display: none;
+  margin: 0 -12px;
+}
+.header-mobile-action-item {
+  position: relative;
+  padding: 0 12px;
+}
+.header-action-quantity {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -10px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+}
+.header-sticky {
+  background-color: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.13);
 }
 
 @media (max-width: 1024px) {
@@ -455,9 +492,6 @@ img {
   .header-mobile-action-list {
     display: flex;
     margin: 0 -12px;
-  }
-  .header-mobile-action-item {
-    padding: 0 12px;
   }
   .header-mobile-action-item .ic {
     width: 20px;
@@ -602,6 +636,7 @@ img {
 
 .home-page {
   overflow-x: hidden;
+  margin-top: -108px;
 }
 .home-page .section {
   padding: 48px 0;
