@@ -30,12 +30,8 @@
           <nav class="nav">
             <ul class="nav-list">
               <li class="nav-item"><a class="nav-link" href="#men">Men</a></li>
-              <li class="nav-item">
-                <a class="nav-link" href="#woman">Women</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#kids">Kids</a>
-              </li>
+              <li class="nav-item"><a class="nav-link" href="#woman">Women</a></li>
+              <li class="nav-item"><a class="nav-link" href="#kids">Kids</a></li>
             </ul>
           </nav>
 
@@ -45,7 +41,10 @@
               <a href="" class="header-action-link"><i class="ic ic-magnifying-glass"></i></a>
             </li>
             <li class="header-action-item">
-              <a href="" class="header-action-link"><i class="ic ic-cart"></i></a>
+              <a href="" class="header-action-link">
+                <span class="header-action-quantity"></span>
+                <i class="ic ic-cart"></i>
+              </a>
             </li>
             <li class="header-action-item">
               <a href="" class="header-action-link"><i class="ic ic-user"></i></a>
@@ -55,13 +54,20 @@
           <!-- Mobile header action -->
           <ul class="header-mobile-action-list">
             <li class="header-mobile-action-item">
-              <a href="" class="header-action-link"><i class="ic ic-sm-cart"></i></a>
+              <a href="" class="header-action-link">
+                <i class="ic ic-sm-magnifying-glass"></i>
+              </a>
             </li>
             <li class="header-mobile-action-item">
-              <a href="" class="header-action-link"><i class="ic ic-sm-user"></i></a>
+              <a href="" class="header-action-link">
+                <span class="header-action-quantity"></span>
+                <i class="ic ic-sm-cart"></i>
+              </a>
             </li>
             <li class="header-mobile-action-item">
-              <i class="ic ic-sm-bars"></i>
+              <a href="" class="header-action-link">
+                <i class="ic ic-sm-user"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -162,7 +168,7 @@
               <a class="btn btn-outline btn-sm-outline" href="">SHOW MORE</a>
             </div>
             <!-- Product list -->
-            <ul class="product-list row">
+            <!-- <ul class="product-list row">
               <li class="product-item col col-3 col-md-6 col-sm-6">
                 <div class="product">
                   <a class="product-link" href="">
@@ -223,7 +229,7 @@
                   </a>
                 </div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </section>
 
@@ -304,7 +310,7 @@
           <div class="container">
             <h3 class="section-title">Products in today</h3>
             <!-- Product list -->
-            <ul class="product-list row">
+            <!-- <ul class="product-list row">
               <li class="product-item col col-3 col-md-6 col-sm-6">
                 <div class="product">
                   <a class="product-link" href="">
@@ -365,7 +371,7 @@
                   </a>
                 </div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </section>
 
@@ -498,5 +504,6 @@
         <p class="copy-right">DESIGN BY ICEO.CO - © 2019. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
+    <script src="main.js"></script>
   </body>
 </html>
