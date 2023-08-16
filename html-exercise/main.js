@@ -97,11 +97,11 @@ if (productData.length) {
 
       const salePrice = document.createElement('span');
       product.discount ? (salePrice.className = 'sale-price active') : (salePrice.className = 'sale-price');
-      salePrice.innerText = product.price;
+      salePrice.innerText = '$' + product.price;
 
       const originalPrice = document.createElement('span');
       originalPrice.className = 'original-price';
-      originalPrice.innerText = product.price;
+      originalPrice.innerText = '$' + product.price;
 
       product.discount ? productPrices.append(salePrice, originalPrice) : productPrices.append(salePrice);
       productDesc.append(productName, productPrices);
@@ -139,7 +139,7 @@ if (productData.length) {
         }
 
         window.localStorage.setItem('product', JSON.stringify(cartStorage));
-        
+
         cartPopups.forEach(function (cartPopup) {
           cartPopup.innerText = calcQuantity();
         });

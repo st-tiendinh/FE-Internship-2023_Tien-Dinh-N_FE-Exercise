@@ -51,7 +51,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: red;
+    background: map-get($color, red);
     color: map-get($color, secondary);
     font-size: 12px;
   }
