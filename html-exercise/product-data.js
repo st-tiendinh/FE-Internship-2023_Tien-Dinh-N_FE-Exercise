@@ -1,5 +1,5 @@
 import Product from './product.js';
-var productData = [
+var data = [
   {
     id: 1,
     name: 'T-Shirt Summer Vibes',
@@ -30,4 +30,6 @@ var productData = [
   },
 ];
 
-productData.map((item) => new Product(item));
+const productData = data.map((item) => new Product(item));
+
+export default productData;

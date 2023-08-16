@@ -1,35 +1,4 @@
-// var productData = [
-//   {
-//     id: 1,
-//     name: 'T-Shirt Summer Vibes',
-//     discount: 30,
-//     price: 119.99,
-//     imageUrl: './assets/images/product-1.png',
-//   },
-//   {
-//     id: 2,
-//     name: 'T-Shirt Summer Vibes',
-//     discount: 0,
-//     price: 119.99,
-//     imageUrl: './assets/images/product-2.png',
-//   },
-//   {
-//     id: 3,
-//     name: 'T-Shirt Summer Vibes',
-//     discount: 0,
-//     price: 79.99,
-//     imageUrl: './assets/images/product-3.png',
-//   },
-//   {
-//     id: 4,
-//     name: 'T-Shirt Summer Vibes',
-//     discount: 0,
-//     price: 119.99,
-//     imageUrl: './assets/images/product-4.png',
-//   },
-// ];
-
-import { data as productData } from './product-data.js';
+import productData from './product-data.js';
 import Cart from './Cart.js';
 
 function handleScrollHeader() {
@@ -197,8 +166,7 @@ function renderProductList() {
             `;
             })
             .join('')}
-        </ul>
-    `;
+        </ul>`;
       sec.innerHTML += productList;
     });
 
@@ -213,8 +181,6 @@ function renderProductList() {
         return id === item.data.id;
       });
 
-      // let cartInterface = [];
-
       if (existedProduct) {
         existedProduct.quantity += 1;
       } else {
@@ -222,7 +188,6 @@ function renderProductList() {
           data: { ...selectedProduct },
           quantity: 1,
         });
-        // cartInterface.push(new Cart(...cartStorage));
       }
       window.localStorage.setItem('product', JSON.stringify(cartStorage));
       renderCartPopup();
