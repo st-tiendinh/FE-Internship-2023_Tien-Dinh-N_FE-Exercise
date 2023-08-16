@@ -1,33 +1,36 @@
-var productData = [
-  {
-    id: 1,
-    name: 'T-Shirt Summer Vibes',
-    discount: 30,
-    price: 119.99,
-    imageUrl: './assets/images/product-1.png',
-  },
-  {
-    id: 2,
-    name: 'T-Shirt Summer Vibes',
-    discount: 0,
-    price: 119.99,
-    imageUrl: './assets/images/product-2.png',
-  },
-  {
-    id: 3,
-    name: 'T-Shirt Summer Vibes',
-    discount: 0,
-    price: 79.99,
-    imageUrl: './assets/images/product-3.png',
-  },
-  {
-    id: 4,
-    name: 'T-Shirt Summer Vibes',
-    discount: 0,
-    price: 119.99,
-    imageUrl: './assets/images/product-4.png',
-  },
-];
+// var productData = [
+//   {
+//     id: 1,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 30,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-1.png',
+//   },
+//   {
+//     id: 2,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-2.png',
+//   },
+//   {
+//     id: 3,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 79.99,
+//     imageUrl: './assets/images/product-3.png',
+//   },
+//   {
+//     id: 4,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-4.png',
+//   },
+// ];
+
+import { data as productData } from './product-data.js';
+import Cart from './Cart.js';
 
 function handleScrollHeader() {
   window.addEventListener('scroll', function () {
@@ -48,20 +51,20 @@ function handleScrollHeader() {
 }
 
 function calcQuantity() {
-  var cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+  let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
   return cartStorage.reduce((sum, item) => {
     return sum + item.quantity;
   }, 0);
 }
 
 function calcDiscountPrice(originalPrice, discount) {
-  var discountPrice = originalPrice;
+  let discountPrice = originalPrice;
   discountPrice -= (discount * originalPrice) / 100;
   return discountPrice.toFixed(2);
 }
 
 function renderCartPopup() {
-  var cartPopups = document.querySelectorAll('.header-action-quantity');
+  const cartPopups = document.querySelectorAll('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
     if (calcQuantity()) {
       cartPopup.innerText = calcQuantity();
@@ -166,36 +169,73 @@ function renderProductList() {
   const section = document.querySelectorAll('.section.section-product .container');
   if (productData.length) {
     renderCartPopup();
-    const productList = `
-    <ul class="product-list row">
-      ${productData
-        .map((product) => {
-          return `
-          <li class="product-item col col-3 col-md-6 col-sm-6">
-          <div class="product">
-            <a class="product-link" href="">
-              <img src="${product.imageUrl}" alt="${product.name}" class="product-image" />
-              ${product.discount ? `<span class="badge badge-danger">${product.discount}%</span>` : ''}
-              <div class="product-description">
-                <h4 class="product-name">${product.name}</h4>
-                <div class="product-prices">
-                  <span class="sale-price ${product.discount ? 'active' : ''}">
-                  ${calcDiscountPrice(product.price, product.discount)}
-                  </span>
-                  <span class="original-price">${product.discount ? product.price : ''}</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </li>
-        `;
-        })
-        .join('')}
-    </ul>
-    `;
 
     section.forEach((sec) => {
-      return (sec.innerHTML += productList);
+      const productList = `
+        <ul class="product-list row">
+          ${productData
+            .map((product) => {
+              return `
+              <li class="product-item col col-3 col-md-6 col-sm-6">
+              <div class="product">
+                <a class="product-link" href="">
+                  <span class="btn btn-primary" data-id='${product.id}'>Add to cart</span>
+                  <img src="${product.imageUrl}" alt="${product.name}" class="product-image" />
+                  ${product.discount ? `<span class="badge badge-danger">${product.discount}%</span>` : ''}
+                  <div class="product-description">
+                    <h4 class="product-name">${product.name}</h4>
+                    <div class="product-prices">
+                      <span class="sale-price ${product.discount ? 'active' : ''}">
+                      ${calcDiscountPrice(product.price, product.discount)}
+                      </span>
+                      <span class="original-price">${product.discount ? product.price : ''}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            `;
+            })
+            .join('')}
+        </ul>
+    `;
+      sec.innerHTML += productList;
+    });
+
+    function handleAddToCart(id) {
+      let selectedProduct = productData.find((item) => {
+        return id === item.id;
+      });
+
+      let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+
+      let existedProduct = cartStorage.find((item) => {
+        return id === item.data.id;
+      });
+
+      // let cartInterface = [];
+
+      if (existedProduct) {
+        existedProduct.quantity += 1;
+      } else {
+        cartStorage.push({
+          data: { ...selectedProduct },
+          quantity: 1,
+        });
+        // cartInterface.push(new Cart(...cartStorage));
+      }
+      window.localStorage.setItem('product', JSON.stringify(cartStorage));
+      renderCartPopup();
+    }
+    document
+      .querySelectorAll('.product .product-link')
+      .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
+    const productBtn = document.querySelectorAll('.product-item .product .product-link .btn.btn-primary');
+    productBtn.forEach((p) => {
+      p.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleAddToCart(parseInt(p.dataset.id));
+      });
     });
   }
 }
