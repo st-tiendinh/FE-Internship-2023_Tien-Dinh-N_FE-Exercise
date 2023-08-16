@@ -63,7 +63,13 @@ function calcDiscountPrice(originalPrice, discount) {
 function renderCartPopup() {
   var cartPopups = document.querySelectorAll('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
-    cartPopup.innerText = calcQuantity();
+    if (calcQuantity()) {
+      cartPopup.innerText = calcQuantity();
+      cartPopup.style.display = 'flex';
+    } else {
+      cartPopup.innerText = calcQuantity();
+      cartPopup.style.display = 'none';
+    }
   });
 }
 
