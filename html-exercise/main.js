@@ -52,6 +52,12 @@ function calcQuantity() {
   }, 0);
 }
 
+function calcDiscountPrice(originalPrice, discount) {
+  let discountPrice = originalPrice;
+  discountPrice -= (discount * originalPrice) / 100;
+  return discountPrice.toFixed(2);
+}
+
 const cartPopups = document.querySelectorAll('.header-action-quantity');
 
 cartPopups.forEach(function (cartPopup) {
@@ -97,7 +103,7 @@ if (productData.length) {
 
       const salePrice = document.createElement('span');
       product.discount ? (salePrice.className = 'sale-price active') : (salePrice.className = 'sale-price');
-      salePrice.innerText = '$' + product.price;
+      salePrice.innerText = '$' + calcDiscountPrice(product.price, product.discount);
 
       const originalPrice = document.createElement('span');
       originalPrice.className = 'original-price';
