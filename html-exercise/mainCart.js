@@ -1,11 +1,13 @@
 function renderProductTable() {
-  const productTable = document.querySelector('product-table');
-  const data = window.localStorage.getItem('product');
+  const productTable = document.querySelector('.product-table');
+  let data = JSON.parse(window.localStorage.getItem('product'));
+  console.log(data);
   let productData = `
     <h3>Total:</h3>
     <table>
-      ${data.map((item) => {
-        return `
+      ${data
+        .map((item) => {
+          return `
         <tr>
           <th>${item.id}</th>
           <th>${item.name}</th>
@@ -13,7 +15,12 @@ function renderProductTable() {
           <th>${item.price}</th>
         </tr>
         `;
-      })}
+        })
+        .join('')}
     </table>
   `;
+
+  productTable.innerHTML += productData;
 }
+
+renderProductTable();

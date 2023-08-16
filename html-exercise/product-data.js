@@ -1,8 +1,33 @@
 import Product from './product.js';
-
-export const data = [
-  new Product(1, 'T-Shirt Summer Vibes', 30, 119.99, './assets/images/product-1.png'),
-  new Product(2, 'T-Shirt Summer Vibes', 0, 119.99, './assets/images/product-2.png'),
-  new Product(3, 'T-Shirt Summer Vibes', 0, 79.99, './assets/images/product-3.png'),
-  new Product(4, 'T-Shirt Summer Vibes', 0, 119.99, './assets/images/product-4.png'),
+var productData = [
+  {
+    id: 1,
+    name: 'T-Shirt Summer Vibes',
+    discount: 30,
+    price: 119.99,
+    imageUrl: './assets/images/product-1.png',
+  },
+  {
+    id: 2,
+    name: 'T-Shirt Summer Vibes',
+    discount: 0,
+    price: 119.99,
+    imageUrl: './assets/images/product-2.png',
+  },
+  {
+    id: 3,
+    name: 'T-Shirt Summer Vibes',
+    discount: 0,
+    price: 79.99,
+    imageUrl: './assets/images/product-3.png',
+  },
+  {
+    id: 4,
+    name: 'T-Shirt Summer Vibes',
+    discount: 0,
+    price: 119.99,
+    imageUrl: './assets/images/product-4.png',
+  },
 ];
+
+productData.map((item) => new Product(item));
