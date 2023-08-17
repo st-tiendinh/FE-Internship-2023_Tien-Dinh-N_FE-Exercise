@@ -1,7 +1,3 @@
-function calcProductTotalPrice(price, quantity) {
-  return (price * quantity).toFixed(2);
-}
-
 function renderProductCart(dataStorageParam) {
   console.log('re-render');
   const cartContainer = document.querySelector('.cart-page .container');
@@ -34,17 +30,36 @@ function renderProductCart(dataStorageParam) {
           })
           .join('')}
       </ul>
-      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice()}</h4>
-      `;
+      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice()}</h4>`;
   } else {
     cartContainer.innerHTML = `
     <img src="./assets/images/cart-empty.png" class="cart-empty"/>`;
   }
-  handleChangeQuantity();
-  handleDeleteProduct();
+
+  // Add Event Delete
+  addEventForDeleteBtn();
+
+  // Add Event Change Quantity
+  addEventForChangeBtn();
 }
 
-renderProductCart(JSON.parse(window.localStorage.getItem('product')));
+function addEventForDeleteBtn() {
+  const deleteBtns = document.querySelectorAll('.product-cart-action .btn');
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener('click', () => handleDeleteProduct(parseInt(btn.dataset.id)));
+  });
+}
+
+function addEventForChangeBtn() {
+  const inputQuantity = document.querySelectorAll('.product-cart-quantity');
+  inputQuantity.forEach((input) => {
+    input.addEventListener('change', (e) => handleChangeQuantity(parseInt(input.dataset.id), parseInt(e.target.value)));
+  });
+}
+
+function calcProductTotalPrice(price, quantity) {
+  return (price * quantity).toFixed(2);
+}
 
 function calcProductAllTotalPrice() {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
@@ -55,37 +70,26 @@ function calcProductAllTotalPrice() {
     .toFixed(2);
 }
 
-function handleChangeQuantity() {
-  const inputQuantity = document.querySelectorAll('.product-cart-quantity');
+function handleChangeQuantity(id, quantity) {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
-
-  inputQuantity.forEach((input) => {
-    input.addEventListener('change', (e) => {
-      let findProduct = cartStorage.find((item) => {
-        return item.data.id === parseInt(input.dataset.id);
-      });
-
-      findProduct.quantity = parseInt(e.target.value);
-      localStorage.setItem('product', JSON.stringify(cartStorage));
-      renderProductCart(cartStorage);
-    });
+  let findProduct = cartStorage.find((item) => {
+    return item.data.id === id;
   });
+
+  findProduct.quantity = quantity;
+  localStorage.setItem('product', JSON.stringify(cartStorage));
+  renderProductCart(cartStorage);
 }
 
-function handleDeleteProduct() {
-  const deleteBtns = document.querySelectorAll('.product-cart-action .btn');
+function handleDeleteProduct(id) {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
-
-  deleteBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      let newData = cartStorage.filter((product) => {
-        console.log(product.data.id, parseInt(btn.dataset.id));
-        return product.data.id !== parseInt(btn.dataset.id);
-      });
-
-      cartStorage = [...newData];
-      localStorage.setItem('product', JSON.stringify(cartStorage));
-      renderProductCart(cartStorage);
-    });
+  let newData = cartStorage.filter((product) => {
+    return product.data.id !== id;
   });
+
+  cartStorage = [...newData];
+  localStorage.setItem('product', JSON.stringify(cartStorage));
+  renderProductCart(cartStorage);
 }
+
+renderProductCart(JSON.parse(window.localStorage.getItem('product')));
