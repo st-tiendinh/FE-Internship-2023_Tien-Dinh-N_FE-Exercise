@@ -154,16 +154,21 @@ img {
 }
 .badge {
   display: inline-block;
-}
-.badge.badge-danger {
-  background-color: #ff0000;
   padding: 6px 10px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
   line-height: 18px;
   text-align: center;
+}
+.badge.badge-danger {
+  background-color: #ff0000;
   color: #fff;
+}
+.badge-outline-primary {
+  color: #fbb03b;
+  background-color: #fff;
+  border: 1px solid #fbb03b;
 }
 
 @media (max-width: 768px) {
@@ -216,6 +221,11 @@ img {
 .product-description .product-prices {
   display: flex;
   justify-content: space-between;
+}
+.product-status {
+  position: absolute;
+  top: 24px;
+  right: 20px;
 }
 .product-prices .sale-price {
   color: #000000;

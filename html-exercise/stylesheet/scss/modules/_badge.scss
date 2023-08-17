@@ -1,15 +1,21 @@
 .badge {
   display: inline-block;
-  
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+
   &.badge-danger {
     background-color: map-get($color, red);
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 18px;
-    text-align: center;
     color: map-get($color, secondary);
+  }
+
+  &-outline-primary {
+    color: map-get($color, primary);
+    background-color: map-get($color, secondary);
+    border: 1px solid map-get($color, primary);
   }
 }
 

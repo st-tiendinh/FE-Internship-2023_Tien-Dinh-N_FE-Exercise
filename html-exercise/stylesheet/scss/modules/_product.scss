@@ -53,6 +53,12 @@
     }
   }
 
+  &-status {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+  }
+
   &-prices {
     .sale-price {
       color: map-get($color, dark);
