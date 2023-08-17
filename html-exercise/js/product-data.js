@@ -1,4 +1,4 @@
-import Product from './product.js';
+import Product from './Product.js';
 var data = [
   {
     id: 1,
