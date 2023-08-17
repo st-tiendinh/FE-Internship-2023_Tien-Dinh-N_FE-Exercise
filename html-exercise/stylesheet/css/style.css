@@ -1019,6 +1019,14 @@ img {
     line-height: 18px;
   }
 }
+.header {
+  margin-top: 0;
+  background-color: #fbb03b;
+}
+.header .nav-link {
+  color: #fff;
+}
+
 .cart-page .product-cart-list .product-cart-item {
   display: flex;
   justify-content: space-between;
