@@ -1,1 +1,3 @@
-export const api = './data.json'
+export const endpoint = {
+  products: './data.json',
+};

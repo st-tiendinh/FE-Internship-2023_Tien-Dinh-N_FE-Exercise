@@ -1,5 +1,5 @@
 import { calcDiscountPrice, calcProductTotalPrice, calcProductAllTotalPrice } from '../../utils/calculator.js';
-import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
+import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 const renderProductCart = (cartStorage) => {
     const cartContainer = document.querySelector('.cart-page .container');
     if (cartStorage && cartStorage.length) {
@@ -8,7 +8,7 @@ const renderProductCart = (cartStorage) => {
         ${cartStorage
             .sort((a, b) => a.id - b.id)
             .map((product) => {
-            let { id, name, imageUrl, discount, price, quantity } = product;
+            const { id, name, imageUrl, discount, price, quantity } = product;
             return `
               <li class="product-cart-item col col-12">
                 <div class="product-cart">
@@ -46,34 +46,35 @@ const addEventForDeleteBtn = () => {
     });
 };
 const addEventForChangeBtn = () => {
-    const inputQuantity = document.querySelectorAll('.product-cart-quantity');
-    inputQuantity.forEach((input) => {
-        input.addEventListener('change', (e) => handleChangeQuantity(parseInt(input.dataset.id), parseInt(e.target.value)));
+    const quantityInputCollection = document.querySelectorAll('.product-cart-quantity');
+    quantityInputCollection.forEach((quantityInput) => {
+        quantityInput.addEventListener('change', (e) => handleChangeQuantity(parseInt(quantityInput.dataset.id), parseInt(e.target.value)));
     });
 };
 const handleChangeQuantity = (id, quantity) => {
-    let cartStorage = getFromLocalStorage('product');
-    let findProduct = cartStorage.find((item) => {
+    const cartStorage = getFromLocalStorage(StorageKey.Product);
+    const findProduct = cartStorage.find((item) => {
         return item.id === id;
     });
-    if (quantity === 0) {
-        handleDeleteProduct(findProduct.id);
-        return;
+    if (findProduct) {
+        if (quantity === 0) {
+            handleDeleteProduct(findProduct.id);
+        }
+        else {
+            findProduct.quantity = quantity;
+            saveToLocalStorage(StorageKey.Product, cartStorage);
+            renderProductCart(cartStorage);
+        }
     }
-    findProduct.quantity = quantity;
-    saveToLocalStorage('product', cartStorage);
-    renderProductCart(cartStorage);
 };
 const handleDeleteProduct = (id) => {
-    if (!confirm('Do you want to delete this product?!!')) {
-        return;
+    if (confirm('Do you want to delete this product?!!')) {
+        const cartStorage = getFromLocalStorage(StorageKey.Product);
+        const newData = cartStorage.filter((product) => {
+            return product.id !== id;
+        });
+        saveToLocalStorage(StorageKey.Product, newData);
+        renderProductCart(cartStorage);
     }
-    let cartStorage = getFromLocalStorage('product');
-    let newData = cartStorage.filter((product) => {
-        return product.id !== id;
-    });
-    cartStorage = [...newData];
-    saveToLocalStorage('product', cartStorage);
-    renderProductCart(cartStorage);
 };
 export default renderProductCart;

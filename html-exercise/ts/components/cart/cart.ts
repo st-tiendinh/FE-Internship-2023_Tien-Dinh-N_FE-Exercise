@@ -1,6 +1,6 @@
 import CartItem from './cart.entity.js';
 import { calcDiscountPrice, calcProductTotalPrice, calcProductAllTotalPrice } from '../../utils/calculator.js';
-import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
+import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 
 const renderProductCart = (cartStorage: CartItem[]) => {
   const cartContainer = document.querySelector('.cart-page .container');
@@ -10,7 +10,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
         ${cartStorage
           .sort((a: CartItem, b: CartItem) => a.id - b.id)
           .map((product: CartItem) => {
-            let { id, name, imageUrl, discount, price, quantity } = product;
+            const { id, name, imageUrl, discount, price, quantity } = product;
             return `
               <li class="product-cart-item col col-12">
                 <div class="product-cart">
@@ -54,42 +54,40 @@ const addEventForDeleteBtn = () => {
 };
 
 const addEventForChangeBtn = () => {
-  const inputQuantity = document.querySelectorAll<HTMLElement>('.product-cart-quantity');
-  inputQuantity.forEach((input) => {
-    input.addEventListener('change', (e) =>
-      handleChangeQuantity(parseInt(input.dataset.id), parseInt((e.target as HTMLTextAreaElement).value))
+  const quantityInputCollection = document.querySelectorAll<HTMLElement>('.product-cart-quantity');
+  quantityInputCollection.forEach((quantityInput) => {
+    quantityInput.addEventListener('change', (e) =>
+      handleChangeQuantity(parseInt(quantityInput.dataset.id), parseInt((e.target as HTMLTextAreaElement).value))
     );
   });
 };
 
 const handleChangeQuantity = (id: number, quantity: number) => {
-  let cartStorage = getFromLocalStorage('product');
-  let findProduct = cartStorage.find((item: CartItem) => {
+  const cartStorage = getFromLocalStorage(StorageKey.Product);
+  const findProduct = cartStorage.find((item: CartItem) => {
     return item.id === id;
   });
-
-  if (quantity === 0) {
-    handleDeleteProduct(findProduct.id);
-    return;
+  if (findProduct) {
+    if (quantity === 0) {
+      handleDeleteProduct(findProduct.id);
+    } else {
+      findProduct.quantity = quantity;
+      saveToLocalStorage(StorageKey.Product, cartStorage);
+      renderProductCart(cartStorage);
+    }
   }
-
-  findProduct.quantity = quantity;
-  saveToLocalStorage('product', cartStorage);
-  renderProductCart(cartStorage);
 };
 
 const handleDeleteProduct = (id: number) => {
-  if (!confirm('Do you want to delete this product?!!')) {
-    return;
-  }
-  let cartStorage = getFromLocalStorage('product');
-  let newData = cartStorage.filter((product: CartItem) => {
-    return product.id !== id;
-  });
+  if (confirm('Do you want to delete this product?!!')) {
+    const cartStorage = getFromLocalStorage(StorageKey.Product);
+    const newData = cartStorage.filter((product: CartItem) => {
+      return product.id !== id;
+    });
 
-  cartStorage = [...newData];
-  saveToLocalStorage('product', cartStorage);
-  renderProductCart(cartStorage);
+    saveToLocalStorage(StorageKey.Product, newData);
+    renderProductCart(cartStorage);
+  }
 };
 
 export default renderProductCart;

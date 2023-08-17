@@ -1,3 +1,3 @@
 import renderProductCart from './components/cart/cart.js';
-import { getFromLocalStorage } from './services/localStorage.service.js';
-renderProductCart(getFromLocalStorage('product'));
+import { getFromLocalStorage, StorageKey } from './services/localStorage.service.js';
+renderProductCart(getFromLocalStorage(StorageKey.Product));

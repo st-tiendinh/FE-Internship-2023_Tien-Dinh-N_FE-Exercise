@@ -1,12 +1,11 @@
-import { ProductProps } from "./product.interface.js";
-
+import { ProductProps, ProductStatus } from './product.interface.js';
 class Product implements ProductProps {
   id: number;
   name: string;
   discount: number;
   price: number;
   imageUrl: string;
-  status: "Available" | "Out of stock";
+  status: ProductStatus;
 
   constructor(props: ProductProps) {
     const { id, name, discount, price, imageUrl, status } = props;

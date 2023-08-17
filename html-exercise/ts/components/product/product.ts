@@ -1,6 +1,6 @@
 import Product from './product.entity.js';
 import { calcCartQuantity, calcDiscountPrice } from '../../utils/calculator.js';
-import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
+import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 
 const renderProductList = (productData: Product[]) => {
   const sections = document.querySelectorAll<HTMLElement>('.section.section-product .container');
@@ -12,7 +12,7 @@ const renderProductList = (productData: Product[]) => {
         <ul class="product-list row">
           ${productData
             .map((product: Product) => {
-              let { id, name, discount, imageUrl, price, status } = product;
+              const { id, name, discount, imageUrl, price, status } = product;
               return `
               <li class="product-item col col-3 col-md-6 col-sm-6">
               <div class="product">
@@ -47,7 +47,7 @@ const renderProductList = (productData: Product[]) => {
 };
 
 const renderCartItemCount = () => {
-  let cartStorage = getFromLocalStorage('product');
+  let cartStorage = getFromLocalStorage(StorageKey.Product);
   const cartPopups = document.querySelectorAll<HTMLElement>('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
     if (calcCartQuantity(cartStorage)) {
@@ -61,11 +61,13 @@ const renderCartItemCount = () => {
 };
 
 const addEventForAddToCartBtn = (productData: Product[]) => {
-  const productBtn = document.querySelectorAll<HTMLElement>('.product-item .product .product-link .btn.btn-primary');
-  productBtn.forEach((p) => {
-    p.addEventListener('click', (e) => {
+  const productBtnCollection = document.querySelectorAll<HTMLElement>(
+    '.product-item .product .product-link .btn.btn-primary'
+  );
+  productBtnCollection.forEach((productBtn) => {
+    productBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      handleAddToCart(parseInt(p.dataset.id), productData);
+      handleAddToCart(parseInt(productBtn.dataset.id), productData);
     });
   });
 };
@@ -83,7 +85,7 @@ const handleAddToCart = (id: number, productData: Product[]) => {
   if (selectedProduct.status === 'Out of stock') {
     return;
   }
-  let cartStorage = getFromLocalStorage('product');
+  let cartStorage = getFromLocalStorage(StorageKey.Product);
   let existedProduct = cartStorage.find((item: Product) => {
     return id === item.id;
   });
@@ -95,7 +97,7 @@ const handleAddToCart = (id: number, productData: Product[]) => {
       quantity: 1,
     });
   }
-  saveToLocalStorage('product', cartStorage);
+  saveToLocalStorage(StorageKey.Product, cartStorage);
   renderCartItemCount();
 };
 

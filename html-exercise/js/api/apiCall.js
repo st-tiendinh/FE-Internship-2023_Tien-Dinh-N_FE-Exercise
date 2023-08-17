@@ -11,7 +11,9 @@ export const fetchProductData = (url, callback) => __awaiter(void 0, void 0, voi
     try {
         const response = yield fetch(url);
         const data = yield response.json();
-        callback(data);
+        if (callback) {
+            callback(data);
+        }
         return data;
     }
     catch (error) {

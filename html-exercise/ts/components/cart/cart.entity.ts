@@ -1,7 +1,5 @@
 import { CartItemProps } from "./cart.interface.js";
 
-// type CartItemProps = Omit<ProductProps, 'status'>;
-
 class CartItem implements CartItemProps {
   id: number;
   name: string;
