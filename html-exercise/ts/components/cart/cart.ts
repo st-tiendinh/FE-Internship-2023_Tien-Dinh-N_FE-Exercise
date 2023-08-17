@@ -1,16 +1,16 @@
-import CartItem from "./cart.entity";
-import { calcDiscountPrice } from "../product/product.js";
+import CartItem from './cart.entity.js';
+import { calcDiscountPrice, calcProductTotalPrice, calcProductAllTotalPrice } from '../../utils/calculator.js';
+import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
 
-const renderProductCart = (dataStorageParam: any) => {
+const renderProductCart = (cartStorage: CartItem[]) => {
   const cartContainer = document.querySelector('.cart-page .container');
-  const dataStorage = dataStorageParam;
-  if (dataStorage && dataStorage.length) {
+  if (cartStorage && cartStorage.length) {
     cartContainer.innerHTML = `
       <ul class="product-cart-list row">
-        ${dataStorage
-        .map((product: CartItem) => {
-          let { id, name, imageUrl, discount, price, quantity } = product;
-          return `
+        ${cartStorage
+          .map((product: CartItem) => {
+            let { id, name, imageUrl, discount, price, quantity } = product;
+            return `
               <li class="product-cart-item col col-12">
                 <div class="product-cart">
                   <img src="${imageUrl}" alt="" class="product-cart-img" />
@@ -20,16 +20,19 @@ const renderProductCart = (dataStorageParam: any) => {
                   </div>
                   <p class="product-cart-price">$${calcDiscountPrice(price, discount)}</p>
                   <input class="product-cart-quantity" type="number" min="0" name="" id="" value="${quantity}" data-id="${id}"/>
-                  <p class="product-cart-total-price">$${calcProductTotalPrice(calcDiscountPrice(price, discount), quantity)}</p>
+                  <p class="product-cart-total-price">$${calcProductTotalPrice(
+                    calcDiscountPrice(price, discount),
+                    quantity
+                  )}</p>
                   <div class="product-cart-action">
                     <span class="btn btn-outline" data-id="${id}">Delete</span>
                   </div>
                 </div>
               </li>`;
-        })
-        .join('')}
+          })
+          .join('')}
       </ul>
-      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice()}</h4>`;
+      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice(cartStorage)}</h4>`;
   } else {
     cartContainer.innerHTML = `
     <img src="./assets/images/cart-empty.png" class="cart-empty"/>`;
@@ -52,48 +55,40 @@ const addEventForDeleteBtn = () => {
 const addEventForChangeBtn = () => {
   const inputQuantity = document.querySelectorAll<HTMLElement>('.product-cart-quantity');
   inputQuantity.forEach((input) => {
-    input.addEventListener('change', (e) => handleChangeQuantity(parseInt(input.dataset.id), parseInt((e.target as HTMLTextAreaElement).value)));
+    input.addEventListener('change', (e) =>
+      handleChangeQuantity(parseInt(input.dataset.id), parseInt((e.target as HTMLTextAreaElement).value))
+    );
   });
 };
 
-const calcProductTotalPrice = (price: number, quantity: number) => {
-  return (price * quantity).toFixed(2);
-};
-
-const calcProductAllTotalPrice = () => {
-  let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
-  return cartStorage
-    .reduce((sum: number, item: CartItem) => {
-      return sum + item.quantity * item.price;
-    }, 0)
-    .toFixed(2);
-};
-
 const handleChangeQuantity = (id: number, quantity: number) => {
-  let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+  let cartStorage = getFromLocalStorage('product');
   let findProduct = cartStorage.find((item: CartItem) => {
     return item.id === id;
   });
 
-  if (quantity === 0 && confirm("Do you want to delete this product?!!")) {
+  if (quantity === 0) {
     handleDeleteProduct(findProduct.id);
     return;
   }
 
   findProduct.quantity = quantity;
-  localStorage.setItem('product', JSON.stringify(cartStorage));
+  saveToLocalStorage('product', cartStorage);
   renderProductCart(cartStorage);
 };
 
 const handleDeleteProduct = (id: number) => {
-  let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+  if (!confirm('Do you want to delete this product?!!')) {
+    return;
+  }
+  let cartStorage = getFromLocalStorage('product');
   let newData = cartStorage.filter((product: CartItem) => {
     return product.id !== id;
   });
 
   cartStorage = [...newData];
-  localStorage.setItem('product', JSON.stringify(cartStorage));
+  saveToLocalStorage('product', cartStorage);
   renderProductCart(cartStorage);
 };
 
-export default renderProductCart(JSON.parse(localStorage.getItem('product')));
+export default renderProductCart;

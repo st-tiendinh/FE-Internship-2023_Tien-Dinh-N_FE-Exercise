@@ -1,4 +1,5 @@
-import { calcCartQuantity, calcDiscountPrice } from '../utils/calculator.js';
+import { calcCartQuantity, calcDiscountPrice } from '../../utils/calculator.js';
+import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
 const renderProductList = (productData) => {
     const sections = document.querySelectorAll('.section.section-product .container');
     if (productData && productData.length) {
@@ -35,12 +36,12 @@ const renderProductList = (productData) => {
         });
         // Prevent Default For Product Link
         preventDefaultProductLink();
-        // Add Event For Add To Cart Button
+        // Add Event For Add-To-Cart Button
         addEventForAddToCartBtn(productData);
     }
 };
 const renderCartItemCount = () => {
-    let cartStorage = JSON.parse(localStorage.getItem('product')) || [];
+    let cartStorage = getFromLocalStorage('product');
     const cartPopups = document.querySelectorAll('.header-action-quantity');
     cartPopups.forEach(function (cartPopup) {
         if (calcCartQuantity(cartStorage)) {
@@ -74,7 +75,7 @@ const handleAddToCart = (id, productData) => {
     if (selectedProduct.status === 'Out of stock') {
         return;
     }
-    let cartStorage = JSON.parse(localStorage.getItem('product')) || [];
+    let cartStorage = getFromLocalStorage('product');
     let existedProduct = cartStorage.find((item) => {
         return id === item.id;
     });
@@ -84,7 +85,7 @@ const handleAddToCart = (id, productData) => {
     else {
         cartStorage.push(Object.assign(Object.assign({}, selectedProduct), { quantity: 1 }));
     }
-    localStorage.setItem('product', JSON.stringify(cartStorage));
+    saveToLocalStorage('product', cartStorage);
     renderCartItemCount();
 };
 export default renderProductList;

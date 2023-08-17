@@ -1,13 +1,3 @@
-.header {
-  margin-top: 0;
-  background-color: map-get($color, primary);
-  .nav {
-    &-link {
-      color: map-get($color, secondary);
-    }
-  }
-}
-
 .cart-page {
   .product-cart-list {
     .product-cart-item {

@@ -1,12 +1,11 @@
-import { calcDiscountPrice } from '../utils/calculator.js';
-import { calcProductTotalPrice } from '../utils/calculator.js';
-const renderProductCart = (dataStorageParam) => {
+import { calcDiscountPrice, calcProductTotalPrice, calcProductAllTotalPrice } from '../../utils/calculator.js';
+import { getFromLocalStorage, saveToLocalStorage } from '../../services/localStorage.service.js';
+const renderProductCart = (cartStorage) => {
     const cartContainer = document.querySelector('.cart-page .container');
-    const dataStorage = dataStorageParam;
-    if (dataStorage && dataStorage.length) {
+    if (cartStorage && cartStorage.length) {
         cartContainer.innerHTML = `
       <ul class="product-cart-list row">
-        ${dataStorage
+        ${cartStorage
             .map((product) => {
             let { id, name, imageUrl, discount, price, quantity } = product;
             return `
@@ -28,7 +27,7 @@ const renderProductCart = (dataStorageParam) => {
         })
             .join('')}
       </ul>
-      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice()}</h4>`;
+      <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice(cartStorage)}</h4>`;
     }
     else {
         cartContainer.innerHTML = `
@@ -51,34 +50,29 @@ const addEventForChangeBtn = () => {
         input.addEventListener('change', (e) => handleChangeQuantity(parseInt(input.dataset.id), parseInt(e.target.value)));
     });
 };
-const calcProductAllTotalPrice = () => {
-    let cartStorage = JSON.parse(localStorage.getItem('product')) || [];
-    return cartStorage
-        .reduce((sum, item) => {
-        return sum + item.quantity * item.price;
-    }, 0)
-        .toFixed(2);
-};
 const handleChangeQuantity = (id, quantity) => {
-    let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+    let cartStorage = getFromLocalStorage('product');
     let findProduct = cartStorage.find((item) => {
         return item.id === id;
     });
-    if (quantity === 0 && confirm('Do you want to delete this product?!!')) {
+    if (quantity === 0) {
         handleDeleteProduct(findProduct.id);
         return;
     }
     findProduct.quantity = quantity;
-    localStorage.setItem('product', JSON.stringify(cartStorage));
+    saveToLocalStorage('product', cartStorage);
     renderProductCart(cartStorage);
 };
 const handleDeleteProduct = (id) => {
-    let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+    if (!confirm('Do you want to delete this product?!!')) {
+        return;
+    }
+    let cartStorage = getFromLocalStorage('product');
     let newData = cartStorage.filter((product) => {
         return product.id !== id;
     });
     cartStorage = [...newData];
-    localStorage.setItem('product', JSON.stringify(cartStorage));
+    saveToLocalStorage('product', cartStorage);
     renderProductCart(cartStorage);
 };
-export default renderProductCart(JSON.parse(localStorage.getItem('product')));
+export default renderProductCart;
