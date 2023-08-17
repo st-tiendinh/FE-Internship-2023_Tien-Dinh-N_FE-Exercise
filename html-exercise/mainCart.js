@@ -76,6 +76,11 @@ function handleChangeQuantity(id, quantity) {
     return item.data.id === id;
   });
 
+  if (quantity === 0) {
+    handleDeleteProduct(findProduct.data.id);
+    return;
+  }
+
   findProduct.quantity = quantity;
   localStorage.setItem('product', JSON.stringify(cartStorage));
   renderProductCart(cartStorage);
