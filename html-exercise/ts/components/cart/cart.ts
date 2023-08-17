@@ -8,6 +8,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
     cartContainer.innerHTML = `
       <ul class="product-cart-list row">
         ${cartStorage
+          .sort((a: CartItem, b: CartItem) => a.id - b.id)
           .map((product: CartItem) => {
             let { id, name, imageUrl, discount, price, quantity } = product;
             return `

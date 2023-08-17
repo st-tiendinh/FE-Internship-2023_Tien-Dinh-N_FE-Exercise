@@ -22,7 +22,7 @@
     "discount": 0,
     "price": 79.99,
     "imageUrl": "./assets/images/product-3.png",
-    "status": "Out of stock"
+    "status": "Available"
   },
   {
     "id": 4,

@@ -204,6 +204,9 @@ img {
 .product-link:hover .btn.btn-primary {
   display: inline-block;
 }
+.product-link:hover .product-image {
+  opacity: 0.4;
+}
 .product-image {
   display: block;
   width: 100%;

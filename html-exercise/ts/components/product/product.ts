@@ -17,9 +17,9 @@ const renderProductList = (productData: Product[]) => {
               <li class="product-item col col-3 col-md-6 col-sm-6">
               <div class="product">
                 <a class="product-link" href="">
+                  <img src="${imageUrl}" alt="${name}" class="product-image" />
                   <div class="product-status"><span class="badge badge-outline-primary">${status}</span></div>
                   <span class="btn btn-primary" data-id='${id}'>Add to cart</span>
-                  <img src="${imageUrl}" alt="${name}" class="product-image" />
                   ${discount ? `<span class="badge badge-danger">${discount}%</span>` : ''}
                   <div class="product-description">
                     <h4 class="product-name">${name}</h4>
@@ -76,7 +76,7 @@ const preventDefaultProductLink = () => {
     .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
 };
 
-const handleAddToCart = (id: number, productData: any[]) => {
+const handleAddToCart = (id: number, productData: Product[]) => {
   let selectedProduct = productData.filter((item: Product) => {
     return id === item.id;
   })[0];
@@ -95,7 +95,7 @@ const handleAddToCart = (id: number, productData: any[]) => {
       quantity: 1,
     });
   }
-  saveToLocalStorage('product', cartStorage)
+  saveToLocalStorage('product', cartStorage);
   renderCartItemCount();
 };
 
