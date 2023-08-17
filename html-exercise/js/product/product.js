@@ -1,39 +1,38 @@
-import Product from './product.entity.js';
-var data = [
-    {
-        id: 1,
-        name: 'T-Shirt Summer Vibes',
-        discount: 30,
-        price: 119.99,
-        imageUrl: './assets/images/product-1.png',
-        status: 'Available'
-    },
-    {
-        id: 2,
-        name: 'T-Shirt Summer Vibes',
-        discount: 0,
-        price: 119.99,
-        imageUrl: './assets/images/product-2.png',
-        status: 'Available'
-    },
-    {
-        id: 3,
-        name: 'T-Shirt Summer Vibes',
-        discount: 0,
-        price: 79.99,
-        imageUrl: './assets/images/product-3.png',
-        status: 'Out of stock'
-    },
-    {
-        id: 4,
-        name: 'T-Shirt Summer Vibes',
-        discount: 0,
-        price: 119.99,
-        imageUrl: './assets/images/product-4.png',
-        status: 'Out of stock'
-    },
-];
-export const productData = data.map((item) => new Product(item));
+// var data = [
+//   {
+//     id: 1,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 30,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-1.png',
+//     status: 'Available'
+//   },
+//   {
+//     id: 2,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-2.png',
+//     status: 'Available'
+//   },
+//   {
+//     id: 3,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 79.99,
+//     imageUrl: './assets/images/product-3.png',
+//     status: 'Out of stock'
+//   },
+//   {
+//     id: 4,
+//     name: 'T-Shirt Summer Vibes',
+//     discount: 0,
+//     price: 119.99,
+//     imageUrl: './assets/images/product-4.png',
+//     status: 'Out of stock'
+//   },
+// ];
+// export const productData = data.map((item: ProductProps) => new Product(item));
 const calcQuantity = () => {
     let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
     return cartStorage.reduce((sum, item) => {
@@ -58,7 +57,7 @@ const renderCartPopup = () => {
         }
     });
 };
-const renderProductList = () => {
+const renderProductList = (productData) => {
     const sections = document.querySelectorAll('.section.section-product .container');
     if (productData && productData.length) {
         renderCartPopup();
@@ -95,15 +94,15 @@ const renderProductList = () => {
         // Prevent Default For Product Link
         preventDefaultProductLink();
         // Add Event For Add To Cart Button
-        addEventForAddToCartBtn();
+        addEventForAddToCartBtn(productData);
     }
 };
-function addEventForAddToCartBtn() {
+function addEventForAddToCartBtn(productData) {
     const productBtn = document.querySelectorAll('.product-item .product .product-link .btn.btn-primary');
     productBtn.forEach((p) => {
         p.addEventListener('click', (e) => {
             e.preventDefault();
-            handleAddToCart(parseInt(p.dataset.id));
+            handleAddToCart(parseInt(p.dataset.id), productData);
         });
     });
 }
@@ -112,7 +111,7 @@ function preventDefaultProductLink() {
         .querySelectorAll('.product .product-link')
         .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
 }
-function handleAddToCart(id) {
+function handleAddToCart(id, productData) {
     let selectedProduct = productData.filter((item) => {
         return id === item.id;
     })[0];
