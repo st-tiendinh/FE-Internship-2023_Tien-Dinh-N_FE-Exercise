@@ -1,7 +1,6 @@
 import productData from './product-data.js';
-import Cart from './Cart.js';
 
-function handleScrollHeader() {
+const handleScrollHeader = () => {
   window.addEventListener('scroll', function () {
     if (window.scrollY > 90) {
       document.querySelector('.header').classList.add('header-sticky');
@@ -17,22 +16,22 @@ function handleScrollHeader() {
       document.querySelector('.header-mobile-action-list').style.display = 'none';
     }
   });
-}
+};
 
-function calcQuantity() {
+const calcQuantity = () => {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
   return cartStorage.reduce((sum, item) => {
     return sum + item.quantity;
   }, 0);
-}
+};
 
-function calcDiscountPrice(originalPrice, discount) {
+const calcDiscountPrice = (originalPrice, discount) => {
   let discountPrice = originalPrice;
   discountPrice -= (discount * originalPrice) / 100;
   return discountPrice.toFixed(2);
-}
+};
 
-function renderCartPopup() {
+const renderCartPopup = () => {
   const cartPopups = document.querySelectorAll('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
     if (calcQuantity()) {
@@ -43,15 +42,15 @@ function renderCartPopup() {
       cartPopup.style.display = 'none';
     }
   });
-}
+};
 
-function renderProductList() {
-  const section = document.querySelectorAll('.section.section-product .container');
-  if (productData.length) {
+const renderProductList = () => {
+  const sections = document.querySelectorAll('.section.section-product .container');
+  if (productData && productData.length) {
     renderCartPopup();
 
-    section.forEach((sec) => {
-      const productList = `
+    sections.forEach((section) => {
+      section.innerHTML = `
         <ul class="product-list row">
           ${productData
             .map((product) => {
@@ -73,47 +72,54 @@ function renderProductList() {
                   </div>
                 </a>
               </div>
-            </li>
-            `;
+            </li>`;
             })
             .join('')}
         </ul>`;
-      sec.innerHTML += productList;
     });
 
-    function handleAddToCart(id) {
-      let selectedProduct = productData.find((item) => {
-        return id === item.id;
-      });
+    // Prevent Default For Product Link
+    preventDefaultProductLink();
 
-      let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+    // Add Event For Add To Cart Button
+    addEventForAddToCartBtn();
+  }
+};
 
-      let existedProduct = cartStorage.find((item) => {
-        return id === item.data.id;
-      });
+function addEventForAddToCartBtn() {
+  const productBtn = document.querySelectorAll('.product-item .product .product-link .btn.btn-primary');
+  productBtn.forEach((p) => {
+    p.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleAddToCart(parseInt(p.dataset.id));
+    });
+  });
+}
 
-      if (existedProduct) {
-        existedProduct.quantity += 1;
-      } else {
-        cartStorage.push({
-          data: { ...selectedProduct },
-          quantity: 1,
-        });
-      }
-      window.localStorage.setItem('product', JSON.stringify(cartStorage));
-      renderCartPopup();
-    }
-    document
-      .querySelectorAll('.product .product-link')
-      .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
-    const productBtn = document.querySelectorAll('.product-item .product .product-link .btn.btn-primary');
-    productBtn.forEach((p) => {
-      p.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleAddToCart(parseInt(p.dataset.id));
-      });
+function preventDefaultProductLink() {
+  document
+    .querySelectorAll('.product .product-link')
+    .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
+}
+
+function handleAddToCart(id) {
+  let selectedProduct = productData.find((item) => {
+    return id === item.id;
+  });
+  let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
+  let existedProduct = cartStorage.find((item) => {
+    return id === item.data.id;
+  });
+  if (existedProduct) {
+    existedProduct.quantity += 1;
+  } else {
+    cartStorage.push({
+      data: { ...selectedProduct },
+      quantity: 1,
     });
   }
+  localStorage.setItem('product', JSON.stringify(cartStorage));
+  renderCartPopup();
 }
 
 handleScrollHeader();

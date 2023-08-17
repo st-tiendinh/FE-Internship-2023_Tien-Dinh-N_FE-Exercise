@@ -1,8 +1,6 @@
-function renderProductCart(dataStorageParam) {
-  console.log('re-render');
+const renderProductCart = (dataStorageParam) => {
   const cartContainer = document.querySelector('.cart-page .container');
   const dataStorage = dataStorageParam;
-  console.log('data re-render', dataStorage);
   if (dataStorage && dataStorage.length) {
     cartContainer.innerHTML = `
       <ul class="product-cart-list row">
@@ -41,36 +39,36 @@ function renderProductCart(dataStorageParam) {
 
   // Add Event Change Quantity
   addEventForChangeBtn();
-}
+};
 
-function addEventForDeleteBtn() {
+const addEventForDeleteBtn = () => {
   const deleteBtns = document.querySelectorAll('.product-cart-action .btn');
   deleteBtns.forEach((btn) => {
     btn.addEventListener('click', () => handleDeleteProduct(parseInt(btn.dataset.id)));
   });
-}
+};
 
-function addEventForChangeBtn() {
+const addEventForChangeBtn = () => {
   const inputQuantity = document.querySelectorAll('.product-cart-quantity');
   inputQuantity.forEach((input) => {
     input.addEventListener('change', (e) => handleChangeQuantity(parseInt(input.dataset.id), parseInt(e.target.value)));
   });
-}
+};
 
-function calcProductTotalPrice(price, quantity) {
+const calcProductTotalPrice = (price, quantity) => {
   return (price * quantity).toFixed(2);
-}
+};
 
-function calcProductAllTotalPrice() {
+const calcProductAllTotalPrice = () => {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
   return cartStorage
     .reduce((sum, item) => {
       return sum + item.quantity * item.data.price;
     }, 0)
     .toFixed(2);
-}
+};
 
-function handleChangeQuantity(id, quantity) {
+const handleChangeQuantity = (id, quantity) => {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
   let findProduct = cartStorage.find((item) => {
     return item.data.id === id;
@@ -84,9 +82,9 @@ function handleChangeQuantity(id, quantity) {
   findProduct.quantity = quantity;
   localStorage.setItem('product', JSON.stringify(cartStorage));
   renderProductCart(cartStorage);
-}
+};
 
-function handleDeleteProduct(id) {
+const handleDeleteProduct = (id) => {
   let cartStorage = JSON.parse(window.localStorage.getItem('product')) || [];
   let newData = cartStorage.filter((product) => {
     return product.data.id !== id;
@@ -95,6 +93,6 @@ function handleDeleteProduct(id) {
   cartStorage = [...newData];
   localStorage.setItem('product', JSON.stringify(cartStorage));
   renderProductCart(cartStorage);
-}
+};
 
 renderProductCart(JSON.parse(window.localStorage.getItem('product')));

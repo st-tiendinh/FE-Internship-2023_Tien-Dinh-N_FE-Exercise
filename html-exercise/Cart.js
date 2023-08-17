@@ -1,9 +1,11 @@
-import Product from './product.js';
-
-class Cart extends Product {
+class Cart {
   constructor(cart) {
     const { id, name, discount, price, imageUrl, quantity } = cart;
-    super(id, name, discount, price, imageUrl);
+    this.id = id;
+    this.name = name;
+    this.discount = discount;
+    this.price = price;
+    this.imageUrl = imageUrl;
     this.quantity = quantity;
   }
 }
