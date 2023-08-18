@@ -80,9 +80,6 @@ const renderProductCart = (cartStorage: CartItem[]) => {
   // Add Event Delete
   addEventForDeleteBtn();
 
-  // Add Event Change Quantity
-  addEventForChangeInput();
-
   // Add Event Increase Button
   addEventForIncreaseBtn();
 
@@ -114,11 +111,11 @@ const handleClickChangeQuantity = (id: number, step: number) => {
     return product.id === id;
   });
 
+  findProduct.quantity += step;
   if (findProduct.quantity < 1) {
     handleDeleteProduct(findProduct.id);
     findProduct.quantity;
   } else {
-    findProduct.quantity += step;
     saveToLocalStorage(StorageKey.Product, cartStorage);
     renderProductCart(cartStorage);
   }
@@ -131,38 +128,8 @@ const addEventForDeleteBtn = () => {
   });
 };
 
-const addEventForChangeInput = () => {
-  const quantityInputCollection = document.querySelectorAll<HTMLElement>('.product-cart-quantity');
-  quantityInputCollection.forEach((quantityInput) => {
-    quantityInput.addEventListener('change', (e) => {
-      handleChangeQuantity(parseInt(quantityInput.dataset.id), parseInt((e.target as HTMLTextAreaElement).value));
-    });
-  });
-};
-
-const handleChangeQuantity = (id: number, quantity: number) => {
-  const cartStorage = getFromLocalStorage(StorageKey.Product);
-  const findProduct = cartStorage.find((item: CartItem) => {
-    return item.id === id;
-  });
-  if (findProduct) {
-    if (quantity < 1) {
-      handleDeleteProduct(findProduct.id);
-    } else {
-      findProduct.quantity += quantity;
-      saveToLocalStorage(StorageKey.Product, cartStorage);
-      renderProductCart(cartStorage);
-    }
-  }
-};
-
 const handleDeleteProduct = (id: number) => {
   const cartStorage = getFromLocalStorage(StorageKey.Product);
-  const findProduct = cartStorage.find((product: CartItem) => {
-    return product.id === id;
-  });
-  console.log(findProduct);
-
   const isAcceptDelete = confirm('Do you want to delete this product?!!');
   if (isAcceptDelete) {
     const newData = cartStorage.filter((product: CartItem) => {
@@ -171,12 +138,6 @@ const handleDeleteProduct = (id: number) => {
     if (newData) {
       saveToLocalStorage(StorageKey.Product, newData);
       renderProductCart(newData);
-    }
-  } else {
-    if (findProduct.quantity === 0) {
-      findProduct.quantity += 1;
-      saveToLocalStorage(StorageKey.Product, cartStorage);
-      renderProductCart(cartStorage);
     }
   }
 };
