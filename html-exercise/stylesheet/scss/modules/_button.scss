@@ -31,7 +31,18 @@
   }
 
   &.btn-step-outline {
-    padding: 6px 12px;
+    padding: 2px 12px;
+    background-color: map-get($color, secondary);
+    border: 1px solid map-get($color, btn-border);
+
+    &:hover {
+      background-color: map-get($color, gray);
+    }
+  }
+
+  &.btn-delete-outline {
+    padding: 4px 16px;
+    border-radius: 5px;
     background-color: map-get($color, secondary);
     border: 1px solid map-get($color, btn-border);
 

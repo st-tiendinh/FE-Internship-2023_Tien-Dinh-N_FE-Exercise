@@ -3,7 +3,7 @@ import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../servi
 import { fetchProductData } from '../../api/apiCall.js';
 import { endpoint } from '../../api/apiUrls.js';
 import { ProductStatus } from './product.interface.js';
-import { Cart, CartItem } from '../cart/cart.entity.js';
+import { Cart } from '../cart/cart.entity.js';
 
 const renderProductList = async () => {
   const sections = document.querySelectorAll<HTMLElement>('.section.section-product .container');
@@ -91,7 +91,7 @@ const handleAddToCart = (id: number, productData: Product[]) => {
     return id === item.id;
   });
 
-  if (selectedProduct.status !== ProductStatus.OutOfStock) {
+  if (selectedProduct.status !== ProductStatus.OUT_OF_STOCK) {
     const cartStorage = getFromLocalStorage(StorageKey.Product);
     const existedProduct = cartStorage.find((item: Product) => {
       return id === item.id;

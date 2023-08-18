@@ -1,101 +1,116 @@
 .cart-page {
-  .product-cart-list {
-    .product-cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
+  .section {
+    &-cart {
+      background-color: #eee;
+      padding: 20px;
 
-  .product-cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 20px 0;
-
-    &-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      & > * {
-        margin-right: 40px;
-      }
-    }
-
-    &-img {
-      width: 120px;
-    }
-
-    &-name {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 24px;
-      color: map-get($color, dark);
-    }
-
-    &-prices {
-      display: flex;
-      flex-direction: column;
-      .sale-price {
-        color: map-get($color, dark);
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 30px;
-
-        &.active {
-          color: map-get($color, red) !important;
+      .product-cart-list {
+        background: #fff;
+        border-radius: 8px;
+        
+        .product-cart-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
       }
 
-      .original-price {
-        color: map-get($color, original-price);
+      .product-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+
+        &-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        &-img {
+          width: 120px;
+          border-radius: 8px;
+        }
+
+        &-name {
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 24px;
+          color: map-get($color, dark);
+        }
+
+        &-prices {
+          display: flex;
+          flex-direction: column;
+          .sale-price {
+            color: map-get($color, dark);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+
+            &.active {
+              color: map-get($color, red) !important;
+            }
+          }
+
+          .original-price {
+            color: map-get($color, original-price);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            text-decoration: line-through;
+          }
+        }
+
+        &-total-price {
+          font-size: 20px;
+          width: 160px;
+        }
+
+        &-quantity {
+          width: 40px;
+          font-size: 22px;
+          text-align: center;
+          border: 1px solid map-get($color, gray);
+
+          &::placeholder {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 20px;
+            color: map-get($color, text);
+          }
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin: 0;
+            appearance: none;
+          }
+        }
+
+        &-quantity-wrapper {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .cart-total-price-all {
+        padding: 20px 0;
         font-size: 20px;
-        font-weight: 400;
-        line-height: 30px;
-        text-decoration: line-through;
-      }
-    }
-
-    &-total-price {
-      font-size: 20px;
-      width: 160px;
-    }
-
-    &-quantity {
-      width: 40px;
-      font-size: 20px;
-      text-align: center;
-
-      &::placeholder {
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 20px;
-        color: map-get($color, text);
+        position: fixed;
+        right: 10px;
+        background: #fff;
+        border-radius: 10px;
       }
 
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        margin: 0;
-        appearance: none;
+      .cart-empty {
+        position: relative;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
-  }
-
-  .cart-total-price-all {
-    text-align: right;
-    border-top: 1px solid #ccc;
-    padding: 20px 0;
-    font-size: 20px;
-  }
-
-  .cart-empty {
-    position: relative;
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }

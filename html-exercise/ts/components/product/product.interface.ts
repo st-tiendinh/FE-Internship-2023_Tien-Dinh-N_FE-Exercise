@@ -1,6 +1,6 @@
 export enum ProductStatus {
-  OutOfStock,
-  Available,
+  OUT_OF_STOCK,
+  AVAILABLE,
 }
 
 export interface ProductProps {

@@ -89,7 +89,7 @@ const handleAddToCart = (id, productData) => {
     const selectedProduct = productData.find((item) => {
         return id === item.id;
     });
-    if (selectedProduct.status !== ProductStatus.OutOfStock) {
+    if (selectedProduct.status !== ProductStatus.OUT_OF_STOCK) {
         const cartStorage = getFromLocalStorage(StorageKey.Product);
         const existedProduct = cartStorage.find((item) => {
             return id === item.id;
