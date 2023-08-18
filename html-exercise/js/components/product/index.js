@@ -11,6 +11,7 @@ import { calcCartQuantity, calcDiscountPrice } from '../../utils/calculator.js';
 import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 import { fetchProductData } from '../../api/apiCall.js';
 import { endpoint } from '../../api/apiUrls.js';
+import { ProductStatus } from './product.interface.js';
 const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
     const sections = document.querySelectorAll('.section.section-product .container');
     const productData = yield fetchProductData(endpoint.products);
@@ -27,7 +28,9 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
               <div class="product">
                 <a class="product-link" href="">
                   <img src="${imageUrl}" alt="${name}" class="product-image" />
-                  <div class="product-status"><span class="badge badge-outline-primary">${status}</span></div>
+                  <div class="product-status">
+                    <span class="badge badge-outline-primary">${status ? 'Available' : 'Out of Stock'}</span>
+                  </div>
                   <span class="btn btn-primary" data-id='${id}'>Add to cart</span>
                   ${discount ? `<span class="badge badge-danger">${discount}%</span>` : ''}
                   <div class="product-description">
@@ -81,23 +84,22 @@ const preventDefaultProductLink = () => {
         .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
 };
 const handleAddToCart = (id, productData) => {
-    let selectedProduct = productData.filter((item) => {
-        return id === item.id;
-    })[0];
-    if (selectedProduct.status === 'Out of stock') {
-        return;
-    }
-    let cartStorage = getFromLocalStorage(StorageKey.Product);
-    let existedProduct = cartStorage.find((item) => {
+    let selectedProduct = productData.find((item) => {
         return id === item.id;
     });
-    if (existedProduct) {
-        existedProduct.quantity += 1;
+    if (selectedProduct.status !== ProductStatus.OutOfStock) {
+        let cartStorage = getFromLocalStorage(StorageKey.Product);
+        let existedProduct = cartStorage.find((item) => {
+            return id === item.id;
+        });
+        if (existedProduct) {
+            existedProduct.quantity += 1;
+        }
+        else {
+            cartStorage.push(Object.assign(Object.assign({}, selectedProduct), { quantity: 1 }));
+        }
+        saveToLocalStorage(StorageKey.Product, cartStorage);
+        renderCartItemCount();
     }
-    else {
-        cartStorage.push(Object.assign(Object.assign({}, selectedProduct), { quantity: 1 }));
-    }
-    saveToLocalStorage(StorageKey.Product, cartStorage);
-    renderCartItemCount();
 };
 export default renderProductList;

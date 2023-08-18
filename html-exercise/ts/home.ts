@@ -1,7 +1,5 @@
-import handleScrollHeader from './components/header/header.js';
-import renderProductList from './components/product/product.js';
-import { endpoint } from './api/apiUrls.js';
-import { fetchProductData } from './api/apiCall.js';
+import handleScrollHeader from './components/header/index.js';
+import renderProductList from './components/product/index.js';
 
 handleScrollHeader();
-fetchProductData(endpoint.products, renderProductList);
+renderProductList();

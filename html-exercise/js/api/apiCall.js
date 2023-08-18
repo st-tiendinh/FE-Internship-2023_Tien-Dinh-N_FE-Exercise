@@ -7,16 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const fetchProductData = (url, callback) => __awaiter(void 0, void 0, void 0, function* () {
+export const fetchProductData = (url) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield fetch(url);
         const data = yield response.json();
-        if (callback) {
-            callback(data);
-        }
         return data;
     }
     catch (error) {
-        return error.message;
+        console.error(error.message);
+        return [];
     }
 });

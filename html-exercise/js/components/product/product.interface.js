@@ -1,5 +1,5 @@
 export var ProductStatus;
 (function (ProductStatus) {
-    ProductStatus["Available"] = "Available";
-    ProductStatus["OutOfStock"] = "Out of stock";
+    ProductStatus[ProductStatus["OutOfStock"] = 0] = "OutOfStock";
+    ProductStatus[ProductStatus["Available"] = 1] = "Available";
 })(ProductStatus || (ProductStatus = {}));
