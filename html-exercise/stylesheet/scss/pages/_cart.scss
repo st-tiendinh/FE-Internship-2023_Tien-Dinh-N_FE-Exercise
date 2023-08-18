@@ -1,31 +1,46 @@
 .cart-page {
   .section {
     &-cart {
-      background-color: #eee;
-      padding: 20px;
+      &-header {
+        display: flex;
+        // padding-bottom: 20px;
+        padding: 20px 0;
+
+        &-title {
+          font-size: 16px;
+          font-weight: 600;
+          color: map-get($color, title);
+        }
+      }
 
       .product-cart-list {
         background: #fff;
         border-radius: 8px;
-        
-        .product-cart-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
       }
 
       .product-cart {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
         padding: 20px 0;
+        border-top: 1px solid #eee;
+
+        &-desc {
+          padding: 20px;
+        }
+
+        &-name {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 6px;
+        }
+
+        &-id {
+          font-size: 14px;
+          display: block;
+          margin-bottom: 20px;
+        }
 
         &-info {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
         }
 
         &-img {
@@ -33,11 +48,25 @@
           border-radius: 8px;
         }
 
-        &-name {
-          font-size: 16px;
-          font-weight: 300;
-          line-height: 24px;
-          color: map-get($color, dark);
+        &-action {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px 0;
+        }
+
+        &-total {
+          padding: 20px 0;
+        }
+
+        &-total-price {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .btn.btn-delete-outline {
+          width: 76px;
+          margin-left: 12px;
         }
 
         &-prices {
@@ -63,16 +92,12 @@
           }
         }
 
-        &-total-price {
-          font-size: 20px;
-          width: 160px;
-        }
-
-        &-quantity {
+        &-quantity-input {
           width: 40px;
-          font-size: 22px;
+          height: 100%;
+          font-size: 16px;
           text-align: center;
-          border: 1px solid map-get($color, gray);
+          border: 1px solid map-get($color, btn-border);
 
           &::placeholder {
             font-size: 13px;
@@ -93,23 +118,66 @@
         &-quantity-wrapper {
           display: flex;
           align-items: center;
+
+          .decrease.btn.btn-step-outline {
+            border-right: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            height: 100%;
+          }
+
+          .increase.btn.btn-step-outline {
+            border-left: none;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            height: 100%;
+          }
         }
       }
 
-      .cart-total-price-all {
-        padding: 20px 0;
-        font-size: 20px;
-        position: fixed;
-        right: 10px;
-        background: #fff;
-        border-radius: 10px;
-      }
+      .cart {
+        &-checkout {
+          padding: 16px;
+          position: fixed;
+          top: 103px;
+          right: calc((100vw - 1152px) / 2 + 10px);
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 10px;
 
-      .cart-empty {
-        position: relative;
-        top: 120px;
-        left: 50%;
-        transform: translateX(-50%);
+          &-total-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #000;
+          }
+
+          &-total-price {
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          &-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+        }
+
+        &-empty {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          top: 120px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          .btn.btn-outline-primary {
+            position: absolute;
+            bottom: 10px;
+          }
+        }
       }
     }
   }

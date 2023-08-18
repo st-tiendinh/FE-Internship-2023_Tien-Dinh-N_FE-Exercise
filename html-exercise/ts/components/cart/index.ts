@@ -7,50 +7,74 @@ const renderProductCart = (cartStorage: CartItem[]) => {
   const cartEntity = new Cart(cartStorage);
   if (cartStorage && cartStorage.length) {
     cartSection.innerHTML = `
-      <ul class="product-cart-list row">
+      <div class="row">
         <div class="col col-9">
-        ${cartEntity.cartItems
-          .sort((a: CartItem, b: CartItem) => a.id - b.id)
-          .map((product: CartItem) => {
-            const cartItemEntity = new CartItem(product);
-            const { id, name, imageUrl, discount, price, quantity } = cartItemEntity;
-            return `
-              <li class="product-cart-item col col-12">
-                <div class="product-cart">
-                  <div class="product-cart-info">
-                    <img src="${imageUrl}" alt="" class="product-cart-img" />
-                    <div class="product-cart-desc">
-                      <h4 class="product-cart-name">${name}</h4>
-                      <span class="product-cart-id">ID: ${id}</span>
+          <div class="section-cart-header row">
+            <h4 class="section-cart-header-title col col-6">Product</h4>
+            <h4 class="section-cart-header-title col col-3">Quantity</h4>
+            <h4 class="section-cart-header-title col col-3">Price</h4>
+          </div>
+          <ul class="product-cart-list">
+            ${cartEntity.cartItems
+              .sort((a: CartItem, b: CartItem) => a.id - b.id)
+              .map((product: CartItem) => {
+                const cartItemEntity = new CartItem(product);
+                const { id, name, imageUrl, discount, price, quantity } = cartItemEntity;
+                return `
+                  <li class="product-cart-item">
+                    <div class="product-cart row">
+                      <div class="product-cart-info col col-6">
+                        <img src="${imageUrl}" alt="" class="product-cart-img" />
+                        <div class="product-cart-desc">
+                          <h4 class="product-cart-name">${name}</h4>
+                          <span class="product-cart-id">ID: ${id}</span>
+                          <div class="product-cart-prices">
+                            <span class="sale-price ${discount ? 'active' : ''}">$
+                            ${cartItemEntity.calcDiscountPrice(price, discount)}
+                            </span>
+                            <span class="original-price">${discount ? '$' + price : ''}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-cart-action col col-3">
+                        <div class="product-cart-quantity-wrapper">
+                          <button class="decrease btn btn-step-outline" data-id="${id}">-</button>
+                          <input class="product-cart-quantity-input" type="number" min="0" name="number" id="" value="${quantity}" data-id="${id}"/>
+                          <button class="increase btn btn-step-outline" data-id="${id}">+</button>
+                        </div>
+                        <span class="btn btn-delete-outline" data-id="${id}">Delete</span>
+                      </div>
+
+                      <div class="product-cart-total col col-3">
+                        <p class="product-cart-total-price">
+                        $${cartItemEntity.calcProductTotalPrice(
+                          cartItemEntity.calcDiscountPrice(price, discount),
+                          quantity
+                        )}
+                        </p>
+                      </div>
                     </div>
-                    <p class="product-cart-prices">
-                      <span class="sale-price ${discount ? 'active' : ''}">$
-                      ${cartItemEntity.calcDiscountPrice(price, discount)}
-                      </span>
-                      <span class="original-price">${discount ? '$' + price : ''}</span>
-                    </p>
-                  </div>
-                  <div class="product-cart-quantity-wrapper">
-                  <button class="decrease btn btn-step-outline" data-id="${id}">-</button>
-                  <input class="product-cart-quantity" type="number" min="0" name="number" id="" value="${quantity}" data-id="${id}"/>
-                  <button class="increase btn btn-step-outline" data-id="${id}">+</button>
-                  </div>
-                  <p class="product-cart-total-price">Total: $
-                  ${cartItemEntity.calcProductTotalPrice(cartItemEntity.calcDiscountPrice(price, discount), quantity)}
-                  </p>
-                  <div class="product-cart-action">
-                    <span class="btn btn-delete-outline" data-id="${id}">Delete</span>
-                  </div>
-                </div>
-              </li>`;
-          })
-          .join('')}
+                  </li>`;
+              })
+              .join('')}
+          </ul>
         </div>
-        <h4 class="cart-total-price-all col col-3">Total: $${cartEntity.calcProductAllTotalPrice(cartStorage)}</h4>
-      </ul>`;
+        <div class="col col-3">
+              <div class="cart-checkout">
+                <div class="cart-checkout-info">
+                  <h4 class="cart-checkout-total-title">Total</h4>
+                  <span class="cart-checkout-total-price">$${cartEntity.calcProductAllTotalPrice(cartStorage)}</span>
+                </div>
+                <span class="btn btn-checkout-primary">Buy now</span>
+              </div>
+            </div>
+          </div>`;
   } else {
     cartSection.innerHTML = `
-    <img src="./assets/images/cart-empty.png" class="cart-empty"/>`;
+    <div class="cart-empty">
+      <img src="./assets/images/cart-empty.png" class="cart-empty-img"/>
+      <a href="index.html" class="btn btn-outline-primary">Continue shopping</a>
+    </div>`;
   }
 
   // Add Event Delete
@@ -101,7 +125,7 @@ const handleClickChangeQuantity = (id: number, step: number) => {
 };
 
 const addEventForDeleteBtn = () => {
-  const deleteBtns = document.querySelectorAll<HTMLElement>('.product-cart-action .btn');
+  const deleteBtns = document.querySelectorAll<HTMLElement>('.product-cart-action .btn.btn-delete-outline');
   deleteBtns.forEach((btn) => {
     btn.addEventListener('click', () => handleDeleteProduct(parseInt(btn.dataset.id)));
   });
