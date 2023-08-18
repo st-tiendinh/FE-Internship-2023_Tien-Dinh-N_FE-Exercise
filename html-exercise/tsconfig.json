@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./html-exercise/js",
+    "outDir": "./js",
     "target": "ES6",
   }
 }

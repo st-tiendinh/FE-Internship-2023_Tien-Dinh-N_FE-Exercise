@@ -7,11 +7,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { calcCartQuantity, calcDiscountPrice } from '../../utils/calculator.js';
+import Product from './product.entity.js';
 import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 import { fetchProductData } from '../../api/apiCall.js';
 import { endpoint } from '../../api/apiUrls.js';
 import { ProductStatus } from './product.interface.js';
+import { Cart } from '../cart/cart.entity.js';
 const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
     const sections = document.querySelectorAll('.section.section-product .container');
     const productData = yield fetchProductData(endpoint.products);
@@ -22,7 +23,8 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
         <ul class="product-list row">
           ${productData
                 .map((product) => {
-                const { id, name, discount, imageUrl, price, status } = product;
+                const productEntity = new Product(product);
+                const { id, name, discount, imageUrl, price, status } = productEntity;
                 return `
               <li class="product-item col col-3 col-md-6 col-sm-6">
               <div class="product">
@@ -31,13 +33,13 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
                   <div class="product-status">
                     <span class="badge badge-outline-primary">${status ? 'Available' : 'Out of Stock'}</span>
                   </div>
-                  <span class="btn btn-primary" data-id='${id}'>Add to cart</span>
+                  <button class="btn btn-primary" ${status ? '' : 'disabled'} data-id='${id}'>Add to cart</button>
                   ${discount ? `<span class="badge badge-danger">${discount}%</span>` : ''}
                   <div class="product-description">
                     <h4 class="product-name">${name}</h4>
                     <div class="product-prices">
                       <span class="sale-price ${discount ? 'active' : ''}">$
-                      ${calcDiscountPrice(price, discount)}
+                      ${productEntity.calcDiscountPrice(price, discount)}
                       </span>
                       <span class="original-price">${discount ? '$' + price : ''}</span>
                     </div>
@@ -56,15 +58,15 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const renderCartItemCount = () => {
-    let cartStorage = getFromLocalStorage(StorageKey.Product);
+    const cartStorage = getFromLocalStorage(StorageKey.Product);
+    const cartEntity = new Cart(cartStorage);
     const cartPopups = document.querySelectorAll('.header-action-quantity');
     cartPopups.forEach(function (cartPopup) {
-        if (calcCartQuantity(cartStorage)) {
-            cartPopup.innerText = calcCartQuantity(cartStorage).toString();
+        cartPopup.innerText = cartEntity.calcCartQuantity(cartStorage).toString() || '';
+        if (cartEntity.calcCartQuantity(cartStorage)) {
             cartPopup.style.display = 'flex';
         }
         else {
-            cartPopup.innerText = calcCartQuantity(cartStorage).toString();
             cartPopup.style.display = 'none';
         }
     });
@@ -84,12 +86,12 @@ const preventDefaultProductLink = () => {
         .forEach((link) => link.addEventListener('click', (e) => e.preventDefault()));
 };
 const handleAddToCart = (id, productData) => {
-    let selectedProduct = productData.find((item) => {
+    const selectedProduct = productData.find((item) => {
         return id === item.id;
     });
     if (selectedProduct.status !== ProductStatus.OutOfStock) {
-        let cartStorage = getFromLocalStorage(StorageKey.Product);
-        let existedProduct = cartStorage.find((item) => {
+        const cartStorage = getFromLocalStorage(StorageKey.Product);
+        const existedProduct = cartStorage.find((item) => {
             return id === item.id;
         });
         if (existedProduct) {

@@ -49,6 +49,12 @@
       box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
       transform: scale(0.9);
     }
+
+    &:disabled {
+      background-color: map-get($color, gray);
+      color: map-get($color, text);
+      box-shadow: none;
+    }
   }
 }
 

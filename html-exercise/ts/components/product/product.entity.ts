@@ -16,6 +16,16 @@ class Product implements ProductProps {
     this.imageUrl = imageUrl;
     this.status = status;
   }
+
+  calcDiscountPrice = (originalPrice: number, discount: number) => {
+    let discountPrice = originalPrice;
+    discountPrice -= (discount * originalPrice) / 100;
+    return parseFloat(discountPrice.toFixed(2));
+  };
+  
+  calcProductTotalPrice = (price: number, quantity: number) => {
+    return parseFloat((price * quantity).toFixed(2));
+  };
 }
 
 export default Product;
