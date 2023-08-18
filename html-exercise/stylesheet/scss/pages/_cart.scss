@@ -14,8 +14,18 @@
     width: 100%;
     padding: 20px 0;
 
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & > * {
+        margin-right: 40px;
+      }
+    }
+
     &-img {
-      width: 100px;
+      width: 120px;
     }
 
     &-name {
@@ -25,27 +35,52 @@
       color: map-get($color, dark);
     }
 
-    &-price {
-      color: map-get($color, dark);
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 30px;
+    &-prices {
+      display: flex;
+      flex-direction: column;
+      .sale-price {
+        color: map-get($color, dark);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+
+        &.active {
+          color: map-get($color, red) !important;
+        }
+      }
+
+      .original-price {
+        color: map-get($color, original-price);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        text-decoration: line-through;
+      }
     }
 
     &-total-price {
       font-size: 20px;
+      width: 160px;
     }
 
     &-quantity {
-      padding: 14px 24px;
-      border-radius: 61px;
+      width: 40px;
       font-size: 20px;
+      text-align: center;
 
       &::placeholder {
         font-size: 13px;
         font-weight: 400;
         line-height: 20px;
         color: map-get($color, text);
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+        appearance: none;
       }
     }
   }

@@ -3,9 +3,9 @@ import { calcDiscountPrice, calcProductTotalPrice, calcProductAllTotalPrice } fr
 import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 
 const renderProductCart = (cartStorage: CartItem[]) => {
-  const cartContainer = document.querySelector('.cart-page .container');
+  const cartSection = document.querySelector('.section.section-cart');
   if (cartStorage && cartStorage.length) {
-    cartContainer.innerHTML = `
+    cartSection.innerHTML = `
       <ul class="product-cart-list row">
         ${cartStorage
           .sort((a: CartItem, b: CartItem) => a.id - b.id)
@@ -14,14 +14,23 @@ const renderProductCart = (cartStorage: CartItem[]) => {
             return `
               <li class="product-cart-item col col-12">
                 <div class="product-cart">
-                  <img src="${imageUrl}" alt="" class="product-cart-img" />
                   <div class="product-cart-info">
-                    <span class="product-cart-id">ID: ${id}</span>
-                    <h4 class="product-cart-name">${name}</h4>
+                    <img src="${imageUrl}" alt="" class="product-cart-img" />
+                    <div class="product-cart-desc">
+                      <span class="product-cart-id">ID: ${id}</span>
+                      <h4 class="product-cart-name">${name}</h4>
+                    </div>
+                    <p class="product-cart-prices">
+                      <span class="sale-price ${discount ? 'active' : ''}">$${calcDiscountPrice(price, discount)}</span>
+                      <span class="original-price">${discount ? '$' + price : ''}</span>
+                    </p>
                   </div>
-                  <p class="product-cart-price">$${calcDiscountPrice(price, discount)}</p>
-                  <input class="product-cart-quantity" type="number" min="0" name="" id="" value="${quantity}" data-id="${id}"/>
-                  <p class="product-cart-total-price">$${calcProductTotalPrice(
+                  <div class="product-cart-quantity-wrapper">
+                    <button class="increase btn btn-step-outline" data-id="${id}">+</button>
+                    <input class="product-cart-quantity" type="number" min="0" name="number" id="" value="${quantity}" data-id="${id}"/>
+                    <button class="decrease btn btn-step-outline" data-id="${id}">-</button>
+                  </div>
+                  <p class="product-cart-total-price">Total: $${calcProductTotalPrice(
                     calcDiscountPrice(price, discount),
                     quantity
                   )}</p>
@@ -35,7 +44,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
       </ul>
       <h4 class="cart-total-price-all">Total: $${calcProductAllTotalPrice(cartStorage)}</h4>`;
   } else {
-    cartContainer.innerHTML = `
+    cartSection.innerHTML = `
     <img src="./assets/images/cart-empty.png" class="cart-empty"/>`;
   }
 
@@ -44,6 +53,58 @@ const renderProductCart = (cartStorage: CartItem[]) => {
 
   // Add Event Change Quantity
   addEventForChangeBtn();
+
+  // Add Event Increase Button
+  addEventForIncreaseBtn();
+
+  // Add Event Decrease Button
+  addEventForDecreaseBtn();
+};
+
+const addEventForIncreaseBtn = () => {
+  const increaseBtnCollection = document.querySelectorAll<HTMLElement>('.increase.btn.btn-step-outline');
+  increaseBtnCollection.forEach((increaseBtn) => {
+    increaseBtn.addEventListener('click', () => {
+      handleIncreaseById(parseInt(increaseBtn.dataset.id));
+    });
+  });
+};
+
+const handleIncreaseById = (id: number) => {
+  const cartStorage = getFromLocalStorage(StorageKey.Product);
+  const findProduct = cartStorage.filter((product: CartItem) => {
+    return product.id === id;
+  })[0];
+
+  findProduct.quantity += 1;
+  saveToLocalStorage(StorageKey.Product, cartStorage);
+  renderProductCart(cartStorage);
+};
+
+const addEventForDecreaseBtn = () => {
+  const increaseBtnCollection = document.querySelectorAll<HTMLElement>('.decrease.btn.btn-step-outline');
+  increaseBtnCollection.forEach((increaseBtn) => {
+    increaseBtn.addEventListener('click', () => {
+      handleDecreaseById(parseInt(increaseBtn.dataset.id));
+    });
+  });
+};
+
+const handleDecreaseById = (id: number) => {
+  const cartStorage = getFromLocalStorage(StorageKey.Product);
+  const findProduct = cartStorage.filter((product: CartItem) => {
+    return product.id === id;
+  })[0];
+
+  if (findProduct) {
+    if (findProduct.quantity === 0) {
+      handleDeleteProduct(findProduct.id);
+    } else {
+      findProduct.quantity -= 1;
+      saveToLocalStorage(StorageKey.Product, cartStorage);
+      renderProductCart(cartStorage);
+    }
+  }
 };
 
 const addEventForDeleteBtn = () => {
@@ -56,9 +117,9 @@ const addEventForDeleteBtn = () => {
 const addEventForChangeBtn = () => {
   const quantityInputCollection = document.querySelectorAll<HTMLElement>('.product-cart-quantity');
   quantityInputCollection.forEach((quantityInput) => {
-    quantityInput.addEventListener('change', (e) =>
-      handleChangeQuantity(parseInt(quantityInput.dataset.id), parseInt((e.target as HTMLTextAreaElement).value))
-    );
+    quantityInput.addEventListener('change', (e) => {
+      handleChangeQuantity(parseInt(quantityInput.dataset.id), parseInt((e.target as HTMLTextAreaElement).value));
+    });
   });
 };
 
@@ -84,9 +145,10 @@ const handleDeleteProduct = (id: number) => {
     const newData = cartStorage.filter((product: CartItem) => {
       return product.id !== id;
     });
-
-    saveToLocalStorage(StorageKey.Product, newData);
-    renderProductCart(cartStorage);
+    if (newData) {
+      saveToLocalStorage(StorageKey.Product, newData);
+      renderProductCart(newData);
+    }
   }
 };
 
