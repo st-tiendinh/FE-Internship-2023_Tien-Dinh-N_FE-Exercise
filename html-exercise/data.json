@@ -4,27 +4,32 @@
     "name": "T-Shirt Summer Vibes",
     "discount": 30,
     "price": 119.99,
-    "imageUrl": "./assets/images/product-1.png"
+    "imageUrl": "./assets/images/product-1.png",
+    "status": 1
   },
   {
     "id": 2,
     "name": "T-Shirt Summer Vibes",
     "discount": 0,
     "price": 119.99,
-    "imageUrl": "./assets/images/product-2.png"
+    "imageUrl": "./assets/images/product-2.png",
+    "status": 1
+
   },
   {
     "id": 3,
     "name": "T-Shirt Summer Vibes",
     "discount": 0,
     "price": 79.99,
-    "imageUrl": "./assets/images/product-3.png"
+    "imageUrl": "./assets/images/product-3.png",
+    "status": 1
   },
   {
     "id": 4,
     "name": "T-Shirt Summer Vibes",
     "discount": 0,
     "price": 119.99,
-    "imageUrl": "./assets/images/product-4.png"
+    "imageUrl": "./assets/images/product-4.png",
+    "status": 0
   }
 ]

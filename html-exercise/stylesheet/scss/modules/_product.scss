@@ -28,6 +28,10 @@
       .btn.btn-primary {
         display: inline-block;
       }
+
+      .product-image {
+        opacity: .4;
+      }
     }
   }
 
@@ -51,6 +55,12 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  &-status {
+    position: absolute;
+    top: 24px;
+    right: 20px;
   }
 
   &-prices {

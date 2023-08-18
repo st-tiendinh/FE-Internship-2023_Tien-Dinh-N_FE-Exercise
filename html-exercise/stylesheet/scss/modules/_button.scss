@@ -30,6 +30,27 @@
     }
   }
 
+  &.btn-step-outline {
+    padding: 2px 12px;
+    background-color: map-get($color, secondary);
+    border: 1px solid map-get($color, btn-border);
+
+    &:hover {
+      background-color: map-get($color, gray);
+    }
+  }
+
+  &.btn-delete-outline {
+    padding: 4px 16px;
+    border-radius: 5px;
+    background-color: map-get($color, secondary);
+    border: 1px solid map-get($color, btn-border);
+
+    &:hover {
+      background-color: map-get($color, gray);
+    }
+  }
+
   &.btn-primary {
     background-color: map-get($color, primary);
     padding: 14px 50px;
@@ -38,6 +59,12 @@
     &:hover {
       box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
       transform: scale(0.9);
+    }
+
+    &:disabled {
+      background-color: map-get($color, gray);
+      color: map-get($color, text);
+      box-shadow: none;
     }
   }
 }
