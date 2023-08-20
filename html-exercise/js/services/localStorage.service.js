@@ -5,7 +5,7 @@ export var StorageKey;
 export function saveToLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
-export function getFromLocalStorage(key) {
+export function getFromLocalStorage(key, defaultValue) {
     const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : [];
+    return data ? JSON.parse(data) : defaultValue;
 }

@@ -6,12 +6,10 @@ import { ProductStatus } from './product.interface.js';
 import { Cart, CartItem } from '../cart/cart.entity.js';
 
 const renderProductList = async () => {
-  const sections = document.querySelectorAll<HTMLElement>('.section.section-product .container');
+  const sections = document.querySelectorAll<HTMLElement>('.product-wrapper');
   const productData = await fetchProductData(endpoint.products);
 
   if (productData && productData.length) {
-    renderCartItemCount();
-
     sections.forEach((section) => {
       section.innerHTML = `
         <ul class="product-list row">
@@ -54,7 +52,7 @@ const renderProductList = async () => {
   }
 };
 
-const renderCartItemCount = () => {
+export const renderCartItemCount = () => {
   const cartEntity = new Cart(getFromLocalStorage<CartItem[]>(StorageKey.Product, []));
   const cartPopups = document.querySelectorAll<HTMLElement>('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {

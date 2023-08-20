@@ -4,7 +4,7 @@ import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../servi
 const renderProductCart = () => {
     var _a;
     const cartSection = document.querySelector('.section.section-cart');
-    const cartEntity = new Cart(getFromLocalStorage(StorageKey.Product));
+    const cartEntity = new Cart(getFromLocalStorage(StorageKey.Product, []));
     if ((_a = cartEntity.cartItems) === null || _a === void 0 ? void 0 : _a.length) {
         cartSection.innerHTML = `
       <div class="row">
@@ -98,7 +98,7 @@ const addEventForDecreaseBtn = () => {
     });
 };
 const handleClickChangeQuantity = (id, step) => {
-    const cartStorage = getFromLocalStorage(StorageKey.Product);
+    const cartStorage = getFromLocalStorage(StorageKey.Product, []);
     const findProduct = cartStorage.find((product) => {
         return product.id === id;
     });
@@ -118,7 +118,7 @@ const addEventForDeleteBtn = () => {
     });
 };
 const handleDeleteProduct = (id) => {
-    const cartStorage = getFromLocalStorage(StorageKey.Product);
+    const cartStorage = getFromLocalStorage(StorageKey.Product, []);
     const isAcceptDelete = confirm('Do you want to delete this product?!!');
     if (isAcceptDelete) {
         const newData = cartStorage.filter((product) => {
