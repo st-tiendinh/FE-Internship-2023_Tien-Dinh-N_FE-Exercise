@@ -55,7 +55,7 @@ const renderProductList = async () => {
 };
 
 const renderCartItemCount = () => {
-  const cartEntity = new Cart(getFromLocalStorage<CartItem[]>(StorageKey.Product));
+  const cartEntity = new Cart(getFromLocalStorage<CartItem[]>(StorageKey.Product, []));
   const cartPopups = document.querySelectorAll<HTMLElement>('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
     cartPopup.innerText = cartEntity.calcCartAllQuantity().toString() || '';
@@ -91,7 +91,7 @@ const handleAddToCart = (id: number, productData: Product[]) => {
   });
 
   if (selectedProduct.status !== ProductStatus.OUT_OF_STOCK) {
-    const cartStorage = getFromLocalStorage<any>(StorageKey.Product);
+    const cartStorage = getFromLocalStorage<any>(StorageKey.Product, []);
     const existedProduct = cartStorage.find((item: CartItem) => {
       return id === item.id;
     });
