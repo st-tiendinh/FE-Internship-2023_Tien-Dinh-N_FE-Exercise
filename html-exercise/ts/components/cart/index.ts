@@ -2,10 +2,10 @@ import { Cart, CartItem } from './cart.entity.js';
 import { StepEnum } from './cart.interface.js';
 import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../services/localStorage.service.js';
 
-const renderProductCart = (cartStorage: CartItem[]) => {
+const renderProductCart = () => {
   const cartSection = document.querySelector('.section.section-cart');
-  const cartEntity = new Cart(cartStorage);
-  if (cartStorage && cartStorage.length) {
+  const cartEntity = new Cart(getFromLocalStorage<CartItem[]>(StorageKey.Product));
+  if (cartEntity.cartItems?.length) {
     cartSection.innerHTML = `
       <div class="row">
         <div class="col col-9">
@@ -30,7 +30,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
                           <span class="product-cart-id">ID: ${id}</span>
                           <div class="product-cart-prices">
                             <span class="sale-price ${discount ? 'active' : ''}">$
-                            ${cartItemEntity.calcDiscountPrice(price, discount)}
+                            ${cartItemEntity.calcDiscountPrice()}
                             </span>
                             <span class="original-price">${discount ? '$' + price : ''}</span>
                           </div>
@@ -47,10 +47,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
 
                       <div class="product-cart-total col col-3">
                         <p class="product-cart-total-price">
-                        $${cartItemEntity.calcProductTotalPrice(
-                          cartItemEntity.calcDiscountPrice(price, discount),
-                          quantity
-                        )}
+                        $${cartItemEntity.calcProductTotalPrice()}
                         </p>
                       </div>
                     </div>
@@ -63,7 +60,7 @@ const renderProductCart = (cartStorage: CartItem[]) => {
               <div class="cart-checkout">
                 <div class="cart-checkout-info">
                   <h4 class="cart-checkout-total-title">Total</h4>
-                  <span class="cart-checkout-total-price">$${cartEntity.calcProductAllTotalPrice(cartStorage)}</span>
+                  <span class="cart-checkout-total-price">$${cartEntity.calcProductAllTotalPrice()}</span>
                 </div>
                 <span class="btn btn-checkout-primary">Buy now</span>
               </div>
@@ -106,7 +103,7 @@ const addEventForDecreaseBtn = () => {
 };
 
 const handleClickChangeQuantity = (id: number, step: number) => {
-  const cartStorage = getFromLocalStorage(StorageKey.Product);
+  const cartStorage = getFromLocalStorage<CartItem[]>(StorageKey.Product);
   const findProduct = cartStorage.find((product: CartItem) => {
     return product.id === id;
   });
@@ -115,8 +112,8 @@ const handleClickChangeQuantity = (id: number, step: number) => {
   if (findProduct.quantity < 1) {
     handleDeleteProduct(findProduct.id);
   } else {
-    saveToLocalStorage(StorageKey.Product, cartStorage);
-    renderProductCart(cartStorage);
+    saveToLocalStorage<Array<any>>(StorageKey.Product, cartStorage);
+    renderProductCart();
   }
 };
 
@@ -128,15 +125,15 @@ const addEventForDeleteBtn = () => {
 };
 
 const handleDeleteProduct = (id: number) => {
-  const cartStorage = getFromLocalStorage(StorageKey.Product);
+  const cartStorage = getFromLocalStorage<CartItem[]>(StorageKey.Product);
   const isAcceptDelete = confirm('Do you want to delete this product?!!');
   if (isAcceptDelete) {
     const newData = cartStorage.filter((product: CartItem) => {
       return product.id !== id;
     });
     if (newData) {
-      saveToLocalStorage(StorageKey.Product, newData);
-      renderProductCart(newData);
+      saveToLocalStorage<CartItem[]>(StorageKey.Product, newData);
+      renderProductCart();
     }
   }
 };

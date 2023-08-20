@@ -39,7 +39,7 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
                     <h4 class="product-name">${name}</h4>
                     <div class="product-prices">
                       <span class="sale-price ${discount ? 'active' : ''}">$
-                      ${productEntity.calcDiscountPrice(price, discount)}
+                      ${productEntity.calcDiscountPrice()}
                       </span>
                       <span class="original-price">${discount ? '$' + price : ''}</span>
                     </div>
@@ -58,12 +58,11 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const renderCartItemCount = () => {
-    const cartStorage = getFromLocalStorage(StorageKey.Product);
-    const cartEntity = new Cart(cartStorage);
+    const cartEntity = new Cart(getFromLocalStorage(StorageKey.Product));
     const cartPopups = document.querySelectorAll('.header-action-quantity');
     cartPopups.forEach(function (cartPopup) {
-        cartPopup.innerText = cartEntity.calcCartQuantity(cartStorage).toString() || '';
-        if (cartEntity.calcCartQuantity(cartStorage)) {
+        cartPopup.innerText = cartEntity.calcCartAllQuantity().toString() || '';
+        if (cartEntity.calcCartAllQuantity()) {
             cartPopup.style.display = 'flex';
         }
         else {

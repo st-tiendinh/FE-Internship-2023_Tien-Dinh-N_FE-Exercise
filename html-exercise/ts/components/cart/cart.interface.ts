@@ -7,11 +7,12 @@ export enum StepEnum {
 
 export interface CartItemProps extends Omit<ProductProps, 'status'> {
   quantity: number;
-  calcDiscountPrice: (originalPrice: number, discount: number) => number;
+  calcProductTotalPrice(): number;
 }
 
 export interface CartProps {
   cartItems: CartItemProps[];
-  calcCartQuantity: (cartStorage: CartItemProps[]) => number;
-  calcProductAllTotalPrice: (cartStorage: CartItemProps[]) => number;
+
+  calcCartAllQuantity: (cartStorage: CartItemProps[]) => number;
+  calcProductAllTotalPrice: () => number;
 }

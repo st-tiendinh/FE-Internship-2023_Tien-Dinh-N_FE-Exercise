@@ -1,12 +1,7 @@
 class Product {
     constructor(props) {
-        this.calcDiscountPrice = (originalPrice, discount) => {
-            let discountPrice = originalPrice;
-            discountPrice -= (discount * originalPrice) / 100;
-            return parseFloat(discountPrice.toFixed(2));
-        };
-        this.calcProductTotalPrice = (price, quantity) => {
-            return parseFloat((price * quantity).toFixed(2));
+        this.calcDiscountPrice = () => {
+            return parseFloat((this.price * (1 - this.discount / 100)).toFixed(2));
         };
         const { id, name, discount, price, imageUrl, status } = props;
         this.id = id;

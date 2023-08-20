@@ -3,7 +3,7 @@ import { getFromLocalStorage, saveToLocalStorage, StorageKey } from '../../servi
 import { fetchProductData } from '../../api/apiCall.js';
 import { endpoint } from '../../api/apiUrls.js';
 import { ProductStatus } from './product.interface.js';
-import { Cart } from '../cart/cart.entity.js';
+import { Cart, CartItem } from '../cart/cart.entity.js';
 
 const renderProductList = async () => {
   const sections = document.querySelectorAll<HTMLElement>('.section.section-product .container');
@@ -33,7 +33,7 @@ const renderProductList = async () => {
                     <h4 class="product-name">${name}</h4>
                     <div class="product-prices">
                       <span class="sale-price ${discount ? 'active' : ''}">$
-                      ${productEntity.calcDiscountPrice(price, discount)}
+                      ${productEntity.calcDiscountPrice()}
                       </span>
                       <span class="original-price">${discount ? '$' + price : ''}</span>
                     </div>
@@ -55,12 +55,11 @@ const renderProductList = async () => {
 };
 
 const renderCartItemCount = () => {
-  const cartStorage = getFromLocalStorage(StorageKey.Product);
-  const cartEntity = new Cart(cartStorage);
+  const cartEntity = new Cart(getFromLocalStorage<CartItem[]>(StorageKey.Product));
   const cartPopups = document.querySelectorAll<HTMLElement>('.header-action-quantity');
   cartPopups.forEach(function (cartPopup) {
-    cartPopup.innerText = cartEntity.calcCartQuantity(cartStorage).toString() || '';
-    if (cartEntity.calcCartQuantity(cartStorage)) {
+    cartPopup.innerText = cartEntity.calcCartAllQuantity().toString() || '';
+    if (cartEntity.calcCartAllQuantity()) {
       cartPopup.style.display = 'flex';
     } else {
       cartPopup.style.display = 'none';
@@ -92,8 +91,8 @@ const handleAddToCart = (id: number, productData: Product[]) => {
   });
 
   if (selectedProduct.status !== ProductStatus.OUT_OF_STOCK) {
-    const cartStorage = getFromLocalStorage(StorageKey.Product);
-    const existedProduct = cartStorage.find((item: Product) => {
+    const cartStorage = getFromLocalStorage<any>(StorageKey.Product);
+    const existedProduct = cartStorage.find((item: CartItem) => {
       return id === item.id;
     });
     if (existedProduct) {
@@ -104,7 +103,7 @@ const handleAddToCart = (id: number, productData: Product[]) => {
         quantity: 1,
       });
     }
-    saveToLocalStorage(StorageKey.Product, cartStorage);
+    saveToLocalStorage<any>(StorageKey.Product, cartStorage);
     renderCartItemCount();
   }
 };
