@@ -13,6 +13,6 @@ export interface CartItemProps extends Omit<ProductProps, 'status'> {
 export interface CartProps {
   cartItems: CartItemProps[];
 
-  calcCartAllQuantity: (cartStorage: CartItemProps[]) => number;
+  calcCartAllQuantity: () => number;
   calcProductAllTotalPrice: () => number;
 }
