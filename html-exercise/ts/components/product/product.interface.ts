@@ -12,5 +12,4 @@ export interface ProductProps {
   status: ProductStatus;
 
   calcDiscountPrice: (originalPrice: number, discount: number) => number;
-  calcProductTotalPrice: (price: number, quantity: number) => number;
 }

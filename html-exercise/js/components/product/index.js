@@ -14,10 +14,9 @@ import { endpoint } from '../../api/apiUrls.js';
 import { ProductStatus } from './product.interface.js';
 import { Cart } from '../cart/cart.entity.js';
 const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
-    const sections = document.querySelectorAll('.section.section-product .container');
+    const sections = document.querySelectorAll('.product-wrapper');
     const productData = yield fetchProductData(endpoint.products);
     if (productData && productData.length) {
-        renderCartItemCount();
         sections.forEach((section) => {
             section.innerHTML = `
         <ul class="product-list row">
@@ -39,7 +38,7 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
                     <h4 class="product-name">${name}</h4>
                     <div class="product-prices">
                       <span class="sale-price ${discount ? 'active' : ''}">$
-                      ${productEntity.calcDiscountPrice(price, discount)}
+                      ${productEntity.calcDiscountPrice()}
                       </span>
                       <span class="original-price">${discount ? '$' + price : ''}</span>
                     </div>
@@ -57,13 +56,12 @@ const renderProductList = () => __awaiter(void 0, void 0, void 0, function* () {
         addEventForAddToCartBtn(productData);
     }
 });
-const renderCartItemCount = () => {
-    const cartStorage = getFromLocalStorage(StorageKey.Product);
-    const cartEntity = new Cart(cartStorage);
+export const renderCartItemCount = () => {
+    const cartEntity = new Cart(getFromLocalStorage(StorageKey.Product, []));
     const cartPopups = document.querySelectorAll('.header-action-quantity');
     cartPopups.forEach(function (cartPopup) {
-        cartPopup.innerText = cartEntity.calcCartQuantity(cartStorage).toString() || '';
-        if (cartEntity.calcCartQuantity(cartStorage)) {
+        cartPopup.innerText = cartEntity.calcCartAllQuantity().toString() || '';
+        if (cartEntity.calcCartAllQuantity()) {
             cartPopup.style.display = 'flex';
         }
         else {
@@ -90,7 +88,7 @@ const handleAddToCart = (id, productData) => {
         return id === item.id;
     });
     if (selectedProduct.status !== ProductStatus.OUT_OF_STOCK) {
-        const cartStorage = getFromLocalStorage(StorageKey.Product);
+        const cartStorage = getFromLocalStorage(StorageKey.Product, []);
         const existedProduct = cartStorage.find((item) => {
             return id === item.id;
         });

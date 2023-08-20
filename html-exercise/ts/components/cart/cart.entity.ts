@@ -18,14 +18,12 @@ export class CartItem implements CartItemProps {
     this.quantity = quantity;
   }
 
-  calcDiscountPrice = (originalPrice: number, discount: number) => {
-    let discountPrice = originalPrice;
-    discountPrice -= (discount * originalPrice) / 100;
-    return parseFloat(discountPrice.toFixed(2));
+  calcDiscountPrice = (): number => {
+    return parseFloat((this.price * (1 - this.discount / 100)).toFixed(2));
   };
-  
-  calcProductTotalPrice = (price: number, quantity: number) => {
-    return parseFloat((price * quantity).toFixed(2));
+
+  calcProductTotalPrice = (): number => {
+    return parseFloat((this.price * (1 - this.discount / 100) * this.quantity).toFixed(2));
   };
 }
 
@@ -35,17 +33,18 @@ export class Cart implements CartProps {
   constructor(cartItems: CartItemProps[]) {
     this.cartItems = cartItems;
   }
-  calcCartQuantity = (cartStorage: CartItemProps[]) => {
-    return cartStorage.reduce((sum: number, item: CartItemProps) => {
+
+  calcCartAllQuantity = (): number => {
+    return this.cartItems.reduce((sum: number, item: CartItemProps) => {
       return sum + item.quantity;
     }, 0);
   };
 
-  calcProductAllTotalPrice = (cartStorage: CartItemProps[]) => {
+  calcProductAllTotalPrice = (): number => {
     return parseFloat(
-      cartStorage
+      this.cartItems
         .reduce((sum: number, item: CartItemProps) => {
-          return sum + item.quantity * item.price;
+          return sum + item.quantity * item.price * (1 - item.discount / 100);
         }, 0)
         .toFixed(2)
     );
