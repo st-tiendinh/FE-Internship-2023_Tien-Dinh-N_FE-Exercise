@@ -27,7 +27,7 @@ export class Cart {
         this.calcProductAllTotalPrice = (cartStorage) => {
             return parseFloat(cartStorage
                 .reduce((sum, item) => {
-                return sum + item.quantity * item.price;
+                return sum + item.quantity * item.price * (1 - item.discount / 100);
             }, 0)
                 .toFixed(2));
         };

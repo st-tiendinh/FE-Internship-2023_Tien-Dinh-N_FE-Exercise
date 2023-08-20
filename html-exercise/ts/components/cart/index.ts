@@ -114,7 +114,6 @@ const handleClickChangeQuantity = (id: number, step: number) => {
   findProduct.quantity += step;
   if (findProduct.quantity < 1) {
     handleDeleteProduct(findProduct.id);
-    findProduct.quantity;
   } else {
     saveToLocalStorage(StorageKey.Product, cartStorage);
     renderProductCart(cartStorage);

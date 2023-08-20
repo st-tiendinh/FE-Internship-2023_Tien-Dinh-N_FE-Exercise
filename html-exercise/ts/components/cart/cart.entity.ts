@@ -23,7 +23,7 @@ export class CartItem implements CartItemProps {
     discountPrice -= (discount * originalPrice) / 100;
     return parseFloat(discountPrice.toFixed(2));
   };
-  
+
   calcProductTotalPrice = (price: number, quantity: number) => {
     return parseFloat((price * quantity).toFixed(2));
   };
@@ -45,7 +45,7 @@ export class Cart implements CartProps {
     return parseFloat(
       cartStorage
         .reduce((sum: number, item: CartItemProps) => {
-          return sum + item.quantity * item.price;
+          return sum + item.quantity * item.price * (1 - item.discount / 100);
         }, 0)
         .toFixed(2)
     );
