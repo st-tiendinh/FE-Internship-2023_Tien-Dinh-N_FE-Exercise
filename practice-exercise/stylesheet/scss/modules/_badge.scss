@@ -1,0 +1,18 @@
+.badge {
+  display: inline-block;
+
+  &.badge-primary {
+    background-color: map-get($color, gray);
+    color: map-get($color, text);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px; /* 120% */
+    padding: 2px 8px;
+    border-radius: 50px;
+
+    &:hover {
+      color: map-get($color, white);
+      background-color: map-get($color, primary);
+    }
+  }
+}

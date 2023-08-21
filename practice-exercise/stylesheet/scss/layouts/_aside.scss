@@ -1,0 +1,36 @@
+.aside {
+  padding-left: 130px;
+
+  &-discover {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid map-get($color, border);
+  }
+
+  &-title {
+    color: map-get($color, black);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.8px; /* 120% */
+    margin-bottom: 16px;
+  }
+
+  &-badge-list {
+    display: flex;
+    max-width: 790px;
+    flex-wrap: wrap;
+  }
+
+  &-badge-item {
+    margin-top: 16px;
+    margin-right: 8px;
+  }
+
+  .social-list {
+    display: flex;
+  }
+
+  .social-item {
+    margin-right: 8px;
+  }
+}

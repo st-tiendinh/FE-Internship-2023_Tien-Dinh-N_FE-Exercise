@@ -1,0 +1,18 @@
+.nav {
+  &-list {
+    display: flex;
+    margin: 0 -16px;
+    align-items: center;
+  }
+
+  &-item {
+    padding: 16px;
+  }
+
+  &-link {
+    color: map-get($color, title);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px; /* 120% */
+  }
+}

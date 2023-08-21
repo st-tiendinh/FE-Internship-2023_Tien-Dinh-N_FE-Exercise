@@ -1,0 +1,10 @@
+.btn {
+  display: inline-block;
+
+  &.btn-primary {
+    padding: 12px 18px;
+    background-color: map-get($color, black);
+    color: map-get($color, white);
+    border-radius: 50px;
+  }
+}

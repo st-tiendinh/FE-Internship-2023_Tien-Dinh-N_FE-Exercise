@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  },
+  {
+    "id": 2,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  },
+  {
+    "id": 3,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  },
+  {
+    "id": 4,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  },
+  {
+    "id": 5,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  },
+  {
+    "id": 6,
+    "author": "Trang Nguyen T",
+    "authorAvatar": "./assets/images/avatar.png",
+    "timestamp": "August 15, 2019",
+    "title": "WFH: A Comprehensive Guide to Working Remotely from Home",
+    "content": "First of all: What Does WFH Mean in 2021? It still means Working from Home. The term WFH caught on after many organizations worldwide were force ...",
+    "imageUrl": "./assets/images/post.png",
+    "like": 12,
+    "comment": 12
+  }
+]

@@ -1,0 +1,7 @@
+.bg-light {
+  background-color: map-get($color, white) !important;
+}
+
+.bg-primary {
+  background-color: map-get($color, primary) !important;
+}
